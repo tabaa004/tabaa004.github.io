@@ -2,6 +2,9 @@
 Thumbs.db
 ehthumbs.db
 
+#emacs temporary files
+*~
+
 # Folder config file
 Desktop.ini
 
