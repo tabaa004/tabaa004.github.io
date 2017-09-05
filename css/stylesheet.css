@@ -7,7 +7,7 @@
 h1, h2, h3, h4, h5, h6,
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span,
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    font-family: "Arial";
+    font-family: "Source Code Pro";
 }
 
 pre {
@@ -75,6 +75,10 @@ table {
 	width: 70em;
 	margin-left: auto;
 	margin-right: auto;
+	border-size: 2px;
+	border-style: solid;
+	border-color: 000;
+			
 }
 
 /* #header {
@@ -101,7 +105,7 @@ table {
 
 /* #main { */
 div.outline-2 {
-        width: 52em;
+        width: 70em;
 	float: right;
 	/* The lines below are useful if the "main" div isn't available and
 	   div.outline-2 has to be used. */
@@ -128,11 +132,12 @@ h1.title {
 }
 
 h1.title {
-	font-size: 4em;
-	font-weight: bold;
-	letter-spacing: -0.1em;
-	margin-bottom: 0.2em;
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: -0.1em;
+    margin-bottom: 0.2em;
 }
+
 
 /* @end */
 
@@ -186,8 +191,8 @@ h1.title {
 /* @group Outline Level 2 */
 
 .outline-2 h2 {
-    background: #ffc;
-    border-bottom: 1px solid #ccc;
+    background: #6699ff;
+    /* border-bottom: 1px solid #ccc; */
 }
 
 .outline-2 h2, .outline-2 h3 {
@@ -195,7 +200,8 @@ h1.title {
 }
 
 .outline-2 {
-	padding: 5px;
+    padding: 0px;
+    margin-top: 10px;
 	/* margin-bottom: 10px; */
 	/* border-top: 1px solid #ccc; */
 }
@@ -219,7 +225,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 
 a {
     text-decoration: none;
-    color: #57d; /* TODO: Find a better colour for this. */
+    color: #6699ff;
 }
 
 a:hover {
