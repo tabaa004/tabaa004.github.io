@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-05 ti 15:15 -->
+<!-- 2017-09-06 on 11:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ymse</title>
@@ -259,14 +259,14 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">Ymse</h1>
 
-<div id="outline-container-org1c542eb" class="outline-2">
-<h2 id="org1c542eb">Bursdagstall</h2>
-<div class="outline-text-2" id="text-org1c542eb">
+<div id="outline-container-org171ff24" class="outline-2">
+<h2 id="org171ff24">Bursdagstall</h2>
+<div class="outline-text-2" id="text-org171ff24">
 </div>
 
-<div id="outline-container-org0462134" class="outline-3">
-<h3 id="org0462134">Fremangsmåte</h3>
-<div class="outline-text-3" id="text-org0462134">
+<div id="outline-container-org1030a28" class="outline-3">
+<h3 id="org1030a28">Fremangsmåte</h3>
+<div class="outline-text-3" id="text-org1030a28">
 <ul class="org-ul">
 <li>Ta måneden du er født (5 hvis mai)</li>
 <li>Gang med 5</li>
@@ -283,9 +283,9 @@ Hva får du?
 </div>
 </div>
 
-<div id="outline-container-org76f398c" class="outline-3">
-<h3 id="org76f398c">Forklaring</h3>
-<div class="outline-text-3" id="text-org76f398c">
+<div id="outline-container-org272f32a" class="outline-3">
+<h3 id="org272f32a">Forklaring</h3>
+<div class="outline-text-3" id="text-org272f32a">
 <p>
 Om vi setter måneden som \(m\) og dagen man er født som \(d\), får vi her:
 </p>
@@ -325,9 +325,9 @@ for så å se at dette er 12 hundrere og 2 enere. Altså er personen født 2. de
 </div>
 </div>
 
-<div id="outline-container-orgf2c1fa6" class="outline-3">
-<h3 id="orgf2c1fa6">Matematesk skriveform</h3>
-<div class="outline-text-3" id="text-orgf2c1fa6">
+<div id="outline-container-orgf30b66f" class="outline-3">
+<h3 id="orgf30b66f">Matematesk skriveform</h3>
+<div class="outline-text-3" id="text-orgf30b66f">
 <p>
 Når vi regner ved å følge en fremgangsmåte à la
 </p>
@@ -350,8 +350,8 @@ Vi satt også opp uttrykket som et algebraisk uttrykk, hvor vi brukte bokstaver 
 </div>
 </div>
 
-<div id="outline-container-org6d27e25" class="outline-2">
-<h2 id="org6d27e25">Geogebra</h2>
+<div id="outline-container-org786aef7" class="outline-2">
+<h2 id="org786aef7">Geogebra</h2>
 </div>
 </div>
 </body>
