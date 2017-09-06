@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-09-06 on 10:05 -->
+<!-- 2017-09-06 on 11:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Akselerasjon med mekanikkbane</title>
@@ -260,25 +260,25 @@ for the JavaScript code in this tag.
 </div>
 <div id="content">
 <h1 class="title">Akselerasjon med mekanikkbane</h1>
-<div id="outline-container-orga2e674b" class="outline-2">
-<h2 id="orga2e674b">Introduksjon</h2>
-<div class="outline-text-2" id="text-orga2e674b">
+<div id="outline-container-org19816e6" class="outline-2">
+<h2 id="org19816e6">Introduksjon</h2>
+<div class="outline-text-2" id="text-org19816e6">
 <p>
-Vi skal måle akselerasjonen en bil har på mekanikkbanene ved å gjennomføre følgende tre forsøk:
+Vi skal finne akselerasjonen til en vogn på en mekanikkbane. Dette skal vi gjøre på tre forskjellige måter, med økende grad av nøyaktighet.
 </p>
-<ol class="org-ol">
-<li>Ved bruk av <a href="#org06674c9"><i>stoppeklokke</i></a></li>
-<li>Ved bruk av <a href="#orgbac9e1f"><i>fotoporter</i></a></li>
-<li>Ved bruk av <a href="#org2cee59f"><i>bevegelesessensor</i></a></li>
-</ol>
 </div>
 </div>
 
-<div id="outline-container-org04988b2" class="outline-2">
-<h2 id="org04988b2">Utstyr og filer</h2>
-<div class="outline-text-2" id="text-org04988b2">
+
+<div id="outline-container-org196dc7b" class="outline-2">
+<h2 id="org196dc7b">Utstyr og filer</h2>
+<div class="outline-text-2" id="text-org196dc7b">
 <ul class="org-ul">
+<li>Mekanikkbane med vogn</li>
 <li>Stoppeklokke</li>
+<li>Fotoporter</li>
+<li>Bevegelsessensor</li>
+<li>Datamaskin med <a href="https://www.vernier.com/products/software/logger-lite/">Vernier Logger Lite</a></li>
 </ul>
 
 <p>
@@ -293,9 +293,9 @@ Vernier-maler
 </div>
 </div>
 
-<div id="outline-container-org06674c9" class="outline-2">
-<h2 id="org06674c9">Ved bruk av stoppeklokke</h2>
-<div class="outline-text-2" id="text-org06674c9">
+<div id="outline-container-orgec7dba6" class="outline-2">
+<h2 id="orgec7dba6">Ved bruk av stoppeklokke</h2>
+<div class="outline-text-2" id="text-orgec7dba6">
 <p>
 (Dette er forsøk 1D - Metode 2 fra ERGO s. 399)
 </p>
@@ -322,9 +322,9 @@ I dette delforsøket skal vi undersøke om bilen har konstant akselerasjon. Hvis
 
 
 
-<div id="outline-container-orgbac9e1f" class="outline-2">
-<h2 id="orgbac9e1f">Ved bruk av fotoporter</h2>
-<div class="outline-text-2" id="text-orgbac9e1f">
+<div id="outline-container-org7fd063a" class="outline-2">
+<h2 id="org7fd063a">Ved bruk av fotoporter</h2>
+<div class="outline-text-2" id="text-org7fd063a">
 <p>
 I dette forsøket skal vi se på akselerasjonen til vogna ved å se på når vogna er ved gitte posisjoner. På mekanikkbanen har vi satt på to fotoporter som vi skal bruke til å få nøyaktige tidspunkter for vognas passeringer. Fotoportene er satt opp med en avstand på 40 cm, som vist på figuren under. Gjennomfør følgende fremgangsmåte:
 </p>
@@ -339,6 +339,13 @@ I dette forsøket skal vi se på akselerasjonen til vogna ved å se på når vog
 <li>Sammenlikn funksjonen fra regresjonen med \(s = s_0 + v_0 t + \frac{1}{2} at^2\)</li>
 <li>Finn en verdi for akselerasjonen ut fra sammenlikningen i forrige punkt.</li>
 </ol>
+
+
+<div class="figure">
+<p><img src="./figurer/mekanikkbane_oppsett_fotoporter.jpg" alt="mekanikkbane_oppsett_fotoporter.jpg" width="40%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
+</p>
+<p><span class="figure-number">Illustrasjon 1 </span>&#x2013; Oppsett med fotoporter</p>
+</div>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center" width="60%">
 
@@ -383,24 +390,23 @@ Hint: Du kan her finne momentanfarten til vognen idet den passerer fotoporten p�
 </p>
 
 <p>
-<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#org8667a6c">her</a>.)</i>
+<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#orgd922ad4">her</a>.)</i>
 </p>
 </div>
 </div>
 
-
-
-<div id="outline-container-org2cee59f" class="outline-2">
-<h2 id="org2cee59f">Ved bruk av bevegelsessensor</h2>
-<div class="outline-text-2" id="text-org2cee59f">
+<div id="outline-container-org34b2197" class="outline-2">
+<h2 id="org34b2197">Ved bruk av bevegelsessensor</h2>
+<div class="outline-text-2" id="text-org34b2197">
 <p>
 I dette forsøket skal vi finne akselerasjonen til vogna ved å bruke en bevegelsessensor.
 </p>
 
 
 <div class="figure">
-<p><img src="./figurer/mekanikkbane_oppsett_bevegelsessensor.jpg" alt="mekanikkbane_oppsett_bevegelsessensor.jpg" width="30%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
+<p><img src="./figurer/mekanikkbane_oppsett_bevegelsessensor.jpg" alt="mekanikkbane_oppsett_bevegelsessensor.jpg" width="40%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
 </p>
+<p><span class="figure-number">Illustrasjon 2 </span>&#x2013; Oppsett med bevegelsessensor</p>
 </div>
 
 <p>
@@ -420,7 +426,7 @@ Hvordan kan du lese akselerasjonen av denne rette linja?
 </p>
 
 <p>
-<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#org2a4f5d6">her</a>.)</i>
+<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#org865d233">her</a>.)</i>
 </p>
 </div>
 </div>
