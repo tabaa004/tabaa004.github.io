@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-09-05 ti 15:15 -->
+<!-- 2017-09-06 on 10:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Akselerasjon med mekanikkbane</title>
+<title>Eksempelutregninger for «Akselerasjon med mekanikkbane»</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Tarjei Bærland" />
 <style type="text/css">
@@ -259,85 +259,20 @@ for the JavaScript code in this tag.
 <!-- </div> -->
 </div>
 <div id="content">
-<h1 class="title">Akselerasjon med mekanikkbane</h1>
-<div id="outline-container-orga2e674b" class="outline-2">
-<h2 id="orga2e674b">Introduksjon</h2>
-<div class="outline-text-2" id="text-orga2e674b">
-<p>
-Vi skal måle akselerasjonen en bil har på mekanikkbanene ved å gjennomføre følgende tre forsøk:
-</p>
-<ol class="org-ol">
-<li>Ved bruk av <a href="#org06674c9"><i>stoppeklokke</i></a></li>
-<li>Ved bruk av <a href="#orgbac9e1f"><i>fotoporter</i></a></li>
-<li>Ved bruk av <a href="#org2cee59f"><i>bevegelesessensor</i></a></li>
-</ol>
-</div>
-</div>
+<h1 class="title">Eksempelutregninger for «Akselerasjon med mekanikkbane»</h1>
 
-<div id="outline-container-org04988b2" class="outline-2">
-<h2 id="org04988b2">Utstyr og filer</h2>
-<div class="outline-text-2" id="text-org04988b2">
-<ul class="org-ul">
-<li>Stoppeklokke</li>
-</ul>
-
+<div id="outline-container-org3887551" class="outline-2">
+<h2 id="org3887551">Ved bruk av fotoporter</h2>
+<div class="outline-text-2" id="text-org3887551">
 <p>
-Vernier-maler
-</p>
-<ul class="org-ul">
-<li>Oppsett med fotoporter (<a href="../fysikk/verniermaler/mekanikk_fotoport_toportbin_empty.gmbl">fil</a>)</li>
-<li>Oppsett med fotoporter med eksempeldata (<a href="../fysikk/verniermaler/mekanikk_fotoport_toportbin_run1.gmbl">fil</a>)</li>
-<li>Oppsett med bevegelsessensor (<a href="../fysikk/verniermaler/mekanikk_bevegelsessensor_empty.gmbl">fil</a>)</li>
-<li>Oppsett med bevegelsessensor med eksempeldata (<a href="../fysikk/verniermaler/mekanikk_bevegelsessensor_run1.gmbl">fil</a>)</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org06674c9" class="outline-2">
-<h2 id="org06674c9">Ved bruk av stoppeklokke</h2>
-<div class="outline-text-2" id="text-org06674c9">
-<p>
-(Dette er forsøk 1D - Metode 2 fra ERGO s. 399)
+Fil fra datalogger: <a href="../gmbl/mekanikk_fotoport_toportbin_run1.gmbl">Fotoporter</a>
+(Der de ulike målerne viser verdien 1, er tidspunktet vogna passerer.)
+Fil fra Geogebra: <a href="../ggb/mekanikkbane_fotoporter_run1_reg.ggb">Fotoporter regresjon</a>
 </p>
 
 <p>
-I dette delforsøket skal vi undersøke om bilen har konstant akselerasjon. Hvis akseleresjonen er konstant og startfarten er null, er veilengden \(s\) i løpet av tiden \(t\) gitt ved formelen \(s=\frac{1}{2}at^2\) Vi skal måle sammenhørende verdier av \(s\) og \(t\), og deretter regne ut forholdet \(\frac{2s}{t^2}\).
+Vi ser at vi har fått følgende verdier:
 </p>
-
-<p>
-<b>Fremgangsmåte</b>
-</p>
-<ol class="org-ol">
-<li>Still opp bilbanen med forholdsvis svak helling. Slipp bilen og ta tiden.</li>
-<li>Gjør forsøket et par ganger med samme veilengde og finn tiden \(t\) for denne veilengden.</li>
-<li>Gjenta forsøket med andre veilengder.</li>
-<li>Sett resultatene inn i en tabell.</li>
-<li>Sammenlign \(\frac{2s}{t^2}\) for alle målingene. Hva tyder målingene på?</li>
-<li>◆ Regn ut om gjennomsnittsverdien \(\bar{a}\) og usikkerheten \(\Delta a\) på grunnlag av målingene ovenfor.</li>
-<li>◆ Skriv \(a\) med usikkerhet.</li>
-<li>◆ Regn ut den relative usikkerheten for akselerasjonen i prosent.</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-orgbac9e1f" class="outline-2">
-<h2 id="orgbac9e1f">Ved bruk av fotoporter</h2>
-<div class="outline-text-2" id="text-orgbac9e1f">
-<p>
-I dette forsøket skal vi se på akselerasjonen til vogna ved å se på når vogna er ved gitte posisjoner. På mekanikkbanen har vi satt på to fotoporter som vi skal bruke til å få nøyaktige tidspunkter for vognas passeringer. Fotoportene er satt opp med en avstand på 40 cm, som vist på figuren under. Gjennomfør følgende fremgangsmåte:
-</p>
-
-<p>
-<b>Fremgansgmåte</b>
-</p>
-<ol class="org-ol">
-<li>Sett i gang målingene og gi vogna et dytt godt i underkant av den nedre fotoporten.</li>
-<li>Les av tidspunktene fra målingene og fyll ut en tabell à la den under.</li>
-<li>Bruk regresjonsverktøyet i Geogebra og finn den andregradsfunksjonen som passer best med dataene fra forsøket.</li>
-<li>Sammenlikn funksjonen fra regresjonen med \(s = s_0 + v_0 t + \frac{1}{2} at^2\)</li>
-<li>Finn en verdi for akselerasjonen ut fra sammenlikningen i forrige punkt.</li>
-</ol>
-
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center" width="60%">
 
 
@@ -355,10 +290,10 @@ I dette forsøket skal vi se på akselerasjonen til vogna ved å se på når vog
 <tbody>
 <tr>
 <td class="org-left">\(t\) (s)</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">0,391</td>
+<td class="org-left">1,427</td>
+<td class="org-left">3,840</td>
+<td class="org-left">5,00</td>
 </tr>
 
 <tr>
@@ -372,43 +307,69 @@ I dette forsøket skal vi se på akselerasjonen til vogna ved å se på når vog
 </table>
 
 <p>
-<b>Utfordringsoppgave ◆</b>
-Om vi bruker en gjenstand med em gitt lengde til å bryte lyset i fotoporten, får vi muligheten til å måle en tilnærmet <i>momentanfart</i> for vognen. Beskriv et forsøk for å finne akselerasjonen hvor du har én fotoport tilgjengelig, men en gjenstand med lengde til å bryte lysstrålen.
+Setter vi disse verdiene inn i en Geogebra-tabell, lager en liste med punktene, her kalt <code>Fotoporter1</code> og lager en andregradsregresjon via <code>RegPoly[Fotoporter1, 2]</code>, får vi funksjonen
+</p>
+
+\begin{equation}
+f(x) = -0,104x^2 + 0,556 x + 0,205.
+\end{equation}
+
+<p>
+om vi setter inn fysiske symboler og enheter, får vi da
+</p>
+
+\begin{equation}
+s(t) = 0,205\,\textrm{m} + 0,556\,\textrm{m/s}\,t - 0,104\,\textrm{m/s}^2\, t^2.
+\end{equation}
+
+<p>
+Sammenlignet med den generelle \(s = s_0 + v_0 t + \frac{1}{2}at^2\) ser vi altså at vi her har \(s_0=0.205\,\textrm{m}\), \(v_0=0,556\,\textrm{m/s}\) og, viktigst av alt
+\[
+\frac{1}{2}a = -0,104\,\textrm{m/s}^2.
+\]
 </p>
 
 <p>
-Hint: Du kan her finne momentanfarten til vognen idet den passerer fotoporten på vei opp og ned, samt hvor lang tid det er mellom de to passeringene.* Ved bruk av bevegelsessensor
+Vi får altså at akselerasjonen til vogna er på \(2\cdot -0,104\,\textrm{m/s}^2\) eller omtrent \(0,2\,\textrm{m/s}^2\) rettet <i>nedover</i>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2cee59f" class="outline-2">
-<h2 id="org2cee59f">Ved bruk av bevegelsessensor</h2>
-<div class="outline-text-2" id="text-org2cee59f">
+<div id="outline-container-orgda82a8f" class="outline-2">
+<h2 id="orgda82a8f">Ved bruk av bevegelsessensor</h2>
+<div class="outline-text-2" id="text-orgda82a8f">
 <p>
-I dette forsøket skal vi finne akselerasjonen til vogna ved å bruke en bevegelsessensor.
+Fil fra datalogger: <a href="../gmbl/mekanikk_bevegelsessensor_run1.gmbl">Bevegelsessensor</a>
+Fil fra datalogger med regresjonslinje: <a href="../gmbl/mekanikk_bevegelsessensor_run1_linreg.gmbl">Bevegelsessensor med lineærregresjon</a>
 </p>
 
-
-<div class="figure">
-<p><img src="./figurer/mekanikkbane_oppsett_bevegelsessensor.jpg" alt="mekanikkbane_oppsett_bevegelsessensor.jpg" width="30%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
+<p>
+Etter å ha gjennomført kjøringene, velger vi <code>Analyze</code> → <code>Linear Fit</code> i Logger Lite. Her får vi opp en dialogboks hvor vi velger at vi vil gjøre en lineærregresjon på fartsdataene. 
 </p>
-</div>
+
+<p width="150px" align="left" style="margin:0px 20px 0px 0px">
+<img src="./figurer/mekanikkbane_akselerasjon_utregninger_20170906_094437.png" alt="mekanikkbane_akselerasjon_utregninger_20170906_094437.png" width="150px" align="left" style="margin:0px 20px 0px 0px" />
+I informasjonsboksen (figuren til venstre) som så kommer opp, vises følgende informasjon:
+</p>
+<dl class="org-dl">
+<dt>Linear Fit for: Latest|Fart</dt><dd>at linja er en lineærregresjon for farten</dd>
+<dt>v = mt+b</dt><dd>at linja er på formen v=mt+b, altså at farten (v) er et stigningstall (m) ganger tida(t) pluss et konstantledd (b)</dd>
+<dt>m (Slope)</dt><dd>at linja har et stigningstall («slope») på -0,23 m/s/s (eller -0,23 m/s<sup>2</sup>)</dd>
+<dt>b(Y-intercept)</dt><dd>at linja skjærer andreaksen ved 0,47 m/s</dd>
+<dt>Correlation</dt><dd>jo nærmere dette tallet er til ±1, dess bedre passer linja til dataene</dd>
+<dt>RMSE</dt><dd>jo nærmere dette tallet er til 0, dess bedre passer linja til dataene</dd>
+</dl>
 
 <p>
-<b>Fremgangsmåte</b>
+Vi er altså ute etter akselerasjonen til vogna. Vi har fått opp en linje som viser vognas fart. Vi veit at dersom vogna har konstant akselerasjon, kan vi bruke <i>fartsformelen</i> \(v = v_0 + at\) for å beskrive farten til vogna. Det er nettopp denne sammenhengen vi nå har fått som <code>v = mt+b</code> fra Logger Lite. Vi har da fått at
 </p>
-<ol class="org-ol">
-<li>Still opp bilbanen med forholdsvis svak helning.</li>
-<li>Koble bevegelsessensoren til en PC med Vernier Logger Lite installert.</li>
-<li>Åpne <a href="../fysikk/verniermaler/mekanikk_bevegelsessensor_empty.gmbl">malen</a> for logging.</li>
-<li>Gi bilen et skyv oppover skråplanet og start loggingen med mellomrom rett etter bilen går fritt.</li>
-<li>Stopp loggingen litt før bilen er på vei av skråplanet og <i>stans bilen</i>.</li>
-<li>I Logger Lite, velg Analyze → Linear Fit og finn den rette linja som passer med den målte <i>farten</i></li>
-</ol>
+
+\begin{equation}
+v = v_0 + at = 0,47\,\textrm{m/s} - 0,23\,\textrm{m/s}^2.
+\end{equation}
 
 <p>
-Hvordan kan du lese akselerasjonen av denne rette linja?
+Akselerasjonen til vogna er altså på omtrent \(0,2\,\textrm{m/s}^2\) rettet <i>nedover</i>.
 </p>
 </div>
 </div>
