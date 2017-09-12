@@ -1,13 +1,14 @@
-q<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-09-07 to 09:04 -->
+<!-- 2017-09-12 ti 12:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ymse</title>
+<title>Introduksjon til Arduino</title>
 <meta name="generator" content="Org mode" />
+<meta name="author" content="Tarjei Bærland" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -178,6 +179,7 @@ q<?xml version="1.0" encoding="utf-8"?>
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -224,28 +226,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -255,108 +235,6 @@ for the JavaScript code in this tag.
 <!--     <li><a href='/naturfag/naturfag.html'>Blog</a></li> -->
 <!--   </ul> -->
 <!-- </div> -->
-</div>
-<div id="content">
-<h1 class="title">Ymse</h1>
-
-<div id="outline-container-orgd754e87" class="outline-2">
-<h2 id="orgd754e87">Bursdagstall</h2>
-<div class="outline-text-2" id="text-orgd754e87">
-</div>
-
-<div id="outline-container-orgc07c5b8" class="outline-3">
-<h3 id="orgc07c5b8">Fremangsmåte</h3>
-<div class="outline-text-3" id="text-orgc07c5b8">
-<ul class="org-ul">
-<li>Ta måneden du er født (5 hvis mai)</li>
-<li>Gang med 5</li>
-<li>Legg til 7</li>
-<li>Gang med 4</li>
-<li>Legg til 13</li>
-<li>Gang med 5</li>
-<li>Legg til dagen du er født i måneden (17 hvis 17. mai)</li>
-</ul>
-
-<p>
-Hva får du?
-</p>
-</div>
-</div>
-
-<div id="outline-container-org1bc9f03" class="outline-3">
-<h3 id="org1bc9f03">Forklaring</h3>
-<div class="outline-text-3" id="text-org1bc9f03">
-<p>
-Om vi setter måneden som \(m\) og dagen man er født som \(d\), får vi her:
-</p>
-
-<ul class="org-ul">
-<li>\(5m\)</li>
-<li>\(5m + 7\)</li>
-<li>\(4(5m + 7)\)</li>
-<li>\(4(5m + 7) +13\)</li>
-<li>\(5(4(5m + 7) +13)\)</li>
-<li>\(5(4(5m + 7) +13) + d\)</li>
-</ul>
-
-<p>
-Forsøk å bruke algebra for å forenkle dette uttrykket.
-</p>
-
-<p>
-\(100m + d + 205\)
-</p>
-
-<p>
-Om vi trekker fra 205 ser vi altså at \(m\) kommer på <i>hundrerplassen</i>, og \(d\) på enerplassen.
-</p>
-
-<p>
-Dersom en person regner ut <i>bursdagstall</i> 1407 skal du da først trekke fra 205, som gir
-</p>
-
-<p>
-\(1407 - 205 = 1202\),
-</p>
-
-<p>
-for så å se at dette er 12 hundrere og 2 enere. Altså er personen født 2. desember.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgc4df330" class="outline-3">
-<h3 id="orgc4df330">Matematesk skriveform</h3>
-<div class="outline-text-3" id="text-orgc4df330">
-<p>
-Når vi regner ved å følge en fremgangsmåte à la
-</p>
-
-<ul class="org-ul">
-<li>Gang med 2</li>
-<li>Legg til 13</li>
-<li>Opphøy i 3</li>
-<li>osv.</li>
-</ul>
-
-<p>
-Sier man at vi følger en <i>algoritme</i>. Kommer du på en situasjon hvor du har brukt en algoritme for å løse en oppgave?
-</p>
-
-<p>
-Vi satt også opp uttrykket som et algebraisk uttrykk, hvor vi brukte bokstaver og tall for å skrive alt på én linje.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org61f0076" class="outline-2">
-<h2 id="org61f0076">Geogebra</h2>
-</div>
-
-<div id="outline-container-orga16bb00" class="outline-2">
-<h2 id="orga16bb00">Testing</h2>
-<div class="outline-text-2" id="text-orga16bb00">
 <script type="text/javascript">
 function toggleMe(a){
 var e=document.getElementById(a);
@@ -370,27 +248,42 @@ e.style.display="none"
 return true;
 }
 </script>
+</div>
+<div id="content">
+<h1 class="title">Introduksjon til Arduino</h1>
+<p align="center">
+Vi blir bedre kjent med mikrokontrolleren <a href="https://www.arduino.cc/" align="center">Arduino</a>.
+</p>
 
-<input type="button" onclick="return toggleMe('special1')" value="(click here for more information)"><br>
-<p id="special1" style="display:none">
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
-blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah
+<div id="outline-container-orgb67db5a" class="outline-2">
+<h2 id="orgb67db5a">Introduksjon</h2>
+<div class="outline-text-2" id="text-orgb67db5a">
+<p>
+Arduino er en mikrokontroller<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. Den er laget på et prinsipp om åpen kildekode, og kan forenkle veien fra idé til fysisk produkt betraktelig.
 </p>
 </div>
 </div>
 
-
-
-
-<div id="outline-container-orgabd504a" class="outline-2">
-<h2 id="orgabd504a"></h2>
+<div id="outline-container-org0eb1457" class="outline-2">
+<h2 id="org0eb1457">Bestanddeler</h2>
 </div>
+
+<div id="outline-container-orgfb1285d" class="outline-2">
+<h2 id="orgfb1285d">Programmering av Arduino</h2>
 </div>
+
+<div id="outline-container-org4227bcc" class="outline-2">
+<h2 id="org4227bcc">Et første program</h2>
+</div>
+<div id="footnotes">
+<h2 class="footnotes" hidden>Fotnoter</h2>
+<hr>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara">en chip som kan programmeres til å kontrollere ulike elektroniske komponenter, for eksempel en motor</div></div>
+
+
+</div>
+</div></div>
 </body>
 </html>

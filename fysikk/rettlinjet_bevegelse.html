@@ -3,11 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-06 on 11:19 -->
+<!-- 2017-09-12 ti 14:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rettlinjet bevegelse og Newtons lover</title>
 <meta name="generator" content="Org mode" />
+<meta name="author" content="Tarjei Bærland" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -178,6 +179,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -255,16 +257,26 @@ for the JavaScript code in this tag.
 <!--     <li><a href='/naturfag/naturfag.html'>Blog</a></li> -->
 <!--   </ul> -->
 <!-- </div> -->
+<script type="text/javascript">
+function toggleMe(a){
+var e=document.getElementById(a);
+if(!e)return true;
+if(e.style.display=="none"){
+e.style.display="block"
+}
+else{
+e.style.display="none"
+}
+return true;
+}
+</script>
 </div>
 <div id="content">
 <h1 class="title">Rettlinjet bevegelse og Newtons lover</h1>
 
-<div id="outline-container-orgbdca892" class="outline-2">
-<h2 id="orgbdca892">Forebredelsesoppgaver</h2>
-<div class="outline-text-2" id="text-orgbdca892">
-</div><div id="outline-container-org0631408" class="outline-3">
-<h3 id="org0631408">Bakgrunn</h3>
-<div class="outline-text-3" id="text-org0631408">
+<div id="outline-container-org6ed21de" class="outline-2">
+<h2 id="org6ed21de">Bakgrunn</h2>
+<div class="outline-text-2" id="text-org6ed21de">
 <p>
 Før du setter deg ned med de kommende, prøve-lignende oppgavene, kan det være gunstig å ha vært gjennom følgende oppgaver i ERGO Fysikk 1:
 </p>
@@ -291,12 +303,218 @@ Andre stikkord:
 </div>
 </div>
 
-<div id="outline-container-orgd6cd4fe" class="outline-3">
-<h3 id="orgd6cd4fe">Forberedelsesprøve&#xa0;&#xa0;&#xa0;<span class="tag"><span class="pr_ve">prøve</span></span></h3>
-<div class="outline-text-3" id="text-orgd6cd4fe">
-</div><div id="outline-container-orga4e690d" class="outline-4">
-<h4 id="orga4e690d">Oppgave 1</h4>
+<div id="outline-container-org4a276ca" class="outline-2">
+<h2 id="org4a276ca">Forberedelsesprøve</h2>
+<div class="outline-text-2" id="text-org4a276ca">
+</div><div id="outline-container-org6d565c3" class="outline-3">
+<h3 id="org6d565c3">Symboler, enheter og størrelser</h3>
+<div class="outline-text-3" id="text-org6d565c3">
+<p>
+<b>a)</b> Hva er henholdsvis <i>symbol</i> og <i>SI-enhet</i> for størrelsene <i>fart</i>, <i>masse</i>, <i>tid</i> og <i>posisjon</i>.
+</p>
+<input type="button" onclick="return toggleMe('enheter1')" value="løsning"><br><br>
+<div id="enheter1" style="display:none" class="div">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Størrelse</th>
+<th scope="col" class="org-left">Symbol</th>
+<th scope="col" class="org-left">SI-enhet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">fart</td>
+<td class="org-left"><i>v</i></td>
+<td class="org-left">m/s</td>
+</tr>
+
+<tr>
+<td class="org-left">masse</td>
+<td class="org-left"><i>m</i></td>
+<td class="org-left">kg</td>
+</tr>
+
+<tr>
+<td class="org-left">tid</td>
+<td class="org-left"><i>t</i></td>
+<td class="org-left">s</td>
+</tr>
+
+<tr>
+<td class="org-left">posisjon</td>
+<td class="org-left"><i>s</i></td>
+<td class="org-left">m</td>
+</tr>
+</tbody>
+</table>
+
 </div>
+
+<p>
+<b>b)</b> Hva er en felles forutsetning for de fire <i>bevegelsesformlene</i>?
+</p>
+<input type="button" onclick="return toggleMe('enheter2')" value="løsning"><br><br>
+<div id="enheter2" style="display:none;border:1px solid black" class="div">
+<p>
+At det er <i>konstant akselerasjon</i>.
+</p>
+
+</div>
+
+<p>
+<b>c)</b> En tenkt fysisk formel viser sammenhengen mellom en fart og masse som
+\[
+v = b\cdot \sqrt{m},
+\]
+hvor \(b\) er en konstant.
+</p>
+
+<p>
+Hvilken enhet har konstanten \(b\)?
+</p>
+
+<input type="button" onclick="return toggleMe('enheter3')" value="løsning"><br><br>
+<div id="enheter3" style="display:none;border:1px solid black" class="div">
+<p>
+Vi kan omforme formelen til å være et uttrykk for \(b\) som
+\[
+b = \frac{v}{\sqrt{m}}.
+\]
+</p>
+
+<p>
+Om vi så setter inn en fart på 1 m/s og en masse på 1 kg, får vi følgende verdi for \(b\):
+</p>
+
+<p>
+\[
+b = \frac{1\,\text{m/s}}{\sqrt{1\,\text{kg}}}.
+\]
+</p>
+
+<p>
+Siden \(\sqrt{1}=1\) får vi da
+</p>
+
+<p>
+\[
+b=1 \frac{\text{m}}{\text{s}\sqrt{\text{kg}}},
+\]
+</p>
+
+<p>
+og vi ser da at enheten til \(b\) er \(\text{m}/(\text{s}\sqrt{\text{kg}})\).
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-org3dfa3ee" class="outline-3">
+<h3 id="org3dfa3ee">En sykkeltur</h3>
+<div class="outline-text-3" id="text-org3dfa3ee">
+<p>
+Du er ute og sykler og måler tid og strekning. Totalt sykler du 16 km.
+</p>
+
+<p>
+<b>a)</b> Du bruker 30 minutter på de første 9 km. Hva har gjennomsnittsfarten din vært over denne strekningen? Oppgi svaret både i kilometer per timer og meter per sekund.
+</p>
+
+<p>
+<b>b)</b> De resterende 7 km sykler du med en fart på 21 km/t. Hva har gjennomsnittsfarten din vært for hele turen? Oppgi svaret i kilometer per time.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5977ec1" class="outline-3">
+<h3 id="org5977ec1">Veigrafer</h3>
+<div class="outline-text-3" id="text-org5977ec1">
+<p>
+Skisser veggrafene til to gjenstander med samme <i>akselerasjon</i> og <i>startposisjon</i>, men motsatt rettet startfart.
+</p>
+
+<input type="button" onclick="return toggleMe('veigrafer')" value="løsning"><br><br>
+<div id="veigrafer" style="display:none;border:1px solid black" class="div">
+<p>
+Siden bevegelsen til en gjenstand med konstant akselerasjon kan beskrives med veiformelen \(s=v_0 t + \frac{1}{2}at^2\), om vi setter startpunktet ved \(s=0\), kan vi endre startfarten ved å tegne to andregradsfunksjoner med samme koeffisient på andregradsleddet (her er det \(\frac{1}{2}\)) og like store, men motsatt fortegn, koeffisienter på førstegradsleddene (her er det \(v_0\)). Vi får da eksempelvis en figur som det under.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/rettlinjet_bevegelse_20170912_135131.png" alt="rettlinjet_bevegelse_20170912_135131.png" width="60%" style="border:1px solid black" padding-bottom="-100px" />
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgba3eb59" class="outline-3">
+<h3 id="orgba3eb59">Akselereasjon fra veigraf</h3>
+<div class="outline-text-3" id="text-orgba3eb59">
+<p>
+Veigrafen under viser bevegelsen til en gjenstand i fritt fall på overflaten av en fremmed planet.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/rettlinjet_bevegelse_oeveproeve_fritt_fall.png" alt="rettlinjet_bevegelse_oeveproeve_fritt_fall.png" width="60%" style="border:1px solid black" padding-bottom="-100px" />
+</p>
+</div>
+
+<p>
+<b>a)</b> Hvilken høyde blir gjenstanden sluppet fra?
+</p>
+
+<p>
+<b>b)</b> Hva er tyngdeakselerasjonen ved overflaten av planeten?
+</p>
+
+<p>
+<b>c)</b> Hva er farten til gjenstanden idet den treffer bakken?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d051d1" class="outline-3">
+<h3 id="org6d051d1">Strekning og akselerasjon</h3>
+<div class="outline-text-3" id="text-org6d051d1">
+<p>
+En gjenstand har farten 20 m/s idet den begynner å bremse med en akselerasjon på 2 m/s<sup>2</sup>. Hvor langt beveger gjenstanden seg før den har <i>stoppet</i>?
+</p>
+
+<input type="button" onclick="return toggleMe('nedbremsing')" value="løsning"><br><br>
+<div id="nedbremsing" style="display:none;border:1px solid black" class="div">
+<p>
+Vi kan her benytte oss av den tidløse formelen \(2as = v^2 - v_0^2\). Om vi setter opp et uttrykk for \(s\), med \(v=0\,\text{m/s}\) og \(a=-2\,\text{m/s}^2\), får vi
+</p>
+
+<p>
+\[
+s = \frac{(20\,\text{m/s})^2}{-2\cdot 2\,\text{m/s}^2} = 100\,\text{m}.
+\]
+</p>
+
+<p>
+Gjenstanden stopper altså etter 100 m.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4a5cec7" class="outline-3">
+<h3 id="org4a5cec7">Løpeturen</h3>
 </div>
 </div>
 </div>
