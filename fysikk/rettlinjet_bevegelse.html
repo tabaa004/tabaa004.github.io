@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-21 to 09:29 -->
+<!-- 2017-09-21 to 09:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Rettlinjet bevegelse og Newtons lover</title>
@@ -273,9 +273,250 @@ return true;
 </div>
 <div id="content">
 <h1 class="title">Rettlinjet bevegelse og Newtons lover</h1>
-<div id="outline-container-orgc894b25" class="outline-2">
-<h2 id="orgc894b25">Vogn på skråplan</h2>
-<div class="outline-text-2" id="text-orgc894b25">
+
+<div id="outline-container-org93a240e" class="outline-2">
+<h2 id="org93a240e">Bakgrunn</h2>
+<div class="outline-text-2" id="text-org93a240e">
+<p>
+Før du setter deg ned med de kommende, prøve-lignende oppgavene, kan det være gunstig å ha vært gjennom følgende oppgaver i ERGO Fysikk 1:
+</p>
+
+<p>
+Oppgaver fra kapitlene (s. 47&#x2013;53 og s. 80&#x2013;85):
+1.11, 1.18, 1.20, 1.22, 1.23, 1.25, 1.27, 1.30, 1.37, 1.40, 2.19, 2.20, 2.22, 2.24, 2.29◆, 2.30
+</p>
+
+<p>
+Oppgaver fra oppgavesamlingene:
+1.104, 1.105, 1.106, 1.107, 1.111, 1.113, 1.115, 1.117◆, 1.120◆, 1.113◆, 1.134, 1.138◆, B-1.1, B-1.4, B-1.5◆, 2.109◆, 2.116, 2.118, 2.124◆, 2.128
+</p>
+
+<p>
+Andre stikkord:
+</p>
+<dl class="org-dl">
+<dt>enheter</dt><dd>Dere kommer til å kunne få oppgaver vedrørende enheter. Dette kan være av typen «sett opp symbol og SI-enhet for tre størrelser» og «\(F\) er en kraft, \(v\) er en fart, hvilken SI-enhet må \(b\) ha hvis \(F=v\cdot b\)»?</dd>
+<dt>grafer</dt><dd>Jeg kommer til å forvente at dere kan både lese av og tegne vei-, farts- og akselerasjonsgrafer.</dd>
+<dt>proporsjonale og omvendt proporsjonale størrelser</dt><dd>Dette er to vesentlige begreper i fysikken. Om to størrelser er proporsjonale, vil en dobling av den ene størrelsen medføre en dobling av den andre. (F.eks. \(s\) og \(t\) om man har konstant \(v\).) Om to størrelser er <i>omvendt</i> proporsjonale, vil en dobling av den ene størrelsen medføre en <i>halvering</i> av den andre. (F.eks. \(v\) og \(t\) om man skal reise en gitt \(s\).)</dd>
+<dt>overslagsregning</dt><dd>Dere vil ikke få spesifikke oppgaver knyttet til dette, men det kan være nyttig å gjøre en vurdering av svarene du får ved å bruke verktøy à la det du trenger i oppgave 1.107.</dd>
+<dt>resultantkrefter</dt><dd>Dere vil bli bedt om å regne ut summen av kreftene som virker på en gjenstand, den såkalte <i>resultantkraften</i>.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org7c32905" class="outline-2">
+<h2 id="org7c32905">Forberedelsesprøve</h2>
+<div class="outline-text-2" id="text-org7c32905">
+</div><div id="outline-container-org9e2f55b" class="outline-3">
+<h3 id="org9e2f55b">Symboler, enheter og størrelser</h3>
+<div class="outline-text-3" id="text-org9e2f55b">
+<p>
+<b>a)</b> Hva er henholdsvis <i>symbol</i> og <i>SI-enhet</i> for størrelsene <i>fart</i>, <i>masse</i>, <i>tid</i> og <i>posisjon</i>.
+</p>
+<input type="button" onclick="return toggleMe('enheter1')" value="løsning"><br><br>
+<div id="enheter1" style="display:none" class="div">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Størrelse</th>
+<th scope="col" class="org-left">Symbol</th>
+<th scope="col" class="org-left">SI-enhet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">fart</td>
+<td class="org-left"><i>v</i></td>
+<td class="org-left">m/s</td>
+</tr>
+
+<tr>
+<td class="org-left">masse</td>
+<td class="org-left"><i>m</i></td>
+<td class="org-left">kg</td>
+</tr>
+
+<tr>
+<td class="org-left">tid</td>
+<td class="org-left"><i>t</i></td>
+<td class="org-left">s</td>
+</tr>
+
+<tr>
+<td class="org-left">posisjon</td>
+<td class="org-left"><i>s</i></td>
+<td class="org-left">m</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+<p>
+<b>b)</b> Hva er en felles forutsetning for de fire <i>bevegelsesformlene</i>?
+</p>
+<input type="button" onclick="return toggleMe('enheter2')" value="løsning"><br><br>
+<div id="enheter2" style="display:none;border:1px solid black" class="div">
+<p>
+At det er <i>konstant akselerasjon</i>.
+</p>
+
+</div>
+
+<p>
+<b>c)</b> En tenkt fysisk formel viser sammenhengen mellom en fart og masse som
+\[
+v = b\cdot \sqrt{m},
+\]
+hvor \(b\) er en konstant.
+</p>
+
+<p>
+Hvilken enhet har konstanten \(b\)?
+</p>
+
+<input type="button" onclick="return toggleMe('enheter3')" value="løsning"><br><br>
+<div id="enheter3" style="display:none;border:1px solid black" class="div">
+<p>
+Vi kan omforme formelen til å være et uttrykk for \(b\) som
+\[
+b = \frac{v}{\sqrt{m}}.
+\]
+</p>
+
+<p>
+Om vi så setter inn en fart på 1 m/s og en masse på 1 kg, får vi følgende verdi for \(b\):
+</p>
+
+<p>
+\[
+b = \frac{1\,\text{m/s}}{\sqrt{1\,\text{kg}}}.
+\]
+</p>
+
+<p>
+Siden \(\sqrt{1}=1\) får vi da
+</p>
+
+<p>
+\[
+b=1 \frac{\text{m}}{\text{s}\sqrt{\text{kg}}},
+\]
+</p>
+
+<p>
+og vi ser da at enheten til \(b\) er \(\text{m}/(\text{s}\sqrt{\text{kg}})\).
+</p>
+
+</div>
+</div>
+</div>
+<div id="outline-container-orge5f1abd" class="outline-3">
+<h3 id="orge5f1abd">En sykkeltur</h3>
+<div class="outline-text-3" id="text-orge5f1abd">
+<p>
+Du er ute og sykler og måler tid og strekning. Totalt sykler du 16 km.
+</p>
+
+<p>
+<b>a)</b> Du bruker 30 minutter på de første 9 km. Hva har gjennomsnittsfarten din vært over denne strekningen? Oppgi svaret både i kilometer per timer og meter per sekund.
+</p>
+
+<p>
+<b>b)</b> De resterende 7 km sykler du med en fart på 21 km/t. Hva har gjennomsnittsfarten din vært for hele turen? Oppgi svaret i kilometer per time.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org76b1855" class="outline-3">
+<h3 id="org76b1855">Veigrafer</h3>
+<div class="outline-text-3" id="text-org76b1855">
+<p>
+Skisser veggrafene til to gjenstander med samme <i>akselerasjon</i> og <i>startposisjon</i>, men motsatt rettet startfart.
+</p>
+
+<input type="button" onclick="return toggleMe('veigrafer')" value="løsning"><br><br>
+<div id="veigrafer" style="display:none;border:1px solid black" class="div">
+<p>
+Siden bevegelsen til en gjenstand med konstant akselerasjon kan beskrives med veiformelen \(s=v_0 t + \frac{1}{2}at^2\), om vi setter startpunktet ved \(s=0\), kan vi endre startfarten ved å tegne to andregradsfunksjoner med samme koeffisient på andregradsleddet (her er det \(\frac{1}{2}a\)) og like store, men motsatt fortegn, koeffisienter på førstegradsleddene (her er det \(v_0\)). Vi får da eksempelvis en figur som det under.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/rettlinjet_bevegelse_20170912_135131.png" alt="rettlinjet_bevegelse_20170912_135131.png" width="60%" style="border:1px solid black" padding-bottom="-100px" />
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org20f9538" class="outline-3">
+<h3 id="org20f9538">Akselereasjon fra veigraf</h3>
+<div class="outline-text-3" id="text-org20f9538">
+<p>
+Veigrafen under viser bevegelsen til en gjenstand i fritt fall på overflaten av en fremmed planet.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/rettlinjet_bevegelse_oeveproeve_fritt_fall.png" alt="rettlinjet_bevegelse_oeveproeve_fritt_fall.png" width="60%" style="border:1px solid black" padding-bottom="-100px" />
+</p>
+</div>
+
+<p>
+<b>a)</b> Hvilken høyde blir gjenstanden sluppet fra?
+</p>
+
+<p>
+<b>b)</b> Hva er tyngdeakselerasjonen ved overflaten av planeten?
+</p>
+
+<p>
+<b>c)</b> Hva er farten til gjenstanden idet den treffer bakken?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc2a5e70" class="outline-3">
+<h3 id="orgc2a5e70">Strekning og akselerasjon</h3>
+<div class="outline-text-3" id="text-orgc2a5e70">
+<p>
+En gjenstand har farten 20 m/s idet den begynner å bremse med en akselerasjon på 2 m/s<sup>2</sup>. Hvor langt beveger gjenstanden seg før den har <i>stoppet</i>?
+</p>
+
+<input type="button" onclick="return toggleMe('nedbremsing')" value="løsning"><br><br>
+<div id="nedbremsing" style="display:none;border:1px solid black" class="div">
+<p>
+Vi kan her benytte oss av den tidløse formelen \(2as = v^2 - v_0^2\). Om vi setter opp et uttrykk for \(s\), med \(v=0\,\text{m/s}\) og \(a=-2\,\text{m/s}^2\), får vi
+</p>
+
+<p>
+\[
+s = \frac{(20\,\text{m/s})^2}{-2\cdot 2\,\text{m/s}^2} = 100\,\text{m}.
+\]
+</p>
+
+<p>
+Gjenstanden stopper altså etter 100 m.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc894b25" class="outline-3">
+<h3 id="orgc894b25">Vogn på skråplan</h3>
+<div class="outline-text-3" id="text-orgc894b25">
 <p>
 Tabellen under viser data fra en vogn på et skråplan, dataene kommer fra fotoporter.
 </p>
@@ -317,6 +558,7 @@ Tabellen under viser data fra en vogn på et skråplan, dataene kommer fra fotop
 <p>
 Bruk dataene til å finne akselerasjonen til vogna.
 </p>
+</div>
 </div>
 </div>
 </div>
