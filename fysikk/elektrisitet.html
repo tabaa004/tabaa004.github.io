@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Elektrisitet</title>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://sandbox.hackinghistory.ca/Tools/reveal.js/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://sandbox.hackinghistory.ca/Tools/reveal.js/css/theme/night.css" id="theme"/>
+
+<link rel="stylesheet" href="http://sandbox.hackinghistory.ca/Tools/reveal.js/css/local.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://sandbox.hackinghistory.ca/Tools/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1>Elektrisitet</h1>
+</section>
+
+
+<section>
+<section id="slide-org5edaea9">
+<h2 id="org5edaea9">Lyn</h2>
+
+<div class="figure">
+<p><img src="./figurer/el-lyn.gif" alt="el-lyn.gif" width="30%" height="30%" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgb6cbda5">
+<h3 id="orgb6cbda5">Strøm</h3>
+<p>
+En tordensky med ladning 50 C avgir et lyn som varer i 0,001 s. Hvor stor er strømmen?
+</p>
+
+</section>
+<section id="slide-org97024d9">
+<h3 id="org97024d9">Spenning</h3>
+<p>
+Spenningen mellom skyen og bakken er 200 millioner volt. Hvor mye elektrisk energi blir frigjort?
+</p>
+
+</section>
+<section id="slide-org3fb3f5f">
+<h3 id="org3fb3f5f">Resistans</h3>
+<p>
+Hva blir nå resistansen i lufta mellom skya og bakken?
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="http://sandbox.hackinghistory.ca/Tools/reveal.js/lib/js/head.min.js"></script>
+<script src="http://sandbox.hackinghistory.ca/Tools/reveal.js/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://sandbox.hackinghistory.ca/Tools/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'http://sandbox.hackinghistory.ca/Tools/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://sandbox.hackinghistory.ca/Tools/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'http://sandbox.hackinghistory.ca/Tools/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'http://sandbox.hackinghistory.ca/Tools/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

@@ -3,12 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-29 fre. 14:19 -->
+<!-- 2017-09-29 fre. 14:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fagmateriell</title>
+<title>Kirchhoffs lover</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Tarjei Bærland" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -180,7 +179,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -227,6 +225,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "left",
+        displayIndent: "5em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "Neo-Euler"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "Neo-Euler"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "left",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -252,36 +272,138 @@ return true;
 </script>
 </div>
 <div id="content">
-<h1 class="title">Fagmateriell</h1>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<h1 class="title">Kirchhoffs lover</h1>
+
+<div id="outline-container-orga5e4235" class="outline-2">
+<h2 id="orga5e4235">Innledning og forutsetninger</h2>
+<div class="outline-text-2" id="text-orga5e4235">
+<p>
+I løpet av dette forsøket skal du komme deg fram til Kirchhoffs lover. Felles for begge er at de er en slags <i>bevaringslover</i>.
+</p>
+
+<p>
+Les <a href="#org32c0555">rapportavsnittet</a> under for beskrivelse av det du skal produsere.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbf6516" class="outline-2">
+<h2 id="orgbbf6516">Kobling av motstander</h2>
+<div class="outline-text-2" id="text-orgbbf6516">
+</div>
+<div id="outline-container-orgf6ab57b" class="outline-3">
+<h3 id="orgf6ab57b">Seriokobling</h3>
+<div class="outline-text-3" id="text-orgf6ab57b">
+<p>
+Når noe kobles i <i>serie</i>, går det som går ut av den første enheten, inn i den neste. Et eksempel kan være to biltunneler etter hverandre. Det skal da ikke være noen forgreininger mellom enhetene.
+</p>
+</div>
+
+<div id="outline-container-org30e7412" class="outline-4">
+<h4 id="org30e7412">Fremgangsmåte og oppgaver</h4>
+<div class="outline-text-4" id="text-org30e7412">
+<ol class="org-ol">
+<li>Koble to motstander i serie, velg to resistanser mellom 1,5&nbsp;&Omega; og 2,5&nbsp;&Omega;.</li>
+<li>Sett motstandene i en krets med en spenningskilde på 5,0&nbsp;V.</li>
+<li>Hva blir spenningsfallet over hver av motstandene?</li>
+<li>Hva blir spenningsfallet over begge motstandene til sammen?</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org9b882ef" class="outline-4">
+<h4 id="org9b882ef">Tilleggsoppgave</h4>
+<div class="outline-text-4" id="text-org9b882ef">
+<p>
+Med tre motstander i serie \(R_1\), \(R_2\) og \(R_3\). Hva blir et uttrykk for totalmotstanden \(R\)? Hva med om du har \(n\) motstander?
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7127cc7" class="outline-3">
+<h3 id="org7127cc7">Parallellkobling</h3>
+<div class="outline-text-3" id="text-org7127cc7">
+<p>
+Når noe <i>parallellkobles</i>, splittes strømmen som skal gjennom enhetene, slik at kun en <i>greinstrøm</i> går gjennom hver enhet. Du skal senere vise at for to motstander blir da totalmotstanden
+\(R = \left(\frac{1}{R_1} + \frac{1}{R_2}\right)^{-1}\).
+</p>
+</div>
+
+<div id="outline-container-org9322441" class="outline-4">
+<h4 id="org9322441">Fremgangsmåte og oppgaver</h4>
+<div class="outline-text-4" id="text-org9322441">
+<ol class="org-ol">
+<li>Koble to motstander i parallell, velg to ulike motstander mellom 10&nbsp;&Omega; og 30&nbsp;&Omega;,</li>
+<li>Sett de parallelle motsandene inn i en hovedkrets som driver strømmne gjennom begge motstandene, bruk en spenningskilde på 15&nbsp;V.</li>
+<li>Hva blir spenningsfallet over hver av motstandene?</li>
+<li>Hva blir spenningsfallet over motstandene sammen?</li>
+<li>Kommenter svarene du fikk i oppgave 3 og 4.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org94b4553" class="outline-2">
+<h2 id="org94b4553">Kirchoffs lover</h2>
+<div class="outline-text-2" id="text-org94b4553">
+</div>
+<div id="outline-container-orgd73e7d7" class="outline-3">
+<h3 id="orgd73e7d7">Første lov</h3>
+<div class="outline-text-3" id="text-orgd73e7d7">
+<p>
+Her er det en forutsetning at i fysikken er <i>ladning</i> en bevart egenskap. Om vi da ser på en strøm \(I\) som går inn mot en forgreing, og at strøm er antall ladninger som passerer et tverrsnitt per sekund, så vil det ikke oppstå ladninger i forgreiningen. Vi får da følgende:
+</p>
+
+<p>
+<span class="underline">Summen av alle strømmene inn til et forgreiningspunkt er lik summen av alle strømmene ut fra forgreiningspunktet.</span>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org99eebad" class="outline-3">
+<h3 id="org99eebad">Andre lov</h3>
+<div class="outline-text-3" id="text-org99eebad">
+<p>
+Der den første loven baseres på bevaring av ladning, baserer vi Kirchhoffs andre lov på bevaring av <i>energi</i>. Når en spenningskilde har utført et arbeid på en ladning som beveger seg gjennom en krets (som er definsjonen på spenning), går arbeidet til å drive ladningen gjennom komponentene. Vi får da følgende:
+</p>
+
+<p>
+<span class="underline">Summen av alle de elektromotoriske spenningene rundt en lukket delkrets er lik summen av alle spenningene over motstandene i kretsen.</span>
+</p>
+</div>
+
+<div id="outline-container-org68f0af5" class="outline-4">
+<h4 id="org68f0af5">Utforskningsoppgave</h4>
+<div class="outline-text-4" id="text-org68f0af5">
+<p>
+Bruk Kirchhoffs første lov til å utlede uttrykket for totalmotstanden over to parallellkoblede motstander.
+</p>
+
+<p>
+Merk, det vil ikke være noe <i>spenningsfall</i> over en forgreining.
+</p>
+</div>
+</div>
+</div>
+</div>
 
 
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left"><a href="./fysikk/fysikk.html">Fysikk</a></th>
-<th scope="col" class="org-left"><a href="./tefo/">Teknologi og forskningslære</a></th>
-<th scope="col" class="org-left"><a href="./matematikk/">Matematikk</a></th>
-<th scope="col" class="org-left"><a href="./ymse/">Ymse</a></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left"><a href="./fysikk/elektrisitet.html">Elektrisitet</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
+<div id="outline-container-org32c0555" class="outline-2">
+<h2 id="org32c0555">Rapport</h2>
+<div class="outline-text-2" id="text-org32c0555">
+<p>
+Gå gjennom oppgavene over og besvar disse i en rapport hvor du tar med følgende:
+</p>
+<dl class="org-dl">
+<dt>Bakgrunnsstoff</dt><dd>Her gjør du selv en vurdering av hva du mener er relevant. Forklar for eksempel hva som menes med en <i>bevaringslov</i>.</dd>
+<dt>Utstyr</dt><dd>Da dette arbeidet er gjort i virtuell lab, er det ikke nødvendig med en formell utstyrsliste. Det du dog bør ha med er en kort introduksjon av programvaren. Sørg også for å ha med skjermbilder av de forskjellige oppsettene du har jobbet med.</dd>
+<dt>Resultater</dt><dd>Her må det komme tydelig fram hvilke tallverdier du leste av i de forskjellige oppgavene</dd>
+<dt>Konklusjoner</dt><dd>Det er meningen at du skal få bekreftent noen fundamentale sammenhenger i elektrisitetslæren via disse oppgavene. Noen av dem er gitt i teksten over, andre ikke. Disse sammenhengene bør komme tydelig fram i din besvarelse.</dd>
+</dl>
+</div>
+</div>
 </div>
 </body>
 </html>

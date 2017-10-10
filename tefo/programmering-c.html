@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-09-29 fre. 14:19 -->
+<!-- 2017-09-29 fre. 14:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Fagmateriell</title>
+<title>Programmering i C</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Tarjei Bærland" />
 <style type="text/css">
@@ -180,7 +180,7 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -227,6 +227,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -252,7 +274,31 @@ return true;
 </script>
 </div>
 <div id="content">
-<h1 class="title">Fagmateriell</h1>
+<h1 class="title">Programmering i C</h1>
+<p align="center">
+Vi ser nærmere på «kodeblokkene» i C.
+</p>
+
+<div id="outline-container-org4aaf484" class="outline-2">
+<h2 id="org4aaf484">Konstanter og variabler</h2>
+<div class="outline-text-2" id="text-org4aaf484">
+<p>
+For å opprette en <i>konstant</i> verdi i C, altså en verdi som ikke kan endres gjennom kjøringen av programmet,  bruker vi <i>nøkkelordet</i> <code>const</code>. 
+</p>
+
+<p>
+Ønsker vi for eksempel å lage <i>konstanten</i> &pi;, kan det gjøres som følger:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #718c00;">const</span> <span style="color: #4271ae;">float</span> <span style="color: #eab700;">pi</span> = 3.14;
+</pre>
+</div>
+
+<p>
+Her har vi disse elementene:
+</p>
+
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -262,26 +308,205 @@ return true;
 <col  class="org-left" />
 
 <col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Symbol</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>const</code></td>
+<td class="org-left">nøkkelord</td>
+<td class="org-left">det som følger på linjen skal være en konstant</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>float</code></td>
+<td class="org-left">nøkkelord</td>
+<td class="org-left">konstanten skal være et desimaltall (se <a href="#orgd0b8330">Talltyper</a>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>pi</code></td>
+<td class="org-left">navn</td>
+<td class="org-left">navnet til konstanten</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>=</code></td>
+<td class="org-left">-</td>
+<td class="org-left">gir konstanten verdi</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>3.14</code></td>
+<td class="org-left">verdi</td>
+<td class="org-left">verdien konstanten skal ha, kan ikke endres</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>;</code></td>
+<td class="org-left">-</td>
+<td class="org-left">avslutter setningen</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-org646d10a" class="outline-2">
+<h2 id="org646d10a">Funksjoner</h2>
+<div class="outline-text-2" id="text-org646d10a">
+</div>
+<div id="outline-container-org875d1f2" class="outline-3">
+<h3 id="org875d1f2">Definere</h3>
+<div class="outline-text-3" id="text-org875d1f2">
+<p>
+Vi ønsker nå å lage oss en <i>funksjon</i><sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> som tar inn en radius og returnerer en sirkels areal.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">function returning the area of a circle with a given radius </span><span style="color: #8e908c; font-style: italic;">*/</span>
+<span style="color: #4271ae;">float</span> <span style="color: #f5871f;">area</span>( <span style="color: #4271ae;">float</span> <span style="color: #eab700;">radius</span> ) {
+  <span style="color: #718c00;">return</span> pi * radius * radius;
+}
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
 
 <col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left"><a href="./fysikk/fysikk.html">Fysikk</a></th>
-<th scope="col" class="org-left"><a href="./tefo/">Teknologi og forskningslære</a></th>
-<th scope="col" class="org-left"><a href="./matematikk/">Matematikk</a></th>
-<th scope="col" class="org-left"><a href="./ymse/">Ymse</a></th>
+<th scope="col" class="org-left">Symbol</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Effekt</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left"><a href="./fysikk/elektrisitet.html">Elektrisitet</a></td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>float</code></td>
+<td class="org-left">nøkkelord</td>
+<td class="org-left">forteller at funksjonen skal <i>returnere</i> et desimaltall</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>area</code></td>
+<td class="org-left">navn</td>
+<td class="org-left">setter navn på funksjonen</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>()</code></td>
+<td class="org-left">tegn</td>
+<td class="org-left">viser at dette er en funksjon og inneholder eventuelle <i>parametere</i></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>float radius</code></td>
+<td class="org-left">parameter</td>
+<td class="org-left">forteller at funksjonen tar inn én parameter, og at denne er et desimaltall</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>{}</code></td>
+<td class="org-left">tegn</td>
+<td class="org-left">angir «kroppen» til funksjonen</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>return</code></td>
+<td class="org-left">nøkkelord</td>
+<td class="org-left">forteller at det følgende er det funksjonen skal <i>returnere</i></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>;</code></td>
+<td class="org-left">tegn</td>
+<td class="org-left">avslutter retursetningen</td>
 </tr>
 </tbody>
 </table>
 </div>
+
+<div id="outline-container-org8107c9b" class="outline-4">
+<h4 id="org8107c9b">I «mattespråk»</h4>
+<div class="outline-text-4" id="text-org8107c9b">
+<p>
+Vi er vant til å skrive funksjonen over som
+\(A(r) = \pi r^2\).
+</p>
+
+<p>
+Her kan vi si at \(A\) er navnet til funksjonen, denne tar inn parameteren \((r)\) og returnerer \(\pi r^2\).
+</p>
+
+<p>
+Her, og i en del programmeringsspråk, trenger vi ikke fortelle funksjonen hva slags tall \(A\) og \(r\) er, hvorvidt disse er heltall, brøker eller desimaltall.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6bf9b11" class="outline-3">
+<h3 id="org6bf9b11">Kalle</h3>
+<div class="outline-text-3" id="text-org6bf9b11">
+<p>
+Når vi nå ønsker å <i>kalle</i> denne funksjonen fra programmet vårt, gjør vi dette ved å skrive funksjonsnavnet og oppgi parameteren vi vil sende til funksjonen.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">the area of a circle with radius 2.5 </span><span style="color: #8e908c; font-style: italic;">*/</span>
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">area_small</span> = area( 2.5 );
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org8b574f6" class="outline-3">
+<h3 id="org8b574f6">Prøv deg</h3>
+<div class="outline-text-3" id="text-org8b574f6">
+<p>
+Opprett en funksjon <code>circumfrence</code> som regner ut omkretsen av en sirkel avhengig av radiusen <code>r</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd0b8330" class="outline-2">
+<h2 id="orgd0b8330">Talltyper</h2>
+</div>
+
+<div id="outline-container-orgbfed7f3" class="outline-2">
+<h2 id="orgbfed7f3">Fotnoter&#xa0;&#xa0;&#xa0;<span class="tag"><span class="no_title">no_title</span></span></h2>
+<div class="outline-text-2" id="text-orgbfed7f3">
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes" hidden>Fotnoter</h2>
+<hr>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+I programmering er funksjoner gjenbrukbar kode som kan ta inn <i>parametere</i> for å returnere noe til der den blei kalt fra.
+</p></div></div>
+
+
+</div>
+</div></div>
 </body>
 </html>

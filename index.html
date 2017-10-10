@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-06 on 11:19 -->
+<!-- 2017-09-29 fre. 14:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fagmateriell</title>
@@ -68,6 +68,7 @@
   pre.src-fortran:before { content: 'Fortran'; }
   pre.src-gnuplot:before { content: 'gnuplot'; }
   pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
   pre.src-java:before { content: 'Java'; }
   pre.src-js:before { content: 'Javascript'; }
   pre.src-latex:before { content: 'LaTeX'; }
@@ -231,20 +232,56 @@ for the JavaScript code in this tag.
 <div id="preamble" class="status">
 <!-- <div class='topnav'> -->
 <!--   <ul> -->
-<!--     <li><a href='/fysikk1/fysikk1.html'>Home</a></li> -->
+<!--     <li><a href='/fysikk/fysikk.html'>Home</a></li> -->
 <!--     <li><a href='/naturfag/naturfag.html'>Blog</a></li> -->
 <!--   </ul> -->
 <!-- </div> -->
+
+<script type="text/javascript">
+function toggleMe(a){
+var e=document.getElementById(a);
+if(!e)return true;
+if(e.style.display=="none"){
+e.style.display="block"
+}
+else{
+e.style.display="none"
+}
+return true;
+}
+</script>
 </div>
 <div id="content">
 <h1 class="title">Fagmateriell</h1>
-<ul class="org-ul">
-<li><a href="forsoek/index.html">Forsøk</a></li>
-<li>Fysikk</li>
-<li>Naturfag</li>
-<li>Teknologi og forskningslære</li>
-<li>Matematikk</li>
-</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><a href="./fysikk/fysikk.html">Fysikk</a></th>
+<th scope="col" class="org-left"><a href="./tefo/">Teknologi og forskningslære</a></th>
+<th scope="col" class="org-left"><a href="./matematikk/">Matematikk</a></th>
+<th scope="col" class="org-left"><a href="./ymse/">Ymse</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><a href="./fysikk/elektrisitet.orgpres">Elektrisitet</a></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </body>
 </html>
