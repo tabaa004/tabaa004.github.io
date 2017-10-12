@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-10-11 ons. 12:19 -->
+<!-- 2017-10-12 tor. 08:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Akselerasjon med mekanikkbane, trinse og lodd</title>
@@ -227,6 +227,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -278,9 +300,9 @@ Her skal du forsøke å regne ut vognas akselerasjon først, for så å finne de
 </div>
 </div>
 
-<div id="outline-container-orge3249c3" class="outline-3">
-<h3 id="orge3249c3">Filer</h3>
-<div class="outline-text-3" id="text-orge3249c3">
+<div id="outline-container-org32bcfad" class="outline-3">
+<h3 id="org32bcfad">Filer</h3>
+<div class="outline-text-3" id="text-org32bcfad">
 <ul class="org-ul">
 <li>Oppsett med bevegelsessensor (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_empty.gmbl">fil</a>)</li>
 <li>Oppsett med bevegelsessensor med eksempeldata (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_run1.gmbl">fil</a>)</li>
@@ -289,9 +311,9 @@ Her skal du forsøke å regne ut vognas akselerasjon først, for så å finne de
 </div>
 
 
-<div id="outline-container-orgb00ab2c" class="outline-2">
-<h2 id="orgb00ab2c">Oppsett</h2>
-<div class="outline-text-2" id="text-orgb00ab2c">
+<div id="outline-container-org0b6441c" class="outline-2">
+<h2 id="org0b6441c">Oppsett</h2>
+<div class="outline-text-2" id="text-org0b6441c">
 
 <div class="figure">
 <p><img src="./figurer/mekanikkbane_trinse_oppsett.png" alt="mekanikkbane_trinse_oppsett.png" align="center" style="border:1px solid black;" />
@@ -327,6 +349,66 @@ Bruk en stoppeklokke til å måle tiden det tar før vogna er ved 50 cm. Hvorda
 <p>
 Gjennomfør eksperimentet med bevegelsessensor, som beskrevet i forsøket  <a href="mekanikkbane_akselerasjon.html#org789a1f8">bevegelsessensor</a> fra det tidligere forsøket med mekanikkbane.
 </p>
+</div>
+</div>
+
+<div id="outline-container-orgf0f738a" class="outline-2">
+<h2 id="orgf0f738a">Tilleggsoppgave</h2>
+<div class="outline-text-2" id="text-orgf0f738a">
+</div>
+<div id="outline-container-org115b6e2" class="outline-3">
+<h3 id="org115b6e2">Filer</h3>
+<div class="outline-text-3" id="text-org115b6e2">
+<ul class="org-ul">
+<li>Data fra bevegelsessensor uten ekstra masse (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_trinse.gmbl">fil</a>)</li>
+<li>Data fra bevegelsessensor <i>med</i> ekstra masse (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_trinse_kloss.gmbl">fil</a>)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org266a0de" class="outline-3">
+<h3 id="org266a0de">Oppsett</h3>
+<div class="outline-text-3" id="text-org266a0de">
+
+<div class="figure">
+<p><img src="./figurer/mekanikkbane_trinse_kloss.png" alt="mekanikkbane_trinse_kloss.png" align="center" style="border:1px solid black;" />
+</p>
+<p><span class="figure-number">Illustrasjon 2 </span>Oppsett for gjennomføringen</p>
+</div>
+
+<p>
+Vogna har en masse på 300 g og loddets masse er 10 g.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org13e5fa9" class="outline-3">
+<h3 id="org13e5fa9">Oppgave</h3>
+<div class="outline-text-3" id="text-org13e5fa9">
+<p>
+Vi har, som figuren over viser, lagt en kloss på vogna. Vi kjenner ikke massen til klossen, men kan finne denne fra de vedlagte dataene fra bevegelsessensoren. <b>Oppgaven er å finne ut hvor stor den ukjente massen er.</b>
+</p>
+
+<p>
+Til å løse denne oppgaven har du i utgangspunktet kun behov for <i>akselerasjonen</i> fra dataene med ekstra masse.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1b4dcfb" class="outline-3">
+<h3 id="org1b4dcfb">Utklipp fra Vernier</h3>
+<div class="outline-text-3" id="text-org1b4dcfb">
+<p>
+Figuren under viser et uklipp fra bevegelsessensordataene <i>uten</i> ekstra masse. Altså noe à la det dere har fått tidligere i forsøket. Det er her lagt på en lineær regresjon for farten, hvor vi da kan lese av akselerasjonen ved å bruke at \(v = v_0 + at\).
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/mekanikkbane_akselerasjon_trinse_20171012_084334.png" alt="mekanikkbane_akselerasjon_trinse_20171012_084334.png" align="center" style="border:1px solid black;" width="70%" />
+</p>
+<p><span class="figure-number">Illustrasjon 3 </span>Oppsett for gjennomføringen</p>
+</div>
+</div>
 </div>
 </div>
 </div>
