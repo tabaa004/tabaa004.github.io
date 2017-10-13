@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-10-13 fre. 12:30 -->
+<!-- 2017-10-13 fre. 23:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programmering i C</title>
@@ -181,7 +181,6 @@
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
-<style>pre {font-family: 'Courier';}</style>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -276,18 +275,15 @@ return true;
 </div>
 <div id="content">
 <h1 class="title">Programmering i C</h1>
-<p align="center">
-Vi ser nærmere på «kodeblokkene» i C.
-</p>
 
-<div id="outline-container-org2b47448" class="outline-2">
-<h2 id="org2b47448">Strukturen av et program</h2>
-<div class="outline-text-2" id="text-org2b47448">
+<div id="outline-container-org418e304" class="outline-2">
+<h2 id="org418e304">Begynnelsen</h2>
+<div class="outline-text-2" id="text-org418e304">
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #8e908c; font-style: italic;">/****************************************************************/</span>
-<span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">In the following we want to print the message 'Hello World!' </span><span style="color: #8e908c; font-style: italic;">*/</span>
-<span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">to the console.                                              </span><span style="color: #8e908c; font-style: italic;">*/</span>
-<span style="color: #8e908c; font-style: italic;">/****************************************************************/</span>
+<pre class="src src-C"><span style="color: #8e908c; font-style: italic;">/*******************************************************/</span>
+<span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">Vi &#248;nsker &#229; f&#229; maskinen til &#229; skrive 'Hello world!' </span><span style="color: #8e908c; font-style: italic;">*/</span>
+<span style="color: #8e908c; font-style: italic;">/*******************************************************/</span>
+
 <span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
 
 <span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
@@ -306,27 +302,31 @@ Forsøk å skrive koden over inn i kompilatoren du finner på <a href="https://w
 </p>
 </div>
 
-<div id="outline-container-org069b6b6" class="outline-3">
-<h3 id="org069b6b6">Kommentarer</h3>
-<div class="outline-text-3" id="text-org069b6b6">
+<div id="outline-container-org5ce047e" class="outline-3">
+<h3 id="org5ce047e">Kommentarer</h3>
+<div class="outline-text-3" id="text-org5ce047e">
 <p>
 Når du skal <i>kommentere</i> kode i C, for eksempel når du skal fortelle hva en funksjon gjør, skriver du dette mellom <code>/*</code> og <code>*/</code>. Maskinen ser da bort fra dette når den skal kjøre programmet ditt.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org52affa0" class="outline-3">
-<h3 id="org52affa0">Preprosessor</h3>
-<div class="outline-text-3" id="text-org52affa0">
+<div id="outline-container-org2cb813e" class="outline-3">
+<h3 id="org2cb813e">Preprosessor</h3>
+<div class="outline-text-3" id="text-org2cb813e">
 <p>
-C er et språk som kommer uten batterier inkludert &#x2026; i det aller minste uten batterier satt inn. På linja <code>#include &lt;stdio.h&gt;</code> forteller vi at vi ønsker å ha muligheten for å gi eller få skrevet ut data til og fra programmet vårt.
+C er et språk som kommer uten batterier inkludert &#x2026; i det aller minste uten batterier satt inn. På linja <code>#include &lt;stdio.h&gt;</code> forteller vi at vi ønsker å ha muligheten for å gi eller få skrevet ut data til og fra programmet vårt. Uten denne linja får vi her ikke tilgang til <code>printf</code>-funksjonen.
+</p>
+
+<p>
+I oppgaven <a href="#org2a6b979">Løsning av andregradslikninger</a> skal du eksempelvis bruke et annet bibliotek.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb28aebe" class="outline-3">
-<h3 id="orgb28aebe"><code>main</code>-funksjonen</h3>
-<div class="outline-text-3" id="text-orgb28aebe">
+<div id="outline-container-org231c0d3" class="outline-3">
+<h3 id="org231c0d3"><code>main</code>-funksjonen</h3>
+<div class="outline-text-3" id="text-org231c0d3">
 <p>
 Tilnærmet ethvert C-program har en <code>main</code> funksjon hvor vi samler all koden som kjøres i løpet av programmet.
 </p>
@@ -334,9 +334,9 @@ Tilnærmet ethvert C-program har en <code>main</code> funksjon hvor vi samler al
 </div>
 </div>
 
-<div id="outline-container-org4aaf484" class="outline-2">
-<h2 id="org4aaf484">Konstanter og variabler</h2>
-<div class="outline-text-2" id="text-org4aaf484">
+<div id="outline-container-org944727d" class="outline-2">
+<h2 id="org944727d">Konstanter og variabler</h2>
+<div class="outline-text-2" id="text-org944727d">
 <p>
 For å opprette en <i>konstant</i> verdi i C, altså en verdi som ikke kan endres gjennom kjøringen av programmet,  bruker vi <i>nøkkelordet</i> <code>const</code>. 
 </p>
@@ -381,7 +381,7 @@ Her har vi disse elementene:
 <tr>
 <td class="org-left"><code>float</code></td>
 <td class="org-left">nøkkelord</td>
-<td class="org-left">konstanten skal være et desimaltall (se <a href="#orgc411e4b">Tall og typer</a>)</td>
+<td class="org-left">konstanten skal være et desimaltall (se <a href="#org708e82b">Tall og typer</a>)</td>
 </tr>
 
 <tr>
@@ -421,15 +421,21 @@ Gir følgende:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #4271ae;">error</span>: assignment <span style="color: #4271ae;">of</span> <span style="color: #eab700;">read</span>-only variable <span style="color: #3e999f;">'pi'</span>
+<pre class="src src-org">~/filename.c: In function 'main':
+~filename.c: error: assignment of read-only variable 'pi'
+ pi = 3.5;
 </pre>
 </div>
+
+<p>
+Vi har altså ikke mulighet til å endre en verdi satt til å være konstant.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgc411e4b" class="outline-2">
-<h2 id="orgc411e4b">Tall og typer</h2>
-<div class="outline-text-2" id="text-orgc411e4b">
+<div id="outline-container-org708e82b" class="outline-2">
+<h2 id="org708e82b">Tall og typer</h2>
+<div class="outline-text-2" id="text-org708e82b">
 <p>
 Når vi programmerer, er det ofte viktig å skille mellom spesielt <i>desimaltall</i>, <i>heltall</i> og <i>tekst</i>.
 </p>
@@ -469,13 +475,95 @@ Vi definerer tekststrenger<sup><a id="fnr.2" class="footref" href="#fn.2">2</a><
 </div>
 </div>
 
-<div id="outline-container-org646d10a" class="outline-2">
-<h2 id="org646d10a">Funksjoner</h2>
-<div class="outline-text-2" id="text-org646d10a">
+<div id="outline-container-org713e445" class="outline-2">
+<h2 id="org713e445">Inn- og utdata</h2>
+<div class="outline-text-2" id="text-org713e445">
+<p>
+Vi er ofte interessert i å kunne få verdier programmet vårt har regnet ut skrevet på skjermen eller å kunne gi programmet nye data å regne med.
+</p>
 </div>
-<div id="outline-container-org875d1f2" class="outline-3">
-<h3 id="org875d1f2">Definere</h3>
-<div class="outline-text-3" id="text-org875d1f2">
+<div id="outline-container-orgea73c59" class="outline-3">
+<h3 id="orgea73c59">Formatering av tekststrenger</h3>
+<div class="outline-text-3" id="text-orgea73c59">
+<p>
+Om vi ønsker å sette beregnede verdier eller andre variabler inn i <i>formatstrenger</i>. Se på og test eksempelet under.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
+
+<span style="color: #4271ae;">int</span> <span style="color: #eab700;">heltall</span> = 5;
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">desimaltall</span> = 5.5;
+<span style="color: #4271ae;">char</span> <span style="color: #eab700;">tekststreng</span>[] = <span style="color: #3e999f;">"Noe &#229; skrive ut"</span>;
+
+<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
+  printf(<span style="color: #3e999f;">"Heltallet er: %d\n"</span>, heltall);
+  printf(<span style="color: #3e999f;">"Desimaltallet er: %f\n"</span>, desimaltall);
+  printf(<span style="color: #3e999f;">"Tekstrengen er: %s\n"</span>, tekststreng);
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Heltallet er: 5
+Desimaltallet er: 5.500000
+Tekstrengen er: Noe &#229; skrive ut
+</pre>
+</div>
+
+<p>
+Vi har følgende former for formateringsspesifkasjoner:
+</p>
+
+<p>
+Noen tilleggstegn:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Tegn</th>
+<th scope="col" class="org-left">Effekt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>\n</code></td>
+<td class="org-left">linjeskift</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\"</code></td>
+<td class="org-left">dobbelt anførselstegn uten at det avslutter tekststrengen</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\'</code></td>
+<td class="org-left">enkelt anførselstegn uten at det avslutter tekststrengen</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="outline-container-org6fe8eab" class="outline-2">
+<h2 id="org6fe8eab">Funksjoner</h2>
+<div class="outline-text-2" id="text-org6fe8eab">
+</div>
+<div id="outline-container-orgf0bf4d6" class="outline-3">
+<h3 id="orgf0bf4d6">Definere</h3>
+<div class="outline-text-3" id="text-orgf0bf4d6">
 <p>
 Vi ønsker nå å lage oss en <i>funksjon</i><sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup> som tar inn en radius og returnerer en sirkels areal.
 </p>
@@ -551,9 +639,9 @@ Vi ønsker nå å lage oss en <i>funksjon</i><sup><a id="fnr.3" class="footref" 
 </table>
 </div>
 
-<div id="outline-container-org8107c9b" class="outline-4">
-<h4 id="org8107c9b">I «mattespråk»</h4>
-<div class="outline-text-4" id="text-org8107c9b">
+<div id="outline-container-org837595d" class="outline-4">
+<h4 id="org837595d">I «mattespråk»</h4>
+<div class="outline-text-4" id="text-org837595d">
 <p>
 Vi er vant til å skrive funksjonen over som
 \(A(r) = \pi r^2\).
@@ -570,9 +658,9 @@ Her, og i en del programmeringsspråk, trenger vi ikke fortelle funksjonen hva s
 </div>
 </div>
 
-<div id="outline-container-orgb6c32ba" class="outline-3">
-<h3 id="orgb6c32ba">Kalle funksjonen</h3>
-<div class="outline-text-3" id="text-orgb6c32ba">
+<div id="outline-container-org16a801d" class="outline-3">
+<h3 id="org16a801d">Kalle funksjonen</h3>
+<div class="outline-text-3" id="text-org16a801d">
 <p>
 Når vi nå ønsker å <i>kalle</i> denne funksjonen fra programmet vårt, gjør vi dette ved å skrive funksjonsnavnet og oppgi parameteren vi vil sende til funksjonen.
 </p>
@@ -580,17 +668,12 @@ Når vi nå ønsker å <i>kalle</i> denne funksjonen fra programmet vårt, gjør
 <div class="org-src-container">
 <pre class="src src-C"><span style="color: #718c00;">const</span> <span style="color: #4271ae;">float</span> <span style="color: #eab700;">pi</span> = 3.14;
 
-<span style="color: #4271ae;">float</span> <span style="color: #f5871f;">area</span>(<span style="color: #4271ae;">float</span> <span style="color: #eab700;">radius</span>) {
+<span style="color: #4271ae;">float</span> <span style="color: #f5871f;">Area</span>(<span style="color: #4271ae;">float</span> <span style="color: #eab700;">radius</span>) {
   <span style="color: #718c00;">return</span> pi * radius * radius;
 }
 
 <span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">the area of a circle with radius 2.5 </span><span style="color: #8e908c; font-style: italic;">*/</span>
-<span style="color: #4271ae;">float</span>  = area(2.5);
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-C">
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">calculated_area</span> = Area(2.5);
 </pre>
 </div>
 
@@ -600,9 +683,9 @@ Hva representerer <code>area_small</code> her?
 </div>
 </div>
 
-<div id="outline-container-org8b574f6" class="outline-3">
-<h3 id="org8b574f6">Prøv deg</h3>
-<div class="outline-text-3" id="text-org8b574f6">
+<div id="outline-container-org49c4a33" class="outline-3">
+<h3 id="org49c4a33">Prøv deg</h3>
+<div class="outline-text-3" id="text-org49c4a33">
 <p>
 Opprett en funksjon <code>circumfrence</code> som regner ut omkretsen av en sirkel avhengig av radiusen <code>r</code>.
 </p>
@@ -610,17 +693,13 @@ Opprett en funksjon <code>circumfrence</code> som regner ut omkretsen av en sirk
 </div>
 </div>
 
-<div id="outline-container-org6da532c" class="outline-2">
-<h2 id="org6da532c">Formatere utskrift</h2>
+<div id="outline-container-orgf824344" class="outline-2">
+<h2 id="orgf824344">Kontrollstrukturer</h2>
+<div class="outline-text-2" id="text-orgf824344">
 </div>
-
-<div id="outline-container-org1b4dfcd" class="outline-2">
-<h2 id="org1b4dfcd">Kontrollstrukturer</h2>
-<div class="outline-text-2" id="text-org1b4dfcd">
-</div>
-<div id="outline-container-org231559b" class="outline-3">
-<h3 id="org231559b">Logiske tester</h3>
-<div class="outline-text-3" id="text-org231559b">
+<div id="outline-container-org560e68c" class="outline-3">
+<h3 id="org560e68c">Logiske tester</h3>
+<div class="outline-text-3" id="text-org560e68c">
 <p>
 I C har vi følgende måter å sammenligne to verdier:
 </p>
@@ -645,7 +724,7 @@ I C har vi følgende måter å sammenligne to verdier:
 <tbody>
 <tr>
 <td class="org-left"><code>==</code></td>
-<td class="org-left"><code>a == 3.0</code></td>
+<td class="org-left"><code>a==3.0</code></td>
 <td class="org-left">om to verdier er like</td>
 </tr>
 
@@ -709,21 +788,28 @@ Ulike logiske tester kan også settes sammen ved hjelp av logiske operatorer. Ek
 <tr>
 <td class="org-left"><code>&amp;&amp;</code></td>
 <td class="org-left"><code>True &amp;&amp; False</code> gir <code>False</code></td>
-<td class="org-left">"and" eller "og"</td>
+<td class="org-left">«and» eller «og»</td>
 <td class="org-left">Returnerer kun <code>True</code> dersom både venstre og høyre side er <code>True</code></td>
 </tr>
 
 <tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
 <td class="org-left">&vert;&vert;</td>
-<td class="org-left"><code>True ~\vert{}\vert  ~False</code> gir <code>True</code></td>
-<td class="org-left">"or" eller "eller"</td>
+<td class="org-left"><code>True</code> &vert;&vert;  <code>False</code> gir <code>True</code></td>
+<td class="org-left">«or» eller «eller»</td>
 <td class="org-left">Returnerer <code>True</code> dersom venstre <i>eller</i> høyre side er <code>True</code></td>
 </tr>
 
 <tr>
 <td class="org-left"><code>!</code></td>
 <td class="org-left"><code>!True</code> gir <code>False</code></td>
-<td class="org-left">"not" eller "ikke#</td>
+<td class="org-left">«not» eller «ikke»</td>
 <td class="org-left">Returner <code>False</code> hvis <code>True</code> inn og motsatt</td>
 </tr>
 
@@ -741,14 +827,218 @@ Merk spesielt forskjellen mellom <code>==</code> og <code>=</code>. Det er en sv
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgfb43e9f" class="outline-3">
+<h3 id="orgfb43e9f">for-løkke</h3>
+<div class="outline-text-3" id="text-orgfb43e9f">
+<p>
+I de fleste tilfeller ønsker vi å gjenta oss selv så lite som mulig. Dess flere ganger vi skriver nesten det samme i et program, jo lettere er det at det sniker seg inn feil &#x2026; og jo kjedeligere blir det.
+</p>
+
+<p>
+Om vi skal skrive et program som finner summen av alle tall fra 1 til 100, kan det gjøres med rå muskelkraft som
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
+<span style="color: #4271ae;">int</span> <span style="color: #eab700;">sum</span>;
+
+<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
+  sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 +
+    11 + 12 + 13 + 14 + 15 + 16 + 17 + 18 + 19 + 20 +
+    21 + 22 + 23 + 24 + 25 + 26 + 27 + 28 + 29 + 30 +
+    31 + 32 + 33 + 34 + 35 + 36 + 37 + 38 + 39 + 40 +
+    41 + 42 + 43 + 44 + 45 + 46 + 47 + 48 + 49 + 50 +
+    51 + 52 + 53 + 54 + 55 + 56 + 57 + 58 + 59 + 60 +
+    61 + 62 + 63 + 64 + 65 + 66 + 67 + 68 + 69 + 70 +
+    71 + 72 + 73 + 74 + 75 + 76 + 77 + 78 + 79 + 80 +
+    81 + 82 + 83 + 84 + 85 + 86 + 87 + 88 + 89 + 90 +
+    91 + 92 + 93 + 94 + 95 + 96 + 97 + 98 + 99 + 100;
+
+ printf(<span style="color: #3e999f;">"Summen av alle tallene fra 1 til 100 er %d."</span>, sum);
+
+}
+</pre>
 </div>
 
-<div id="outline-container-org7351a0c" class="outline-2">
-<h2 id="org7351a0c">Inn- og utdata</h2>
+<div class="org-src-container">
+<pre class="src src-org">Summen av alle tallene fra 1 til 100 er 5050.
+</pre>
 </div>
 
-<div id="outline-container-org6883f87" class="outline-2">
-<h2 id="org6883f87">Oppgaver</h2>
+<p>
+Vi ser dog her at vi gjør mer eller mindre det samme stykket hundre ganger. Dette kan vi forenkle.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
+
+<span style="color: #4271ae;">int</span> <span style="color: #eab700;">sum</span>;
+
+<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
+  <span style="color: #718c00;">for</span> (<span style="color: #4271ae;">int</span> <span style="color: #eab700;">i</span> = 1; i &lt;=100; ++i) {
+    sum += i;
+  }
+  printf(<span style="color: #3e999f;">"Summene av alle tallene fra 1 til 100 er %d."</span>, sum);
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Summene av alle tallene fra 1 til 100 er 5050.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd82f41f" class="outline-4">
+<h4 id="orgd82f41f">Tillegg for matemematikerne</h4>
+<div class="outline-text-4" id="text-orgd82f41f">
+<p>
+Og så sier matematikeren: «Og hvorfor bruker dere ikke at summen av alle tallene fra 1 til <i>n</i> er følgende?
+</p>
+
+<p>
+\(S = \frac{(n+1)n}{2}\)
+</p>
+
+<p>
+Vel &#x2026; fordi.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbc18ab" class="outline-4">
+<h4 id="orgbbc18ab"><code>for</code>-løkke gjennom en streng</h4>
+<div class="outline-text-4" id="text-orgbbc18ab">
+<p>
+I C er tekststrenger kun en del av minnet hvor vi har lagret <code>char</code>-verdier en etter en som vi så kan hente fram. Klarer du for eksempel å se hva følgende kode gjør?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
+
+<span style="color: #4271ae;">int</span> <span style="color: #eab700;">lengde</span>;
+<span style="color: #4271ae;">char</span> <span style="color: #eab700;">sitat</span>[] = <span style="color: #3e999f;">"To the library, and step on it!"</span>;
+
+<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
+  printf(<span style="color: #3e999f;">"%c\n"</span>, sitat[3]);
+
+  lengde = strlen(sitat);
+  printf(<span style="color: #3e999f;">"Lengend av sitatet er %d."</span>, lengde);
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">t
+Lengend av sitatet er 31.
+</pre>
+</div>
+
+<p>
+For å finne lengden av en tekststreng, bruker vi den innebygde funksjonen <code>strlen</code><sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>.
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="orgbcd40c9"></a>Oppgave<br />
+<div class="outline-text-5" id="text-orgbcd40c9">
+<p>
+Lag en <code>for</code>-løkke som løper gjennom hele strengen og skriver ut bokstav for bokstav.
+</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org498ccd6" class="outline-2">
+<h2 id="org498ccd6">Oppgaver</h2>
+<div class="outline-text-2" id="text-org498ccd6">
+</div>
+<div id="outline-container-org6bbe3bd" class="outline-3">
+<h3 id="org6bbe3bd">Din egen hash-funksjon</h3>
+<div class="outline-text-3" id="text-org6bbe3bd">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
+
+<span style="color: #4271ae;">char</span> <span style="color: #eab700;">streng</span>[] = <span style="color: #3e999f;">"&#230;"</span>;
+<span style="color: #4271ae;">int</span> <span style="color: #eab700;">a</span> = <span style="color: #3e999f;">"a"</span>;
+
+<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
+  printf(<span style="color: #3e999f;">"%b"</span>, a);
+    }
+
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">b
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2a6b979" class="outline-3">
+<h3 id="org2a6b979">Løsning av andregradslikninger</h3>
+<div class="outline-text-3" id="text-org2a6b979">
+<p>
+I <code>math</code>-biblioteket får vi tilgang til flere nyttige funksjoner, for eksempel finner vi kvadratrotfunksjonen, <code>sqrt</code>, der.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
+<span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;math.h&gt;</span>
+
+<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span> () {
+   printf(<span style="color: #3e999f;">"kvadratroten av %2.1f er %.2f.\n"</span>, 4.0, sqrt(4.0) );
+   printf(<span style="color: #3e999f;">"kvadratroten av %2.1f er %.2f.\n"</span>, 5.0, sqrt(5.0) );
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Square root of 4.0 is 2.00
+Square root of 5.0 is 2.24
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org5b71220" class="outline-3">
+<h3 id="org5b71220">Konvertering fra grader farhenheit til celsius</h3>
+<div class="outline-text-3" id="text-org5b71220">
+<p>
+Hvis \(T_C\) er en temperatur målt i grader celsius, og \(T_F\) er den samme temperaturen målt i grader fahrenheit, kan gå fra grader celsius til farhenheit ved å bruke at
+</p>
+
+<p>
+$T<sub>F</sub> = 1,8&sdot; T<sub>C</sub> + 32.$
+</p>
+
+<p>
+Lag et program som gjør følgende:
+</p>
+<ul class="org-ul">
+<li>Skriver ut en overskrift</li>
+<li>Skriver ut to kolonner med tall</li>
+<li>Den første kolonnen viser temperatur i grader celsius</li>
+<li>Den andre kolonnen viser temperatur i grader fahrenhet</li>
+<li>Konverter tallene fra -30 °C til 100 °C med intervaller på 10 °C.</li>
+</ul>
+
+<p>
+Overskriften formateres som:
+</p>
+<div class="org-src-container">
+<pre class="src src-org">Temp. grader C    Temp. grader F
+--------------------------------
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="footnotes">
 <h2 class="footnotes" hidden>Fotnoter</h2>
@@ -765,6 +1055,10 @@ I en datamaskin vil en serie med bokstaver (en <i>streng</i>) representeres som 
 
 <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
 I programmering er funksjoner gjenbrukbar kode som kan ta inn <i>parametere</i> for å returnere noe til der den blei kalt fra.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+<code>str</code> for «string» og <code>len</code> for «length»
 </p></div></div>
 
 

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <!-- 2017-10-13 fre. 23:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Akselerasjon med mekanikkbane</title>
+<title>Kirchhoffs lover</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="Tarjei Bærland" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -180,7 +179,6 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -229,20 +227,20 @@ for the JavaScript code in this tag.
 </script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
+        displayAlign: "left",
+        displayIndent: "5em",
 
         "HTML-CSS": { scale: 100,
                         linebreaks: { automatic: "false" },
-                        webFont: "TeX"
+                        webFont: "Neo-Euler"
                        },
         SVG: {scale: 100,
               linebreaks: { automatic: "false" },
-              font: "TeX"},
+              font: "Neo-Euler"},
         NativeMML: {scale: 100},
         TeX: { equationNumbers: {autoNumber: "AMS"},
                MultLineWidth: "85%",
-               TagSide: "right",
+               TagSide: "left",
                TagIndent: ".8em"
              }
 });
@@ -274,177 +272,136 @@ return true;
 </script>
 </div>
 <div id="content">
-<h1 class="title">Akselerasjon med mekanikkbane</h1>
-<div id="outline-container-org97877b9" class="outline-3">
-<h3 id="org97877b9">Hensikt</h3>
-<div class="outline-text-3" id="text-org97877b9">
+<h1 class="title">Kirchhoffs lover</h1>
+
+<div id="outline-container-orgb24eba7" class="outline-2">
+<h2 id="orgb24eba7">Innledning og forutsetninger</h2>
+<div class="outline-text-2" id="text-orgb24eba7">
 <p>
-Vi skal finne akselerasjonen til en vogn på en mekanikkbane. Dette skal vi gjøre på tre forskjellige måter, med økende grad av nøyaktighet.
+I løpet av dette forsøket skal du komme deg fram til Kirchhoffs lover. Felles for begge er at de er en slags <i>bevaringslover</i>.
+</p>
+
+<p>
+Les <a href="#org0c1eceb">rapportavsnittet</a> under for beskrivelse av det du skal produsere.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgae5a218" class="outline-3">
-<h3 id="orgae5a218">Utstyr</h3>
-<div class="outline-text-3" id="text-orgae5a218">
-<ul class="org-ul">
-<li>Mekanikkbane med vogn</li>
-<li>Stoppeklokke</li>
-<li>Fotoporter</li>
-<li>Bevegelsessensor</li>
-<li>Datamaskin med <a href="https://www.vernier.com/products/software/logger-lite/">Vernier Logger Lite</a></li>
-</ul>
+<div id="outline-container-org38389c3" class="outline-2">
+<h2 id="org38389c3">Kobling av motstander</h2>
+<div class="outline-text-2" id="text-org38389c3">
 </div>
-</div>
-
-<div id="outline-container-org4115bd0" class="outline-3">
-<h3 id="org4115bd0">Filer</h3>
-<div class="outline-text-3" id="text-org4115bd0">
-<ul class="org-ul">
-<li>Oppsett med fotoporter (<a href="https://tabaa004.github.io/gmbl/mekanikk_fotoport_toportbin_empty.gmbl">fil</a>)</li>
-<li>Oppsett med fotoporter med eksempeldata (<a href="https://tabaa004.github.io/gmbl/mekanikk_fotoport_toportbin_run1.gmbl">fil</a>)</li>
-<li>Oppsett med bevegelsessensor (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_empty.gmbl">fil</a>)</li>
-<li>Oppsett med bevegelsessensor med eksempeldata (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_run1.gmbl">fil</a>)</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org7303006" class="outline-2">
-<h2 id="org7303006">Ved bruk av stoppeklokke</h2>
-<div class="outline-text-2" id="text-org7303006">
+<div id="outline-container-org66de7eb" class="outline-3">
+<h3 id="org66de7eb">Seriokobling</h3>
+<div class="outline-text-3" id="text-org66de7eb">
 <p>
-I dette delforsøket skal vi undersøke om vogna har konstant akselerasjon. Hvis akseleresjonen er konstant og startfarten er null, er veilengden \(s\) i løpet av tiden \(t\) gitt ved formelen \(s=\frac{1}{2}at^2\) Vi skal måle sammenhørende verdier av \(s\) og \(t\), og deretter regne ut forholdet \(\frac{2s}{t^2}\).
+Når noe kobles i <i>serie</i>, går det som går ut av den første enheten, inn i den neste. Et eksempel kan være to biltunneler etter hverandre. Det skal da ikke være noen forgreininger mellom enhetene.
 </p>
+</div>
 
-<p>
-<b>Fremgangsmåte</b>
-</p>
+<div id="outline-container-org0e41b92" class="outline-4">
+<h4 id="org0e41b92">Fremgangsmåte og oppgaver</h4>
+<div class="outline-text-4" id="text-org0e41b92">
 <ol class="org-ol">
-<li>Still opp mekanikkbanen med forholdsvis svak helling. Slipp vogna og ta tiden.</li>
-<li>Gjør forsøket et par ganger med samme veilengde og finn tiden \(t\) for denne veilengden.</li>
-<li>Gjenta forsøket med andre veilengder.</li>
-<li>Sett resultatene inn i en tabell.</li>
-<li>Sammenlign \(\frac{2s}{t^2}\) for alle målingene. Hva tyder målingene på?</li>
-<li>◆ Regn ut om gjennomsnittsverdien \(\bar{a}\) og usikkerheten \(\Delta a\) på grunnlag av målingene ovenfor. (Du kan her gjøre et overslag for usikkerheten som differansen mellom den høyste og laveste verdien.)</li>
-<li>◆ Skriv \(a\) med usikkerhet. (Dette kan du oppgi som \(a = \bar{a} \pm \Delta a /2\).)</li>
-<li>◆ Regn ut den relative usikkerheten for akselerasjonen i prosent. (Hvor stor er usikkerheten i forhold til akselerasjonen du fant?)</li>
+<li>Koble to motstander i serie, velg to resistanser mellom 1,5&nbsp;&Omega; og 2,5&nbsp;&Omega;.</li>
+<li>Sett motstandene i en krets med en spenningskilde på 5,0&nbsp;V.</li>
+<li>Hva blir spenningsfallet over hver av motstandene?</li>
+<li>Hva blir spenningsfallet over begge motstandene til sammen?</li>
 </ol>
-
-<p>
-(Dette er forsøk 1D - Metode 2 fra ERGO s. 399)
-</p>
 </div>
 </div>
 
-<div id="outline-container-org1747fb3" class="outline-2">
-<h2 id="org1747fb3">Ved bruk av fotoporter</h2>
-<div class="outline-text-2" id="text-org1747fb3">
+<div id="outline-container-org3ee3764" class="outline-4">
+<h4 id="org3ee3764">Tilleggsoppgave</h4>
+<div class="outline-text-4" id="text-org3ee3764">
 <p>
-<b>Merk, under dette delforsøket skal dere gi vogna et dytt <i>oppover</i> fra bunnen av banen, slik at dere får fire målinger, to på vei opp og to på vei ned. Pass også på å bruke malen som ligger under <i>filer</i> på toppen av siden.</b>
+Med tre motstander i serie \(R_1\), \(R_2\) og \(R_3\). Hva blir et uttrykk for totalmotstanden \(R\)? Hva med om du har \(n\) motstander?
 </p>
+</div>
+</div>
+</div>
 
+<div id="outline-container-org35602db" class="outline-3">
+<h3 id="org35602db">Parallellkobling</h3>
+<div class="outline-text-3" id="text-org35602db">
 <p>
-I dette delforsøket skal vi se på akselerasjonen til vogna ved å bruke fotoporter. Fotoportene sender et signal til dataloggeren så lenge lyset mellom de to armene på porten er brutt. Her skal to fotoporter gi oss nøyaktige tidspunkter for vognas passering. Fotoportene er satt opp med en avstand på 40 cm, som vist på figuren under.
+Når noe <i>parallellkobles</i>, splittes strømmen som skal gjennom enhetene, slik at kun en <i>greinstrøm</i> går gjennom hver enhet. Du skal senere vise at for to motstander blir da totalmotstanden
+\(R = \left(\frac{1}{R_1} + \frac{1}{R_2}\right)^{-1}\).
 </p>
+</div>
 
-<p>
-<b>Fremgansgmåte</b>
-</p>
+<div id="outline-container-org1ca681d" class="outline-4">
+<h4 id="org1ca681d">Fremgangsmåte og oppgaver</h4>
+<div class="outline-text-4" id="text-org1ca681d">
 <ol class="org-ol">
-<li>Sett i gang målingene og gi vogna et dytt godt i underkant av den nedre fotoporten.</li>
-<li>Les av tidspunktene fra målingene og fyll ut en tabell à la den under.</li>
-<li>Bruk regresjonsverktøyet i Geogebra og finn den andregradsfunksjonen som passer best med dataene fra forsøket.</li>
-<li>Sammenlikn funksjonen fra regresjonen med \(s = s_0 + v_0 t + \frac{1}{2} at^2\)</li>
-<li>Finn en verdi for akselerasjonen ut fra sammenlikningen i forrige punkt.</li>
+<li>Koble to motstander i parallell, velg to ulike motstander mellom 10&nbsp;&Omega; og 30&nbsp;&Omega;,</li>
+<li>Sett de parallelle motsandene inn i en hovedkrets som driver strømmne gjennom begge motstandene, bruk en spenningskilde på 15&nbsp;V.</li>
+<li>Hva blir spenningsfallet over hver av motstandene?</li>
+<li>Hva blir spenningsfallet over motstandene sammen?</li>
+<li>Kommenter svarene du fikk i oppgave 3 og 4.</li>
 </ol>
-
-
-<div class="figure">
-<p><img src="./figurer/mekanikkbane_oppsett_fotoporter.jpg" alt="mekanikkbane_oppsett_fotoporter.jpg" width="40%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
-</p>
-<p><span class="figure-number">Illustrasjon 1 </span>&#x2013; Oppsett med fotoporter</p>
+</div>
+</div>
+</div>
 </div>
 
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center" width="60%">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">\(t\) (s)</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">\(s\) (m)</td>
-<td class="org-left">0,40</td>
-<td class="org-left">0,80</td>
-<td class="org-left">0,80</td>
-<td class="org-left">0,40</td>
-</tr>
-</tbody>
-</table>
-
+<div id="outline-container-org43e46ac" class="outline-2">
+<h2 id="org43e46ac">Kirchoffs lover</h2>
+<div class="outline-text-2" id="text-org43e46ac">
+</div>
+<div id="outline-container-org6c1f364" class="outline-3">
+<h3 id="org6c1f364">Første lov</h3>
+<div class="outline-text-3" id="text-org6c1f364">
 <p>
-<b>Utfordringsoppgave ◆</b>
-Om vi bruker en gjenstand med en gitt lengde til å bryte lyset i fotoporten, får vi muligheten til å måle en tilnærmet <i>momentanfart</i> for vognen. Beskriv et forsøk for å finne akselerasjonen hvor du har én fotoport tilgjengelig, men en gjenstand med lengde til å bryte lysstrålen.
+Her er det en forutsetning at i fysikken er <i>ladning</i> en bevart egenskap. Om vi da ser på en strøm \(I\) som går inn mot en forgreing, og at strøm er antall ladninger som passerer et tverrsnitt per sekund, så vil det ikke oppstå ladninger i forgreiningen. Vi får da følgende:
 </p>
 
 <p>
-Hint: Du kan her finne momentanfarten til vognen idet den passerer fotoporten på vei opp og ned, samt hvor lang tid det er mellom de to passeringene.* Ved bruk av bevegelsessensor
-</p>
-
-<p>
-<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#orga176070">her</a>.)</i>
+<span class="underline">Summen av alle strømmene inn til et forgreiningspunkt er lik summen av alle strømmene ut fra forgreiningspunktet.</span>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org967e2b3" class="outline-2">
-<h2 id="org967e2b3">Ved bruk av bevegelsessensor</h2>
-<div class="outline-text-2" id="text-org967e2b3">
+<div id="outline-container-orgf2712d5" class="outline-3">
+<h3 id="orgf2712d5">Andre lov</h3>
+<div class="outline-text-3" id="text-orgf2712d5">
 <p>
-I dette forsøket skal vi finne akselerasjonen til vogna ved å bruke en bevegelsessensor.
+Der den første loven baseres på bevaring av ladning, baserer vi Kirchhoffs andre lov på bevaring av <i>energi</i>. Når en spenningskilde har utført et arbeid på en ladning som beveger seg gjennom en krets (som er definsjonen på spenning), går arbeidet til å drive ladningen gjennom komponentene. Vi får da følgende:
 </p>
 
-
-<div class="figure">
-<p><img src="./figurer/mekanikkbane_oppsett_bevegelsessensor.jpg" alt="mekanikkbane_oppsett_bevegelsessensor.jpg" width="40%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
+<p>
+<span class="underline">Summen av alle de elektromotoriske spenningene rundt en lukket delkrets er lik summen av alle spenningene over motstandene i kretsen.</span>
 </p>
-<p><span class="figure-number">Illustrasjon 2 </span>&#x2013; Oppsett med bevegelsessensor</p>
 </div>
 
+<div id="outline-container-org302265a" class="outline-4">
+<h4 id="org302265a">Utforskningsoppgave</h4>
+<div class="outline-text-4" id="text-org302265a">
 <p>
-<b>Fremgangsmåte</b>
-</p>
-<ol class="org-ol">
-<li>Still opp mekanikkbanen med forholdsvis svak helning og koble til PC-en.</li>
-<li>Åpne <a href="../gmbl/mekanikk_bevegelsessensor_empty.gmbl">malen</a> for logging.</li>
-<li>Gi vogna et skyv oppover skråplanet og start loggingen med mellomromstastend idet vogna fritt.</li>
-<li>Stopp loggingen litt før vogna er på vei av skråplanet og <i>stans vogna</i>.</li>
-<li>I Logger Lite, velg Analyze → Linear Fit og finn den rette linja som passer med den målte <i>farten</i>.</li>
-</ol>
-
-<p>
-Hvordan kan du lese akselerasjonen av denne rette linja?
+Bruk Kirchhoffs første lov til å utlede uttrykket for totalmotstanden over to parallellkoblede motstander.
 </p>
 
 <p>
-<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#orged4eeda">her</a>.)</i>
+Merk, det vil ikke være noe <i>spenningsfall</i> over en forgreining.
 </p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0c1eceb" class="outline-2">
+<h2 id="org0c1eceb">Rapport</h2>
+<div class="outline-text-2" id="text-org0c1eceb">
+<p>
+Gå gjennom oppgavene over og besvar disse i en rapport hvor du tar med følgende:
+</p>
+<dl class="org-dl">
+<dt>Bakgrunnsstoff</dt><dd>Her gjør du selv en vurdering av hva du mener er relevant. Forklar for eksempel hva som menes med en <i>bevaringslov</i>.</dd>
+<dt>Utstyr</dt><dd>Da dette arbeidet er gjort i virtuell lab, er det ikke nødvendig med en formell utstyrsliste. Det du dog bør ha med er en kort introduksjon av programvaren. Sørg også for å ha med skjermbilder av de forskjellige oppsettene du har jobbet med.</dd>
+<dt>Resultater</dt><dd>Her må det komme tydelig fram hvilke tallverdier du leste av i de forskjellige oppgavene</dd>
+<dt>Konklusjoner</dt><dd>Det er meningen at du skal få bekreftent noen fundamentale sammenhenger i elektrisitetslæren via disse oppgavene. Noen av dem er gitt i teksten over, andre ikke. Disse sammenhengene bør komme tydelig fram i din besvarelse.</dd>
+</dl>
 </div>
 </div>
 </div>

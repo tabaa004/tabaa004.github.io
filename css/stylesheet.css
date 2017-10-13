@@ -1,19 +1,26 @@
 /* @group Fonts */
 
-* {
-    font-family: "Georgia";
-}
-
 h1, h2, h3, h4, h5, h6,
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span,
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-    font-family: "Source Code Pro";
+    font-family: Tahoma, Geneva, sans-serif;
 }
 
-pre, src, src-C {
+pre, pre.src, pre.src-C {
     font-family: monospace, "Source Code Pro", "Courier New", Courier;
 }
 
+pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: "Source Code Pro",  monospace;
+    overflow: auto;
+    /* margin: 1.2em; */
+    margin: auto;
+    align: center;
+    display: inline-block;
+  }
 #text-table-of-contents a {
     font-family: "Arial";
 }
@@ -26,6 +33,7 @@ body {
 	line-height: 1.5em;
 	padding: 0;
 	margin: 0;
+	font-family: "Georgia";
 }
 h1 {
 	margin: 0;
@@ -75,32 +83,14 @@ table {
 	width: 70em;
 	margin-left: auto;
 	margin-right: auto;
-	border-size: 2px;
-	border-style: solid;
-	border-color: 000;
-			
+	padding: 8px;
 }
 
-/* #header {
-	height: 10em;
-}
-*/
 
 #table-of-contents {
 	width: 15em;
 	float: left;
 	overflow: auto;
-}
-
-/* Navigation bar */
-.topnav {
-    top: 0;
-    left: 0;
-    max-height: var(--nav-height);
-    vertical-align: middle;
-    background-color: var(--nav-bg);
-    width: var(--side-width);
-    font-size: var(--nav-base-font-size);
 }
 
 /* #main { */
@@ -191,8 +181,8 @@ h1.title {
 /* @group Outline Level 2 */
 
 .outline-2 h2 {
-    background: #6699ff;
-    /* border-bottom: 1px solid #ccc; */
+    /* background: #6699ff; */
+    border-bottom: 1px solid #ccc;
 }
 
 .outline-2 h2, .outline-2 h3 {
@@ -220,7 +210,7 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
 }
 
 .outline-1, .outline-2, .outline-3, .outline-4, .outline-5, .outline-6 {
-    margin-left: 2em;
+    margin-left: 0em;
 }
 
 a {

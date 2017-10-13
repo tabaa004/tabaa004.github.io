@@ -6,7 +6,7 @@
 <!-- 2017-10-13 fre. 23:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Akselerasjon med mekanikkbane</title>
+<title>Eksempelutregninger for «Akselerasjon med mekanikkbane»</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Tarjei Bærland" />
 <style type="text/css">
@@ -274,97 +274,19 @@ return true;
 </script>
 </div>
 <div id="content">
-<h1 class="title">Akselerasjon med mekanikkbane</h1>
-<div id="outline-container-org97877b9" class="outline-3">
-<h3 id="org97877b9">Hensikt</h3>
-<div class="outline-text-3" id="text-org97877b9">
-<p>
-Vi skal finne akselerasjonen til en vogn på en mekanikkbane. Dette skal vi gjøre på tre forskjellige måter, med økende grad av nøyaktighet.
-</p>
-</div>
-</div>
+<h1 class="title">Eksempelutregninger for «Akselerasjon med mekanikkbane»</h1>
 
-<div id="outline-container-orgae5a218" class="outline-3">
-<h3 id="orgae5a218">Utstyr</h3>
-<div class="outline-text-3" id="text-orgae5a218">
+<div id="outline-container-org4dfaadc" class="outline-2">
+<h2 id="org4dfaadc">Ved bruk av fotoporter</h2>
+<div class="outline-text-2" id="text-org4dfaadc">
 <ul class="org-ul">
-<li>Mekanikkbane med vogn</li>
-<li>Stoppeklokke</li>
-<li>Fotoporter</li>
-<li>Bevegelsessensor</li>
-<li>Datamaskin med <a href="https://www.vernier.com/products/software/logger-lite/">Vernier Logger Lite</a></li>
+<li>Fil fra datalogger: <a href="../gmbl/mekanikk_fotoport_toportbin_run1.gmbl">Fotoporter</a></li>
+<li>Fil fra Geogebra: <a href="../ggb/mekanikkbane_fotoporter_run1_reg.ggb">Fotoporter regresjon</a></li>
 </ul>
-</div>
-</div>
-
-<div id="outline-container-org4115bd0" class="outline-3">
-<h3 id="org4115bd0">Filer</h3>
-<div class="outline-text-3" id="text-org4115bd0">
-<ul class="org-ul">
-<li>Oppsett med fotoporter (<a href="https://tabaa004.github.io/gmbl/mekanikk_fotoport_toportbin_empty.gmbl">fil</a>)</li>
-<li>Oppsett med fotoporter med eksempeldata (<a href="https://tabaa004.github.io/gmbl/mekanikk_fotoport_toportbin_run1.gmbl">fil</a>)</li>
-<li>Oppsett med bevegelsessensor (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_empty.gmbl">fil</a>)</li>
-<li>Oppsett med bevegelsessensor med eksempeldata (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_run1.gmbl">fil</a>)</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org7303006" class="outline-2">
-<h2 id="org7303006">Ved bruk av stoppeklokke</h2>
-<div class="outline-text-2" id="text-org7303006">
-<p>
-I dette delforsøket skal vi undersøke om vogna har konstant akselerasjon. Hvis akseleresjonen er konstant og startfarten er null, er veilengden \(s\) i løpet av tiden \(t\) gitt ved formelen \(s=\frac{1}{2}at^2\) Vi skal måle sammenhørende verdier av \(s\) og \(t\), og deretter regne ut forholdet \(\frac{2s}{t^2}\).
-</p>
 
 <p>
-<b>Fremgangsmåte</b>
+Vi ser at vi har fått følgende verdier:
 </p>
-<ol class="org-ol">
-<li>Still opp mekanikkbanen med forholdsvis svak helling. Slipp vogna og ta tiden.</li>
-<li>Gjør forsøket et par ganger med samme veilengde og finn tiden \(t\) for denne veilengden.</li>
-<li>Gjenta forsøket med andre veilengder.</li>
-<li>Sett resultatene inn i en tabell.</li>
-<li>Sammenlign \(\frac{2s}{t^2}\) for alle målingene. Hva tyder målingene på?</li>
-<li>◆ Regn ut om gjennomsnittsverdien \(\bar{a}\) og usikkerheten \(\Delta a\) på grunnlag av målingene ovenfor. (Du kan her gjøre et overslag for usikkerheten som differansen mellom den høyste og laveste verdien.)</li>
-<li>◆ Skriv \(a\) med usikkerhet. (Dette kan du oppgi som \(a = \bar{a} \pm \Delta a /2\).)</li>
-<li>◆ Regn ut den relative usikkerheten for akselerasjonen i prosent. (Hvor stor er usikkerheten i forhold til akselerasjonen du fant?)</li>
-</ol>
-
-<p>
-(Dette er forsøk 1D - Metode 2 fra ERGO s. 399)
-</p>
-</div>
-</div>
-
-<div id="outline-container-org1747fb3" class="outline-2">
-<h2 id="org1747fb3">Ved bruk av fotoporter</h2>
-<div class="outline-text-2" id="text-org1747fb3">
-<p>
-<b>Merk, under dette delforsøket skal dere gi vogna et dytt <i>oppover</i> fra bunnen av banen, slik at dere får fire målinger, to på vei opp og to på vei ned. Pass også på å bruke malen som ligger under <i>filer</i> på toppen av siden.</b>
-</p>
-
-<p>
-I dette delforsøket skal vi se på akselerasjonen til vogna ved å bruke fotoporter. Fotoportene sender et signal til dataloggeren så lenge lyset mellom de to armene på porten er brutt. Her skal to fotoporter gi oss nøyaktige tidspunkter for vognas passering. Fotoportene er satt opp med en avstand på 40 cm, som vist på figuren under.
-</p>
-
-<p>
-<b>Fremgansgmåte</b>
-</p>
-<ol class="org-ol">
-<li>Sett i gang målingene og gi vogna et dytt godt i underkant av den nedre fotoporten.</li>
-<li>Les av tidspunktene fra målingene og fyll ut en tabell à la den under.</li>
-<li>Bruk regresjonsverktøyet i Geogebra og finn den andregradsfunksjonen som passer best med dataene fra forsøket.</li>
-<li>Sammenlikn funksjonen fra regresjonen med \(s = s_0 + v_0 t + \frac{1}{2} at^2\)</li>
-<li>Finn en verdi for akselerasjonen ut fra sammenlikningen i forrige punkt.</li>
-</ol>
-
-
-<div class="figure">
-<p><img src="./figurer/mekanikkbane_oppsett_fotoporter.jpg" alt="mekanikkbane_oppsett_fotoporter.jpg" width="40%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
-</p>
-<p><span class="figure-number">Illustrasjon 1 </span>&#x2013; Oppsett med fotoporter</p>
-</div>
-
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center" width="60%">
 
 
@@ -382,10 +304,10 @@ I dette delforsøket skal vi se på akselerasjonen til vogna ved å bruke fotopo
 <tbody>
 <tr>
 <td class="org-left">\(t\) (s)</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">0,391</td>
+<td class="org-left">1,427</td>
+<td class="org-left">3,840</td>
+<td class="org-left">5,00</td>
 </tr>
 
 <tr>
@@ -399,51 +321,71 @@ I dette delforsøket skal vi se på akselerasjonen til vogna ved å bruke fotopo
 </table>
 
 <p>
-<b>Utfordringsoppgave ◆</b>
-Om vi bruker en gjenstand med en gitt lengde til å bryte lyset i fotoporten, får vi muligheten til å måle en tilnærmet <i>momentanfart</i> for vognen. Beskriv et forsøk for å finne akselerasjonen hvor du har én fotoport tilgjengelig, men en gjenstand med lengde til å bryte lysstrålen.
+Setter vi disse verdiene inn i en Geogebra-tabell, lager en liste med punktene, her kalt <code>Fotoporter1</code> og lager en andregradsregresjon via <code>RegPoly[Fotoporter1, 2]</code>, får vi funksjonen
 </p>
 
 <p>
-Hint: Du kan her finne momentanfarten til vognen idet den passerer fotoporten på vei opp og ned, samt hvor lang tid det er mellom de to passeringene.* Ved bruk av bevegelsessensor
+\[
+f(x) = -0,104x^2 + 0,556 x + 0,205.
+\]
 </p>
 
 <p>
-<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#orga176070">her</a>.)</i>
+om vi setter inn fysiske symboler og enheter, får vi da
+</p>
+
+\begin{equation}
+s(t) = 0,205\,\textrm{m} + 0,556\,\textrm{m/s}\,t - 0,104\,\textrm{m/s}^2\, t^2.
+\end{equation}
+
+<p>
+Sammenlignet med den generelle \(s = s_0 + v_0 t + \frac{1}{2}at^2\) ser vi altså at vi her har \(s_0=0.205\,\textrm{m}\), \(v_0=0,556\,\textrm{m/s}\) og, viktigst av alt
+\[
+\frac{1}{2}a = -0,104\,\textrm{m/s}^2.
+\]
+</p>
+
+<p>
+Vi får altså at akselerasjonen til vogna er på \(2\cdot -0,104\,\textrm{m/s}^2\) eller omtrent \(0,2\,\textrm{m/s}^2\) rettet <i>nedover</i>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org967e2b3" class="outline-2">
-<h2 id="org967e2b3">Ved bruk av bevegelsessensor</h2>
-<div class="outline-text-2" id="text-org967e2b3">
-<p>
-I dette forsøket skal vi finne akselerasjonen til vogna ved å bruke en bevegelsessensor.
-</p>
-
-
-<div class="figure">
-<p><img src="./figurer/mekanikkbane_oppsett_bevegelsessensor.jpg" alt="mekanikkbane_oppsett_bevegelsessensor.jpg" width="40%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
-</p>
-<p><span class="figure-number">Illustrasjon 2 </span>&#x2013; Oppsett med bevegelsessensor</p>
-</div>
+<div id="outline-container-orga574e43" class="outline-2">
+<h2 id="orga574e43">Ved bruk av bevegelsessensor</h2>
+<div class="outline-text-2" id="text-orga574e43">
+<ul class="org-ul">
+<li>Fil fra datalogger: <a href="../gmbl/mekanikk_bevegelsessensor_run1.gmbl">Bevegelsessensor</a></li>
+<li>Fil fra datalogger med regresjonslinje: <a href="../gmbl/mekanikk_bevegelsessensor_run1_linreg.gmbl">Bevegelsessensor med lineærregresjon</a></li>
+</ul>
 
 <p>
-<b>Fremgangsmåte</b>
-</p>
-<ol class="org-ol">
-<li>Still opp mekanikkbanen med forholdsvis svak helning og koble til PC-en.</li>
-<li>Åpne <a href="../gmbl/mekanikk_bevegelsessensor_empty.gmbl">malen</a> for logging.</li>
-<li>Gi vogna et skyv oppover skråplanet og start loggingen med mellomromstastend idet vogna fritt.</li>
-<li>Stopp loggingen litt før vogna er på vei av skråplanet og <i>stans vogna</i>.</li>
-<li>I Logger Lite, velg Analyze → Linear Fit og finn den rette linja som passer med den målte <i>farten</i>.</li>
-</ol>
-
-<p>
-Hvordan kan du lese akselerasjonen av denne rette linja?
+Etter å ha gjennomført kjøringene, velger vi <code>Analyze</code> → <code>Linear Fit</code> i Logger Lite. Her får vi opp en dialogboks hvor vi velger at vi vil gjøre en lineærregresjon på fartsdataene. 
 </p>
 
+<p width="150px" align="left" style="margin:0px 20px 0px 0px">
+<img src="./figurer/mekanikkbane_akselerasjon_utregninger_20170906_094437.png" alt="mekanikkbane_akselerasjon_utregninger_20170906_094437.png" width="150px" align="left" style="margin:0px 20px 0px 0px" />
+I informasjonsboksen (figuren til venstre) som så kommer opp, vises følgende informasjon:
+</p>
+<dl class="org-dl">
+<dt>Linear Fit for: Latest|Fart</dt><dd>at linja er en lineærregresjon for farten</dd>
+<dt>v = mt+b</dt><dd>at linja er på formen v=mt+b, altså at farten (v) er et stigningstall (m) ganger tida(t) pluss et konstantledd (b)</dd>
+<dt>m (Slope)</dt><dd>at linja har et stigningstall («slope») på -0,23 m/s/s (eller -0,23 m/s<sup>2</sup>)</dd>
+<dt>b(Y-intercept)</dt><dd>at linja skjærer andreaksen ved 0,47 m/s</dd>
+<dt>Correlation</dt><dd>jo nærmere dette tallet er til ±1, dess bedre passer linja til dataene</dd>
+<dt>RMSE</dt><dd>jo nærmere dette tallet er til 0, dess bedre passer linja til dataene</dd>
+</dl>
+
 <p>
-<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#orged4eeda">her</a>.)</i>
+Vi er altså ute etter akselerasjonen til vogna. Vi har fått opp en linje som viser vognas fart. Vi veit at dersom vogna har konstant akselerasjon, kan vi bruke <i>fartsformelen</i> \(v = v_0 + at\) for å beskrive farten til vogna. Det er nettopp denne sammenhengen vi nå har fått som <code>v = mt+b</code> fra Logger Lite. Vi har da fått at
+</p>
+
+\begin{equation}
+v = v_0 + at = 0,47\,\textrm{m/s} - 0,23\,\textrm{m/s}^2.
+\end{equation}
+
+<p>
+Akselerasjonen til vogna er altså på omtrent \(0,2\,\textrm{m/s}^2\) rettet <i>nedover</i>.
 </p>
 </div>
 </div>

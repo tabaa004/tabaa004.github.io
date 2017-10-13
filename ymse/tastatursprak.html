@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <!-- 2017-10-13 fre. 23:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Akselerasjon med mekanikkbane</title>
+<title>Tastaturspråk</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Tarjei Bærland" />
 <style type="text/css">
@@ -227,28 +227,6 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -274,176 +252,69 @@ return true;
 </script>
 </div>
 <div id="content">
-<h1 class="title">Akselerasjon med mekanikkbane</h1>
-<div id="outline-container-org97877b9" class="outline-3">
-<h3 id="org97877b9">Hensikt</h3>
-<div class="outline-text-3" id="text-org97877b9">
+<h1 class="title">Tastaturspråk</h1>
+
+<div id="outline-container-org6d83647" class="outline-2">
+<h2 id="org6d83647">Introduksjon</h2>
+<div class="outline-text-2" id="text-org6d83647">
 <p>
-Vi skal finne akselerasjonen til en vogn på en mekanikkbane. Dette skal vi gjøre på tre forskjellige måter, med økende grad av nøyaktighet.
+Det er ikke noe mekanisk spesielt med det norske tastaturet, det er kun et tastatur hvor de har byttet ut noen av plastdekslene fra et engelsk tastatur med plastdeksler som viser for eksempel <i>æ</i>, <i>ø</i> og <i>å</i>. I Windows kan man stille på hvilket språk tastaturet sitt er på. Standarden er at du har norskt tastatur, som vises som "NO" nede til høyre.
+<img src="./figurer/tastatursprak_201705_102916.png" alt="tastatursprak_201705_102916.png" />
+</p>
+
+<p>
+Det er denne innstillingen som gjør at om du trykker på <i>æ</i>-tasten, får du en <i>æ</i> på skjermen.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgae5a218" class="outline-3">
-<h3 id="orgae5a218">Utstyr</h3>
-<div class="outline-text-3" id="text-orgae5a218">
-<ul class="org-ul">
-<li>Mekanikkbane med vogn</li>
-<li>Stoppeklokke</li>
-<li>Fotoporter</li>
-<li>Bevegelsessensor</li>
-<li>Datamaskin med <a href="https://www.vernier.com/products/software/logger-lite/">Vernier Logger Lite</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org4115bd0" class="outline-3">
-<h3 id="org4115bd0">Filer</h3>
-<div class="outline-text-3" id="text-org4115bd0">
-<ul class="org-ul">
-<li>Oppsett med fotoporter (<a href="https://tabaa004.github.io/gmbl/mekanikk_fotoport_toportbin_empty.gmbl">fil</a>)</li>
-<li>Oppsett med fotoporter med eksempeldata (<a href="https://tabaa004.github.io/gmbl/mekanikk_fotoport_toportbin_run1.gmbl">fil</a>)</li>
-<li>Oppsett med bevegelsessensor (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_empty.gmbl">fil</a>)</li>
-<li>Oppsett med bevegelsessensor med eksempeldata (<a href="https://tabaa004.github.io/gmbl/mekanikk_bevegelsessensor_run1.gmbl">fil</a>)</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org7303006" class="outline-2">
-<h2 id="org7303006">Ved bruk av stoppeklokke</h2>
-<div class="outline-text-2" id="text-org7303006">
+<div id="outline-container-org7f7c630" class="outline-2">
+<h2 id="org7f7c630">Problem</h2>
+<div class="outline-text-2" id="text-org7f7c630">
 <p>
-I dette delforsøket skal vi undersøke om vogna har konstant akselerasjon. Hvis akseleresjonen er konstant og startfarten er null, er veilengden \(s\) i løpet av tiden \(t\) gitt ved formelen \(s=\frac{1}{2}at^2\) Vi skal måle sammenhørende verdier av \(s\) og \(t\), og deretter regne ut forholdet \(\frac{2s}{t^2}\).
-</p>
-
-<p>
-<b>Fremgangsmåte</b>
-</p>
-<ol class="org-ol">
-<li>Still opp mekanikkbanen med forholdsvis svak helling. Slipp vogna og ta tiden.</li>
-<li>Gjør forsøket et par ganger med samme veilengde og finn tiden \(t\) for denne veilengden.</li>
-<li>Gjenta forsøket med andre veilengder.</li>
-<li>Sett resultatene inn i en tabell.</li>
-<li>Sammenlign \(\frac{2s}{t^2}\) for alle målingene. Hva tyder målingene på?</li>
-<li>◆ Regn ut om gjennomsnittsverdien \(\bar{a}\) og usikkerheten \(\Delta a\) på grunnlag av målingene ovenfor. (Du kan her gjøre et overslag for usikkerheten som differansen mellom den høyste og laveste verdien.)</li>
-<li>◆ Skriv \(a\) med usikkerhet. (Dette kan du oppgi som \(a = \bar{a} \pm \Delta a /2\).)</li>
-<li>◆ Regn ut den relative usikkerheten for akselerasjonen i prosent. (Hvor stor er usikkerheten i forhold til akselerasjonen du fant?)</li>
-</ol>
-
-<p>
-(Dette er forsøk 1D - Metode 2 fra ERGO s. 399)
+Problemet oppstår om man har fått sagt til Windows at man har et engelsk tastatur. Hurtigtasten for dette er "Alt + Shift", noe man fort får trykket om man bruker likningseditoren i Word, som har hurtigtast "Alt + =". Om du har fått trykket "Alt + Shift" kommer du til å se at "NO" har blitt til "EN" nede til høyre.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1747fb3" class="outline-2">
-<h2 id="org1747fb3">Ved bruk av fotoporter</h2>
-<div class="outline-text-2" id="text-org1747fb3">
+<div id="outline-container-org449c38f" class="outline-2">
+<h2 id="org449c38f">Hurtigløsning</h2>
+<div class="outline-text-2" id="text-org449c38f">
 <p>
-<b>Merk, under dette delforsøket skal dere gi vogna et dytt <i>oppover</i> fra bunnen av banen, slik at dere får fire målinger, to på vei opp og to på vei ned. Pass også på å bruke malen som ligger under <i>filer</i> på toppen av siden.</b>
-</p>
-
-<p>
-I dette delforsøket skal vi se på akselerasjonen til vogna ved å bruke fotoporter. Fotoportene sender et signal til dataloggeren så lenge lyset mellom de to armene på porten er brutt. Her skal to fotoporter gi oss nøyaktige tidspunkter for vognas passering. Fotoportene er satt opp med en avstand på 40 cm, som vist på figuren under.
-</p>
-
-<p>
-<b>Fremgansgmåte</b>
-</p>
-<ol class="org-ol">
-<li>Sett i gang målingene og gi vogna et dytt godt i underkant av den nedre fotoporten.</li>
-<li>Les av tidspunktene fra målingene og fyll ut en tabell à la den under.</li>
-<li>Bruk regresjonsverktøyet i Geogebra og finn den andregradsfunksjonen som passer best med dataene fra forsøket.</li>
-<li>Sammenlikn funksjonen fra regresjonen med \(s = s_0 + v_0 t + \frac{1}{2} at^2\)</li>
-<li>Finn en verdi for akselerasjonen ut fra sammenlikningen i forrige punkt.</li>
-</ol>
-
-
-<div class="figure">
-<p><img src="./figurer/mekanikkbane_oppsett_fotoporter.jpg" alt="mekanikkbane_oppsett_fotoporter.jpg" width="40%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
-</p>
-<p><span class="figure-number">Illustrasjon 1 </span>&#x2013; Oppsett med fotoporter</p>
-</div>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" align="center" width="60%">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">\(t\) (s)</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">\(s\) (m)</td>
-<td class="org-left">0,40</td>
-<td class="org-left">0,80</td>
-<td class="org-left">0,80</td>
-<td class="org-left">0,40</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-<b>Utfordringsoppgave ◆</b>
-Om vi bruker en gjenstand med en gitt lengde til å bryte lyset i fotoporten, får vi muligheten til å måle en tilnærmet <i>momentanfart</i> for vognen. Beskriv et forsøk for å finne akselerasjonen hvor du har én fotoport tilgjengelig, men en gjenstand med lengde til å bryte lysstrålen.
-</p>
-
-<p>
-Hint: Du kan her finne momentanfarten til vognen idet den passerer fotoporten på vei opp og ned, samt hvor lang tid det er mellom de to passeringene.* Ved bruk av bevegelsessensor
-</p>
-
-<p>
-<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#orga176070">her</a>.)</i>
+Trykk på "Alt + Shift" en gang til.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org967e2b3" class="outline-2">
-<h2 id="org967e2b3">Ved bruk av bevegelsessensor</h2>
-<div class="outline-text-2" id="text-org967e2b3">
+<div id="outline-container-org716c1d6" class="outline-2">
+<h2 id="org716c1d6">Varig løsning</h2>
+<div class="outline-text-2" id="text-org716c1d6">
 <p>
-I dette forsøket skal vi finne akselerasjonen til vogna ved å bruke en bevegelsessensor.
+Velg "Kontrollpanel" fra startmenyen. (Trykk Windows-tasten på tastaturet, to til høyre for mellomrom, skriv "kontroll" og trykk Enter.) Under "Klokke, språk og område", velg "Endre tastur- eller andre inndatametoder".<img src="./figurer/tastatursprak_201705_104511.png" alt="tastatursprak_201705_104511.png" />
+</p>
+
+<p>
+Under fanen "Tastatur og språk", velg "Endre tastaturer&#x2026;"
 </p>
 
 
 <div class="figure">
-<p><img src="./figurer/mekanikkbane_oppsett_bevegelsessensor.jpg" alt="mekanikkbane_oppsett_bevegelsessensor.jpg" width="40%" style="float:none;margin:0px 0px 0px -10px;border:1px solid black;" />
+<p><img src="./figurer/tastatursprak_201705_104619.png" alt="tastatursprak_201705_104619.png" />
 </p>
-<p><span class="figure-number">Illustrasjon 2 </span>&#x2013; Oppsett med bevegelsessensor</p>
 </div>
 
 <p>
-<b>Fremgangsmåte</b>
-</p>
-<ol class="org-ol">
-<li>Still opp mekanikkbanen med forholdsvis svak helning og koble til PC-en.</li>
-<li>Åpne <a href="../gmbl/mekanikk_bevegelsessensor_empty.gmbl">malen</a> for logging.</li>
-<li>Gi vogna et skyv oppover skråplanet og start loggingen med mellomromstastend idet vogna fritt.</li>
-<li>Stopp loggingen litt før vogna er på vei av skråplanet og <i>stans vogna</i>.</li>
-<li>I Logger Lite, velg Analyze → Linear Fit og finn den rette linja som passer med den målte <i>farten</i>.</li>
-</ol>
-
-<p>
-Hvordan kan du lese akselerasjonen av denne rette linja?
+Under fanen "Avanserte tasteinnstillinger", sett "Tastesekvensens" for "Handlingen" <i>Mellom inndataspråk</i> til å være "Ikke tilordnet". 
 </p>
 
+
+<div class="figure">
+<p><img src="./figurer/tastatursprak_201705_104811.png" alt="tastatursprak_201705_104811.png" />
+</p>
+</div>
+
 <p>
-<i>(Du kan finne eksempelutregninger for dette delforsøket <a href="mekanikkbane_akselerasjon_utregninger.html#orged4eeda">her</a>.)</i>
+Du har nå skrudd av hurtigtasten for å skifte mellom norsk og engelsk tastatur og "Alt + Shift" skal i utgangspunktet ikke lenger gjøre noe.
 </p>
 </div>
 </div>
