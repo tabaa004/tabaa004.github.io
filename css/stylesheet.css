@@ -10,7 +10,7 @@ pre, pre.src, pre.src-C {
     font-family: monospace, "Source Code Pro", "Courier New", Courier;
 }
 
-pre {
+pre  {
     border: 1px solid #ccc;
     box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
@@ -21,6 +21,7 @@ pre {
     align: center;
     display: inline-block;
   }
+
 #text-table-of-contents a {
     font-family: "Arial";
 }
@@ -162,6 +163,17 @@ h1.title {
 .target {
 	/* target for links */
 }
+
+.NOTES {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    overflow: auto;
+    /* margin: 1.2em; */
+    margin: auto;
+    align: center;
+    display: inline-block;
+  }
 
 /* @end */
 

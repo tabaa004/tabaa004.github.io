@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-10-13 fre. 23:03 -->
+<!-- 2017-10-17 tir. 16:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programmering i C</title>
@@ -276,6 +276,7 @@ return true;
 <div id="content">
 <h1 class="title">Programmering i C</h1>
 
+
 <div id="outline-container-org418e304" class="outline-2">
 <h2 id="org418e304">Begynnelsen</h2>
 <div class="outline-text-2" id="text-org418e304">
@@ -300,6 +301,19 @@ return true;
 <p>
 Forsøk å skrive koden over inn i kompilatoren du finner på <a href="https://www.jdoodle.com/c-online-compiler">jdoodle.com</a> (slett det som står skrevet fra før av). Skriv inn alle setningene (kommentaren er ikke nødvendig) og trykk <i>Execute</i>.
 </p>
+
+<p>
+Merk, i det følgende kommer vi ikke til å skrive <code>#include &lt;stdio.h&gt;</code> i alle eksemplene, ei heller pakke koden inn i en <code>main</code>-blokk.
+</p>
+
+<p>
+Koden over kommer vi da til å skrive som følger:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C">printf(<span style="color: #3e999f;">"Hello world!"</span>);
+</pre>
+</div>
 </div>
 
 <div id="outline-container-org5ce047e" class="outline-3">
@@ -319,7 +333,7 @@ C er et språk som kommer uten batterier inkludert &#x2026; i det aller minste u
 </p>
 
 <p>
-I oppgaven <a href="#org2a6b979">Løsning av andregradslikninger</a> skal du eksempelvis bruke et annet bibliotek.
+I oppgaven <a href="#orgbd73f83">Løsning av andregradslikninger</a> skal du eksempelvis bruke et annet bibliotek.
 </p>
 </div>
 </div>
@@ -482,13 +496,9 @@ Vi definerer tekststrenger<sup><a id="fnr.2" class="footref" href="#fn.2">2</a><
 Vi er ofte interessert i å kunne få verdier programmet vårt har regnet ut skrevet på skjermen eller å kunne gi programmet nye data å regne med.
 </p>
 </div>
-<div id="outline-container-orgea73c59" class="outline-3">
-<h3 id="orgea73c59">Formatering av tekststrenger</h3>
-<div class="outline-text-3" id="text-orgea73c59">
-<p>
-Om vi ønsker å sette beregnede verdier eller andre variabler inn i <i>formatstrenger</i>. Se på og test eksempelet under.
-</p>
-
+<div id="outline-container-orga1288ec" class="outline-3">
+<h3 id="orga1288ec">Formatering av strenger</h3>
+<div class="outline-text-3" id="text-orga1288ec">
 <div class="org-src-container">
 <pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
 
@@ -504,19 +514,63 @@ Om vi ønsker å sette beregnede verdier eller andre variabler inn i <i>formatst
 </pre>
 </div>
 
-<div class="org-src-container">
-<pre class="src src-org">Heltallet er: 5
-Desimaltallet er: 5.500000
-Tekstrengen er: Noe &#229; skrive ut
-</pre>
-</div>
-
 <p>
-Vi har følgende former for formateringsspesifkasjoner:
+Vi har blant andre følgende former for formateringsspesifkasjoner:
 </p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Tegn</th>
+<th scope="col" class="org-left">Brukes til</th>
+<th scope="col" class="org-left">Eksempel</th>
+<th scope="col" class="org-left">Resultat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>%d</code></td>
+<td class="org-left">Heltall</td>
+<td class="org-left"><code>printf("Tallet er %d", 4);</code></td>
+<td class="org-left"><code>Tallet er 4</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%f</code></td>
+<td class="org-left">Desimaltall</td>
+<td class="org-left"><code>printf("Tallet er %f", 3.5);</code></td>
+<td class="org-left"><code>Tallet er 3.500000</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%s</code></td>
+<td class="org-left">Tekststreng</td>
+<td class="org-left"><code>printf("Strengen er %s", "en streng")</code></td>
+<td class="org-left"><code>Strengen er en streng</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>%e</code></td>
+<td class="org-left">Tall på standardform</td>
+<td class="org-left"><code>printf("Lysfarten er %e", 3E8);</code></td>
+<td class="org-left"><code>Lysfarten er 3.000000e+008</code></td>
+</tr>
+</tbody>
+</table>
+
 
 <p>
-Noen tilleggstegn:
+Vi har også noen tilleggstegn:
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -547,13 +601,56 @@ Noen tilleggstegn:
 <td class="org-left"><code>\'</code></td>
 <td class="org-left">enkelt anførselstegn uten at det avslutter tekststrengen</td>
 </tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
-</tr>
 </tbody>
 </table>
+</div>
+
+<div id="outline-container-orgd064e08" class="outline-4">
+<h4 id="orgd064e08">Justering av antall desimaler</h4>
+<div class="outline-text-4" id="text-orgd064e08">
+<p>
+Spesielt når vi formaterer tall via <code>%f</code>, ønsker vi å spesifisere hvor mange desimaler tallet skal vises med. Dette kan vi gjøre ved å skrive for eksempel <code>%3.2f</code>. Her spesifiserer vi at vi ønsker at tallet skal være 3 siffer langt totalt, med to siffer etter komma.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C">printf(<span style="color: #3e999f;">"I oslo er tyngdeakselerasjonen p&#229; %3.2f m/s^2."</span>, 9.819);
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">I oslo er tyngdeakselerasjonen p&#229; 9.82 m/s^2.
+</pre>
+</div>
+
+<p>
+Legg merke til at tallet da også blir avrundet for oss.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2b6545d" class="outline-3">
+<h3 id="org2b6545d">La brukeren taste inn data - avansert</h3>
+<div class="outline-text-3" id="text-org2b6545d">
+<p>
+Vi har ofte lyst til å hente data fra brukeren av programmet vårt. For eksempel kan programmet be om to tall som skal ganges sammen eller vi må la brukeren bestemme hva det neste programmet skal gjøre er.
+</p>
+
+<p>
+Der vi bruker <code>printf</code> for å få programmet til å skrive ut verdier til oss, kan vi bruke <code>scanf</code> for å hente verdier fra brukeren.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #4271ae;">int</span> <span style="color: #eab700;">tall</span>;
+printf(<span style="color: #3e999f;">"Skriv inn et tall og trykk Enter: "</span>);
+scanf(<span style="color: #3e999f;">"%d"</span>, &amp;tall);                <span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">&amp;-tegnet er viktig </span><span style="color: #8e908c; font-style: italic;">*/</span>
+printf(<span style="color: #3e999f;">"\nDu skreiv inn tallet %d."</span>, tall);
+</pre>
+</div>
+
+<p>
+<b>Merk</b> dette fungerer ikke om du kjører C-programmet ditt via <a href="https://jdoodle.com/">jdoodle.com</a>.
+</p>
 </div>
 </div>
 </div>
@@ -569,12 +666,15 @@ Vi ønsker nå å lage oss en <i>funksjon</i><sup><a id="fnr.3" class="footref" 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C"><span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">function returning the area of a circle with a given radius </span><span style="color: #8e908c; font-style: italic;">*/</span>
-<span style="color: #4271ae;">float</span> <span style="color: #f5871f;">area</span>(<span style="color: #4271ae;">float</span> <span style="color: #eab700;">radius</span>) {
+<pre class="src src-C"><span style="color: #4271ae;">float</span> <span style="color: #eab700;">pi</span> = 3.14;
+
+<span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">En funksjon som returnerer arealet av en sirkel </span><span style="color: #8e908c; font-style: italic;">*/</span>
+<span style="color: #4271ae;">float</span> <span style="color: #f5871f;">Areal</span>(<span style="color: #4271ae;">float</span> <span style="color: #eab700;">radius</span>) {
   <span style="color: #718c00;">return</span> pi * radius * radius;
 }
 </pre>
 </div>
+
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -648,11 +748,11 @@ Vi er vant til å skrive funksjonen over som
 </p>
 
 <p>
-Her kan vi si at \(A\) er navnet til funksjonen, den tar inn parameteren \((r)\) og returnerer \(\pi r^2\).
+Her kan vi si at \(A\) er navnet til funksjonen, den tar inn parameteren \(r\) og returnerer \(\pi r^2\).
 </p>
 
 <p>
-Her, og i en del programmeringsspråk, trenger vi ikke fortelle funksjonen hva slags tall \(A\) og \(r\) er, hvorvidt disse er heltall, brøker eller desimaltall.
+Her, og i en del programmeringsspråk, trenger vi ikke fortelle funksjonen hva slags tall \(A\) og \(r\) er, hvorvidt disse er heltall, brøker eller desimaltall. Det må vi altså gjøre i C.
 </p>
 </div>
 </div>
@@ -668,27 +768,16 @@ Når vi nå ønsker å <i>kalle</i> denne funksjonen fra programmet vårt, gjør
 <div class="org-src-container">
 <pre class="src src-C"><span style="color: #718c00;">const</span> <span style="color: #4271ae;">float</span> <span style="color: #eab700;">pi</span> = 3.14;
 
-<span style="color: #4271ae;">float</span> <span style="color: #f5871f;">Area</span>(<span style="color: #4271ae;">float</span> <span style="color: #eab700;">radius</span>) {
+<span style="color: #4271ae;">float</span> <span style="color: #f5871f;">Areal</span>(<span style="color: #4271ae;">float</span> <span style="color: #eab700;">radius</span>) {
   <span style="color: #718c00;">return</span> pi * radius * radius;
 }
 
 <span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">the area of a circle with radius 2.5 </span><span style="color: #8e908c; font-style: italic;">*/</span>
-<span style="color: #4271ae;">float</span> <span style="color: #eab700;">calculated_area</span> = Area(2.5);
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">beregnet_areal</span> = Areal(2.5);
+
+printf(<span style="color: #3e999f;">"Det beregnede arealet er %.2f."</span>, beregnet_areal);
 </pre>
 </div>
-
-<p>
-Hva representerer <code>area_small</code> her?
-</p>
-</div>
-</div>
-
-<div id="outline-container-org49c4a33" class="outline-3">
-<h3 id="org49c4a33">Prøv deg</h3>
-<div class="outline-text-3" id="text-org49c4a33">
-<p>
-Opprett en funksjon <code>circumfrence</code> som regner ut omkretsen av en sirkel avhengig av radiusen <code>r</code>.
-</p>
 </div>
 </div>
 </div>
@@ -828,6 +917,91 @@ Merk spesielt forskjellen mellom <code>==</code> og <code>=</code>. Det er en sv
 </div>
 </div>
 
+<div id="outline-container-orgd87c1ed" class="outline-3">
+<h3 id="orgd87c1ed">if-blokk</h3>
+<div class="outline-text-3" id="text-orgd87c1ed">
+<p>
+Collatz' formodning sier at for et hvilket som helst positivt heltall, dersom det er et partall, deler du det på to; dersom det er et oddetall, ganger du med tre og legger til én. Om du velger tallet 7, får du for eksempel da \(7\cdot 3 + 1 = 22\).
+</p>
+
+<p>
+Hvordan ville du ha programmert en funksjon som skal ta inn et positivt heltall <code>n</code> og returne det neste tallet i Collatz' formodning?
+</p>
+
+<p>
+Du ser at du trenger en måte å hvorvidt et tall er partall eller oddetall, for så å gjøre noe avhengig av tallet. Dette kan vi gjøre via en <i>if</i>-blokk.
+</p>
+
+<p>
+I C har en if-blokk følgende struktur:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #718c00;">if</span> (logisk_test) {
+  <span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">det du &#248;nsker &#229; gj&#248;re dersom den logiske testen er sann </span><span style="color: #8e908c; font-style: italic;">*/</span>
+}
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
+
+<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">Collatz</span> (<span style="color: #4271ae;">int</span> <span style="color: #eab700;">n</span>) {
+  <span style="color: #718c00;">if</span> (n % 2 == 0) {
+    <span style="color: #718c00;">return</span> n / 2;
+  }
+  <span style="color: #718c00;">else</span> {
+    <span style="color: #718c00;">return</span> 3*n + 1;
+  }
+}
+
+<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
+  printf(<span style="color: #3e999f;">"Om du bruker tallet %d, vil det neste tallet i Collatz-rekken v&#230;re %d."</span>,
+         5, Collatz(5));
+ }
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Om du bruker tallet 5, vil det neste tallet i Collatz-rekken v&#230;re 16.
+</pre>
+</div>
+
+
+<p>
+Merk, her ser dere at vi også har brukt strukturen <code>else</code>, denne gjennomføres kun om den øvrige <code>if</code>-setningen ikke kjøres.
+</p>
+</div>
+
+<div id="outline-container-org1a5a1c9" class="outline-4">
+<h4 id="org1a5a1c9">Tillegg: <code>if-else</code></h4>
+<div class="outline-text-4" id="text-org1a5a1c9">
+<p>
+Om du vil ha flere <code>if</code>-tester hvor kun én kjøres, kan du bruke <code>else if</code>. Strukturen ser da ut som følger:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #718c00;">if</span> (logisk-test-1) {
+  <span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">kj&#248;res hvis logisk-test-1 er ~True~ </span><span style="color: #8e908c; font-style: italic;">*/</span>
+}
+<span style="color: #718c00;">else</span> <span style="color: #718c00;">if</span> (logisk-test-2) {
+  <span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">kj&#248;res hvis logisk-test-2 er ~True~ og</span>
+<span style="color: #8e908c; font-style: italic;">logiske-test-1 ikke er ~True~</span><span style="color: #8e908c; font-style: italic;">*/</span>
+}
+<span style="color: #718c00;">else</span> {
+  <span style="color: #8e908c; font-style: italic;">/* </span><span style="color: #8e908c; font-style: italic;">kj&#248;res hvis hverken logisk-test-1 eller logisk-test-2</span>
+<span style="color: #8e908c; font-style: italic;">er ~True~</span><span style="color: #8e908c; font-style: italic;">*/</span>
+}
+</pre>
+</div>
+
+<p>
+Hvorfor kan vi ikke her bare bruke flere <code>if</code>-setninger etter hverandre?
+</p>
+</div>
+</div>
+</div>
 <div id="outline-container-orgfb43e9f" class="outline-3">
 <h3 id="orgfb43e9f">for-løkke</h3>
 <div class="outline-text-3" id="text-orgfb43e9f">
@@ -906,50 +1080,6 @@ Vel &#x2026; fordi.
 </p>
 </div>
 </div>
-
-<div id="outline-container-orgbbc18ab" class="outline-4">
-<h4 id="orgbbc18ab"><code>for</code>-løkke gjennom en streng</h4>
-<div class="outline-text-4" id="text-orgbbc18ab">
-<p>
-I C er tekststrenger kun en del av minnet hvor vi har lagret <code>char</code>-verdier en etter en som vi så kan hente fram. Klarer du for eksempel å se hva følgende kode gjør?
-</p>
-
-<div class="org-src-container">
-<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
-
-<span style="color: #4271ae;">int</span> <span style="color: #eab700;">lengde</span>;
-<span style="color: #4271ae;">char</span> <span style="color: #eab700;">sitat</span>[] = <span style="color: #3e999f;">"To the library, and step on it!"</span>;
-
-<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
-  printf(<span style="color: #3e999f;">"%c\n"</span>, sitat[3]);
-
-  lengde = strlen(sitat);
-  printf(<span style="color: #3e999f;">"Lengend av sitatet er %d."</span>, lengde);
-}
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-org">t
-Lengend av sitatet er 31.
-</pre>
-</div>
-
-<p>
-For å finne lengden av en tekststreng, bruker vi den innebygde funksjonen <code>strlen</code><sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>.
-</p>
-</div>
-
-<ul class="org-ul">
-<li><a id="orgbcd40c9"></a>Oppgave<br />
-<div class="outline-text-5" id="text-orgbcd40c9">
-<p>
-Lag en <code>for</code>-løkke som løper gjennom hele strengen og skriver ut bokstav for bokstav.
-</p>
-</div>
-</li>
-</ul>
-</div>
 </div>
 </div>
 
@@ -957,65 +1087,24 @@ Lag en <code>for</code>-løkke som løper gjennom hele strengen og skriver ut bo
 <h2 id="org498ccd6">Oppgaver</h2>
 <div class="outline-text-2" id="text-org498ccd6">
 </div>
-<div id="outline-container-org6bbe3bd" class="outline-3">
-<h3 id="org6bbe3bd">Din egen hash-funksjon</h3>
-<div class="outline-text-3" id="text-org6bbe3bd">
-<div class="org-src-container">
-<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
-
-<span style="color: #4271ae;">char</span> <span style="color: #eab700;">streng</span>[] = <span style="color: #3e999f;">"&#230;"</span>;
-<span style="color: #4271ae;">int</span> <span style="color: #eab700;">a</span> = <span style="color: #3e999f;">"a"</span>;
-
-<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span>() {
-  printf(<span style="color: #3e999f;">"%b"</span>, a);
-    }
-
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-org">b
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org2a6b979" class="outline-3">
-<h3 id="org2a6b979">Løsning av andregradslikninger</h3>
-<div class="outline-text-3" id="text-org2a6b979">
+<div id="outline-container-org9dc91c8" class="outline-3">
+<h3 id="org9dc91c8">Omkrekts (funksjoner)</h3>
+<div class="outline-text-3" id="text-org9dc91c8">
 <p>
-I <code>math</code>-biblioteket får vi tilgang til flere nyttige funksjoner, for eksempel finner vi kvadratrotfunksjonen, <code>sqrt</code>, der.
+Lag en funksjon <code>circumfrence</code> som regner ut omkretsen av en sirkel avhengig av radiusen <code>r</code>.
 </p>
-
-<div class="org-src-container">
-<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;stdio.h&gt;</span>
-<span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;math.h&gt;</span>
-
-<span style="color: #4271ae;">int</span> <span style="color: #f5871f;">main</span> () {
-   printf(<span style="color: #3e999f;">"kvadratroten av %2.1f er %.2f.\n"</span>, 4.0, sqrt(4.0) );
-   printf(<span style="color: #3e999f;">"kvadratroten av %2.1f er %.2f.\n"</span>, 5.0, sqrt(5.0) );
-}
-</pre>
-</div>
-
-<div class="org-src-container">
-<pre class="src src-org">Square root of 4.0 is 2.00
-Square root of 5.0 is 2.24
-</pre>
-</div>
 </div>
 </div>
 
-
-<div id="outline-container-org5b71220" class="outline-3">
-<h3 id="org5b71220">Konvertering fra grader farhenheit til celsius</h3>
-<div class="outline-text-3" id="text-org5b71220">
+<div id="outline-container-org0162926" class="outline-3">
+<h3 id="org0162926">Konvertering fra grader farhenheit til celsius (funksjoner, formatering og for-løkker)</h3>
+<div class="outline-text-3" id="text-org0162926">
 <p>
 Hvis \(T_C\) er en temperatur målt i grader celsius, og \(T_F\) er den samme temperaturen målt i grader fahrenheit, kan gå fra grader celsius til farhenheit ved å bruke at
 </p>
 
 <p>
-$T<sub>F</sub> = 1,8&sdot; T<sub>C</sub> + 32.$
+\(T_F = 1,8\cdot T_C + 32\).
 </p>
 
 <p>
@@ -1039,6 +1128,59 @@ Overskriften formateres som:
 </div>
 </div>
 </div>
+
+<div id="outline-container-org0a60f0d" class="outline-3">
+<h3 id="org0a60f0d">Summen av alle tall fra 1 til 100 som er delelig på 3 (for-løkker, if-setninger)</h3>
+<div class="outline-text-3" id="text-org0a60f0d">
+<p>
+Skriv et program som regner ut summen av alle tall som er delelig på 3 fra og med 1, til og med 100.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd73f83" class="outline-3">
+<h3 id="orgbd73f83">Løsning av andregradslikninger (funksjoner, formatering og kvadratrøtter)</h3>
+<div class="outline-text-3" id="text-orgbd73f83">
+<p>
+I <code>math</code>-biblioteket får vi tilgang til flere nyttige funksjoner, for eksempel finner vi kvadratrotfunksjonen, <code>sqrt</code>, der.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #8959a8;">#include</span> <span style="color: #3e999f;">&lt;math.h&gt;</span>
+printf(<span style="color: #3e999f;">"Kvadratroten av %2.1f er %.2f.\n"</span>, 4.0, sqrt(4.0) );
+printf(<span style="color: #3e999f;">"Kvadratroten av %2.1f er %.2f.\n"</span>, 5.0, sqrt(5.0) );
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Kvadratroten av 4.0 er 2.00.
+Kvadratroten av 5.0 er 2.24.
+</pre>
+</div>
+
+<p>
+Lag en funksjon <code>AbcLoeser</code> som tar inn heltallene <code>a</code>, <code>b</code> og <code>c</code>, og skriver ut <code>x</code>-verdiene til eventuelle løsninger.
+</p>
+
+<p>
+Bruken skal være som følger:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C">AbcLoeser(2, -4, 2);
+AbcLoeser(1, 1, 1);
+AbcLoeser(3, 1, -2);
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Likningen har &#233;n l&#248;sning, x = 0.00.
+Likningen har ingen l&#248;sning.
+Likningen har to l&#248;sninger, x = 0.67 and x = -1.00.
+</pre>
+</div>
+</div>
+</div>
 </div>
 <div id="footnotes">
 <h2 class="footnotes" hidden>Fotnoter</h2>
@@ -1055,10 +1197,6 @@ I en datamaskin vil en serie med bokstaver (en <i>streng</i>) representeres som 
 
 <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
 I programmering er funksjoner gjenbrukbar kode som kan ta inn <i>parametere</i> for å returnere noe til der den blei kalt fra.
-</p></div></div>
-
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
-<code>str</code> for «string» og <code>len</code> for «length»
 </p></div></div>
 
 
