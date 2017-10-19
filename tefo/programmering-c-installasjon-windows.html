@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
+<head>
+<!-- 2017-10-19 tor. 09:40 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Installering av C</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Tarjei Bærland" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- <div class='topnav'> -->
+<!--   <ul> -->
+<!--     <li><a href='/fysikk/fysikk.html'>Home</a></li> -->
+<!--     <li><a href='/naturfag/naturfag.html'>Blog</a></li> -->
+<!--   </ul> -->
+<!-- </div> -->
+
+<script type="text/javascript">
+function toggleMe(a){
+var e=document.getElementById(a);
+if(!e)return true;
+if(e.style.display=="none"){
+e.style.display="block"
+}
+else{
+e.style.display="none"
+}
+return true;
+}
+</script>
+</div>
+<div id="content">
+<h1 class="title">Installering av C</h1>
+
+
+<div id="outline-container-org50a3438" class="outline-2">
+<h2 id="org50a3438">Introduksjon</h2>
+<div class="outline-text-2" id="text-org50a3438">
+<p>
+Framfor å kjøre programmene våre via for eksempel <a href="https://jdoodle.com/">jdoodle.com</a>, kan vi installere en C-kompilator på vår egen maskin.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge458376" class="outline-2">
+<h2 id="orge458376">Windows</h2>
+<div class="outline-text-2" id="text-orge458376">
+<p>
+På en Windows-maskin må vi gjennom følgende punkter:
+</p>
+<ul class="org-ul">
+<li>Laste ned installasjonsfila</li>
+<li>Installere kompilatoren og ønskede pakker</li>
+<li>Fortelle Windows hvor du har lagt programmet</li>
+</ul>
+</div>
+
+<div id="outline-container-org315aada" class="outline-3">
+<h3 id="org315aada">Laste ned installasjonsfila</h3>
+<div class="outline-text-3" id="text-org315aada">
+<p>
+Om vi ønsker en helt enkel C-kompilator, er <a href="http://www.mingw.org/">MinGW</a> et godt alternativ. Installasjonsfila til denne finner du <a href="https://sourceforge.net/projects/mingw/files/Installer/mingw-get-setup.exe/download">her</a>. Last ned og åpne fila (standardnavn <code>mingw-get-setup.exe</code>). Velg <code>Install</code> av åpningsvalgene.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3ebae15" class="outline-3">
+<h3 id="org3ebae15">Installere kompilatoren og ønskede pakker</h3>
+<div class="outline-text-3" id="text-org3ebae15">
+</div>
+<div id="outline-container-org88166f7" class="outline-4">
+<h4 id="org88166f7">Steg 1</h4>
+<div class="outline-text-4" id="text-org88166f7">
+<p>
+Vinduet ser nå omtrent ut som følger:
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_090603.png" alt="programmering-c-installasjon-windows_20171019_090603.png" />
+</p>
+</div>
+
+<p>
+Behold gjerne installasjonsmappa som <code>C:\MinGW</code>. Om du velger å endre den, noter deg hvor du legger det inn.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd40cc3" class="outline-4">
+<h4 id="orgbd40cc3">Steg 2</h4>
+<div class="outline-text-4" id="text-orgbd40cc3">
+<p>
+MinGW lastes nå ned og legges inn på maskinen. Vinduet ser omtrent ut som følger i noen minutter:
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_085838.png" alt="programmering-c-installasjon-windows_20171019_085838.png" />
+</p>
+</div>
+
+<p>
+Velg <code>Continue</code> når alt er klart.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org751dc0b" class="outline-4">
+<h4 id="org751dc0b">Steg 3</h4>
+<div class="outline-text-4" id="text-org751dc0b">
+<p>
+Vi får nå opp alternativer for hvilke kompilatorer vi ønsker å legge inn. Til vårt bruk holder det med <code>mingw32-base</code>. Trykk på firkanten ved siden av <code>mingw32-base</code> og velg <code>Mark for installation</code>.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_091201.png" alt="programmering-c-installasjon-windows_20171019_091201.png" />
+</p>
+</div>
+
+<p>
+Velg deretter <code>Installation</code> og <code>Update Catalogue</code>. I vinduet som kommer frem, velg <code>Review Changes</code>.
+</p>
+
+<p>
+Vi får nå opp et vindu over hvilke endringer som er på vei til å bli gjort. Velg <code>Apply</code> for å gjøre endringene.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_091357.png" alt="programmering-c-installasjon-windows_20171019_091357.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc03d655" class="outline-4">
+<h4 id="orgc03d655">Steg 4</h4>
+<div class="outline-text-4" id="text-orgc03d655">
+<p>
+Pust ut. Kompilatoren ligger nå klar på maskinen din.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7c069fb" class="outline-3">
+<h3 id="org7c069fb">Fortelle Windows hvor du har lagt programmet</h3>
+<div class="outline-text-3" id="text-org7c069fb">
+<p>
+Windows veit ennå ikke om kompilatoren du har lagt inn på maskinen. Trykk windows-tasten eller nederst til venstre på skjermen og skriv ordet <code>miljøvariabler</code>. Velg «Rediger miljøvariabler for kontoen din». Du får opp et vindu à la:
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_092002.png" alt="programmering-c-installasjon-windows_20171019_092002.png" />
+</p>
+</div>
+
+<p>
+Vi skal nå redigere variabelen kalt <code>Path</code>. (Om den ikke finnes allerede, kan du opprette en ny variabel ved å trykke <code>Ny...</code>. Velg <code>Path</code> og trykke <code>Rediger...</code>.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_092309.png" alt="programmering-c-installasjon-windows_20171019_092309.png" />
+</p>
+</div>
+
+<p>
+Vi trenger nå installasjonsmappen fra i stad, standarden var <code>C:\MinGW</code>. Etter semikolonet i <code>Path</code>, skriv inn <code>C:\MinGW\bin;</code>. For eksempelet over vil <code>Path</code> nå være <code>%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;C:\MinGW\bin;</code>.
+</p>
+
+<p>
+Velg <code>OK</code> og <code>OK</code>. Vi har nå lagt kompilatoren inn i området Windows leiter etter programmer.
+</p>
+
+<p>
+Vi er klare til å skrive vårt første program.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org547926d" class="outline-2">
+<h2 id="org547926d">Ditt første C-program</h2>
+<div class="outline-text-2" id="text-org547926d">
+<p>
+Trykk på windows-tasten på tastaturet eller nederst til venstre på skjermen og skriv <code>ledetekst</code> og trykk enter. Dere vil nå få opp kommandolinja til Windows.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_090849.png" alt="programmering-c-installasjon-windows_20171019_090849.png" />
+</p>
+</div>
+
+<p>
+For å åpne en tom fil i notisblokk, kan du nå skrive <code>notepad hello.c</code>, hvor <code>hello.c</code> er filnavnet på fila vi ønsker. Bekreft at du ønsker å opprette fila.
+</p>
+
+<p>
+Vårt første program kan for eksempel være som følger (her bruker jeg tabulatortasten for å få mellomrommet før <code>printf</code>):
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_093003.png" alt="programmering-c-installasjon-windows_20171019_093003.png" />
+</p>
+</div>
+
+<p>
+Lagre fila og lukk notisblokk.
+</p>
+
+<p>
+Vi kan nå <i>kompilere</i> fila til et kjørbart program ved å skrive
+</p>
+
+<p>
+<code>gcc hello.c -o hello.exe</code>
+</p>
+
+<p>
+(Om vi ikke tar med <code>-o hello.exe</code> får fila navnet <code>a.exe</code>.)
+</p>
+
+<p>
+Trykk enter. Programmet ditt er nå klart til å kjøres!
+</p>
+
+<p>
+Du kan nå kjøre programmet ved å skrive <code>hello.exe</code> eller bare <code>hello</code>.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/programmering-c-installasjon-windows_20171019_093632.png" alt="programmering-c-installasjon-windows_20171019_093632.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

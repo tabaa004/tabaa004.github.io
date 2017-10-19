@@ -16,8 +16,8 @@ pre  {
     padding: 8pt;
     font-family: "Source Code Pro",  monospace;
     overflow: auto;
-    /* margin: 1.2em; */
-    margin: auto;
+    margin: 1.2em;
+    /* margin: auto; */
     align: center;
     display: inline-block;
   }
