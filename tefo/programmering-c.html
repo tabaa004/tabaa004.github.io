@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-10-17 tir. 16:03 -->
+<!-- 2017-10-19 tor. 11:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Programmering i C</title>
@@ -1179,6 +1179,41 @@ Likningen har ingen l&#248;sning.
 Likningen har to l&#248;sninger, x = 0.67 and x = -1.00.
 </pre>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org5543e8a" class="outline-3">
+<h3 id="org5543e8a">Introduksjon til doble for-løkker (doble for-løkker)</h3>
+<div class="outline-text-3" id="text-org5543e8a">
+<p>
+Hva vil skrives ut av følgende program?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #4271ae;">int</span> <span style="color: #eab700;">i</span>;
+<span style="color: #4271ae;">int</span> <span style="color: #eab700;">j</span>;
+
+<span style="color: #718c00;">for</span> (i = 1; i &lt;=5; ++i) {
+  printf(<span style="color: #3e999f;">"i er %d.\n"</span>, i);
+
+  <span style="color: #718c00;">for</span> (j = 1; j &lt;=5; ++j) {
+    printf(<span style="color: #3e999f;">"j er %d.\n"</span>, j);
+  }
+}
+
+</pre>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org7a63407" class="outline-3">
+<h3 id="org7a63407">Gangetabellen (doble for-løkker)</h3>
+<div class="outline-text-3" id="text-org7a63407">
+<p>
+Skriv et program som skriver gangetabellen til skjermen.
+</p>
 </div>
 </div>
 </div>
