@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-11-09 tor. 08:38 -->
+<!-- 2017-11-16 tor. 11:34 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Temperaturmåling</title>
@@ -227,6 +227,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="preamble" class="status">
@@ -254,6 +276,53 @@ return true;
 <div id="content">
 <h1 class="title">Temperaturmåling</h1>
 
+<div id="outline-container-org9a58a4b" class="outline-2">
+<h2 id="org9a58a4b">Utgangskrets</h2>
+<div class="outline-text-2" id="text-org9a58a4b">
+
+<div class="figure">
+<p><img src="./figurer/ntc-circuit_bb.png" alt="ntc-circuit_bb.png" width="50%" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8d1b409" class="outline-2">
+<h2 id="org8d1b409">Utregning av temperatur</h2>
+<div class="outline-text-2" id="text-org8d1b409">
+<p>
+Fra <a href="https://www.elfadistrelec.no/Web/Downloads/_t/ds/bx_cx_dx_gx_rx-series_eng_jap_tds.pdf">databladet</a> til 10 k&Omega;-termistoren vi bruker, ser vi at det oppgis følgende konstanter (vi har H-varianten):
+</p>
+<dl class="org-dl">
+<dt><b>Resistance R<sub>25</sub></b> = 10 k&Omega;</dt><dd>dette er motstanden ved 25 °C</dd>
+<dt><b>B Value B25/50</b> = 3450 K</dt><dd>denne størrelsen trenger vi for de videre utregningene, her er den tilpasset temperaturer mellom 25 °C og 50 °C</dd>
+<dt><b>Thermal time constant &tau;</b> = 12</dt><dd>dette sier noe om hvor raskt den temperaturavhengige motstanden reagerer på omgivelsestemperaturen</dd>
+</dl>
+
+
+<div class="figure">
+<p><img src="./figurer/prosjekt_temperaturmaaling_20171116_110545.png" alt="prosjekt_temperaturmaaling_20171116_110545.png" />
+</p>
+</div>
+
+
+<p>
+Når vi har dette, kan vi bruke en forenklet utgave av den såkalte Steinhart-Hart-likningen, som følger:
+</p>
+
+<p>
+\[\frac{1}{T} = \frac{1}{T_0} + \frac{1}{B}\ln\left(\frac{R}{R_0}\right)\]
+</p>
+
+<p>
+Her er \(T\) temperaturen målt i kelvin og \(R_0\) motstanden til termistoren ved \(T_0\), altså 25 °C (25 °C = 298,15 K).
+</p>
+
+<p>
+Vi har nå alt vi trenger for å regne ut temperaturen termistoren måler.
+</p>
+</div>
+</div>
 </div>
 </body>
 </html>
