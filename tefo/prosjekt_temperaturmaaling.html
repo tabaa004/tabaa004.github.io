@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
 <head>
-<!-- 2017-11-30 tor. 09:40 -->
+<!-- 2017-12-01 fre. 15:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Temperaturmåling</title>
@@ -295,6 +295,26 @@ Målet med prosjektet er å gjennomføre en temperaturmåling over tid. Prosjekt
 <div class="figure">
 <p><img src="./figurer/ntc-circuit_bb.png" alt="ntc-circuit_bb.png" width="50%" />
 </p>
+<p><span class="figure-number">Illustrasjon 1 </span>Fullt oppsett for måling av temperatur</p>
+</div>
+</div>
+
+<div id="outline-container-org268b539" class="outline-3">
+<h3 id="org268b539">Spesielle merknader</h3>
+<div class="outline-text-3" id="text-org268b539">
+<p>
+Kondensatoren (se utklipp under) er satt inn for at arduinoen ikke skal restarte idet man kobler den tilbake i PC-en. Her er det brukt en 10 µF-kondensator (et slags bitte lite, oppladbart batteri), som skal sørge for at ikke <code>RESET</code>-pinnen på Arduinoen faller ned til <code>LOW</code> når du kobler til PC-en.
+</p>
+
+
+<div class="figure">
+<p><img src="./figurer/prosjekt_temperaturmaaling_20171201_145821.png" alt="prosjekt_temperaturmaaling_20171201_145821.png" />
+</p>
+</div>
+
+<p>
+Etter at du har koblet til PC-en, må du åpne en ny «seriell overvåker» i arduino-programmet på PC-en.
+</p>
 </div>
 </div>
 </div>
@@ -363,6 +383,112 @@ Du skal levere en rapport hvor du presenterer følgende:
 </div>
 </div>
 
+<div id="outline-container-org35ed8f2" class="outline-2">
+<h2 id="org35ed8f2">Eksempelkode</h2>
+<div class="outline-text-2" id="text-org35ed8f2">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #4271ae;">int</span> <span style="color: #eab700;">thermistorPin</span> = A0; <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">Arduino-pinen vi har koblet midtpunktet mellom de to motstandene til</span>
+<span style="color: #4271ae;">int</span> <span style="color: #eab700;">knappPin</span> = 2; <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">Dette skal v&#230;re knappen vi trykker p&#229; for &#229; f&#229; dataene skrevet ut</span>
+
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">R1</span> = 10000; <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">verdien til den konstante motstanden, her gitt i Ohm</span>
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">T0</span> = 298.15; <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">T0 for termistoren</span>
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">Rntc</span>, <span style="color: #eab700;">temp</span>, <span style="color: #eab700;">temp_c</span>; <span style="color: #8e908c; font-style: italic;">// </span>
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">beta</span> = 3486; <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">funnnet via https://www.elfadistrelec.no/Web/Downloads/_t/ds/bx_cx_dx_gx_rx-series_eng_jap_tds.pdf</span>
+
+
+<span style="color: #4271ae;">float</span> <span style="color: #eab700;">T1</span>, <span style="color: #eab700;">T2</span>, <span style="color: #eab700;">T3</span>, <span style="color: #eab700;">T4</span>, <span style="color: #eab700;">T5</span>, <span style="color: #eab700;">T6</span>, <span style="color: #eab700;">T7</span>, <span style="color: #eab700;">T8</span>, <span style="color: #eab700;">T9</span>, <span style="color: #eab700;">T10</span>;
+
+<span style="color: #4271ae;">float</span> <span style="color: #f5871f;">temperatureInC</span>(<span style="color: #4271ae;">int</span> <span style="color: #eab700;">pinNumber</span>){
+  <span style="color: #8e908c; font-style: italic;">/*</span><span style="color: #8e908c; font-style: italic;">Beregner en temperatur gitt i grader Celsius basert p&#229;</span>
+<span style="color: #8e908c; font-style: italic;">    en litt forenklet utgave av Steinhart-Hart-likningen.</span>
+<span style="color: #8e908c; font-style: italic;">  </span><span style="color: #8e908c; font-style: italic;">*/</span>
+
+  <span style="color: #4271ae;">float</span> <span style="color: #eab700;">a</span>, <span style="color: #eab700;">b</span>, <span style="color: #eab700;">c</span>, <span style="color: #eab700;">tempK</span>;
+  <span style="color: #4271ae;">int</span> <span style="color: #eab700;">Vo</span> = analogRead(pinNumber);
+
+  Rntc = R1 * (1023.0 / Vo - 1.0); <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">1023 er antallet analoge niv&#229;er p&#229; arduino-pin</span>
+  a = 1 / T0; <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">her finner vi 1/T0-leddet</span>
+  b = 1/beta * log(Rntc/R1); <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">merk at "log" er "ln"</span>
+  c = a + b;
+  tempK = 1 / c; <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">det er f&#248;rst her vi har regnet ut faktisk temperatur, n&#229; i Kelvin</span>
+  temp = tempK - 273.15; <span style="color: #8e908c; font-style: italic;">//</span><span style="color: #8e908c; font-style: italic;">her regner vi oss fra kelvin til grader celsius</span>
+
+  <span style="color: #718c00;">return</span> temp;
+  }
+
+<span style="color: #4271ae;">void</span> <span style="color: #f5871f;">printData</span> () { <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">Funksjon som skal kj&#248;res n&#229;r du trykker ned knappen</span>
+
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(500);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(500);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(500);
+
+  Serial.begin(9600);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 1: "</span>);
+  Serial.println(T1);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 2: "</span>);
+  Serial.println(T2);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 3: "</span>);
+  Serial.println(T3);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 4: "</span>);
+  Serial.println(T4);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 5: "</span>);
+  Serial.println(T5);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 6: "</span>);
+  Serial.println(T6);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 7: "</span>);
+  Serial.println(T7);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 8: "</span>);
+  Serial.println(T8);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 9: "</span>);
+  Serial.println(T9);
+  Serial.print(<span style="color: #3e999f;">"Temperatur 10: "</span>);
+  Serial.println(T10);
+  Serial.end();
+}
+
+
+<span style="color: #4271ae;">void</span> <span style="color: #f5871f;">setup</span>() {
+  pinMode(knappPin, INPUT_PULLUP);
+  pinMode(thermistorPin, INPUT);
+
+  attachInterrupt(digitalPinToInterrupt(knappPin), printData, FALLING);
+
+  <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">For at vi ikke skal f&#229; problemer med at vi er midt i en delay n&#229;r vi fors&#248;ker &#229; skrive ut temperaturene,</span>
+  <span style="color: #8e908c; font-style: italic;">// </span><span style="color: #8e908c; font-style: italic;">gj&#248;r vi alle temperaturm&#229;lignene i setup-delen, som kun kj&#248;res &#233;n gang</span>
+
+  T1 = temperatureInC(thermistorPin);
+  delay(72);
+  T2 = temperatureInC(thermistorPin);
+  delay(72);
+  T3 = temperatureInC(thermistorPin);
+  delay(72);
+  T4 = temperatureInC(thermistorPin);
+  delay(72);
+  T5 = temperatureInC(thermistorPin);
+  delay(72);
+  T6 = temperatureInC(thermistorPin);
+  delay(72);
+  T7 = temperatureInC(thermistorPin);
+  delay(72);
+  T8 = temperatureInC(thermistorPin);
+  delay(72);
+  T9 = temperatureInC(thermistorPin);
+  delay(72);
+  T10 = temperatureInC(thermistorPin);
+  delay(72);
+
+  digitalWrite(LED_BUILTIN, HIGH);
+}
+
+<span style="color: #4271ae;">void</span> <span style="color: #f5871f;">loop</span>() {
+}
+</pre>
+</div>
+</div>
+</div>
 
 <div id="outline-container-orgf1d767c" class="outline-2">
 <h2 id="orgf1d767c">Måloppnåelse</h2>

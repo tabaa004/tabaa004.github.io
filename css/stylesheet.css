@@ -96,7 +96,7 @@ table {
 
 /* #main { */
 div.outline-2 {
-        width: 70em;
+    width: 70em;
 	float: right;
 	/* The lines below are useful if the "main" div isn't available and
 	   div.outline-2 has to be used. */
@@ -109,7 +109,8 @@ div.outline-2 {
 }
 
 div.outline-2 pre {
-    width: 40em;
+    /* The width value messed up source blocks. */
+    /* width: 40em; */
     overflow: auto;
 }
 
