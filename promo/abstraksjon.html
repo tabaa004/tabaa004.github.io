@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
+<head>
+<!-- 2018-05-30 ons. 13:39 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abstraksjon og funksjoner</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Tarjei Bærland" />
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- <div class='topnav'> -->
+<!--   <ul> -->
+<!--     <li><a href='/fysikk/fysikk.html'>Home</a></li> -->
+<!--     <li><a href='/naturfag/naturfag.html'>Blog</a></li> -->
+<!--   </ul> -->
+<!-- </div> -->
+
+<script type="text/javascript">
+function toggleMe(a){
+var e=document.getElementById(a);
+if(!e)return true;
+if(e.style.display=="none"){
+e.style.display="block"
+}
+else{
+e.style.display="none"
+}
+return true;
+}
+</script>
+</div>
+<div id="content">
+<h1 class="title">Abstraksjon og funksjoner</h1>
+
+<div id="outline-container-org77f9323" class="outline-2">
+<h2 id="org77f9323">Biblioteker</h2>
+<div class="outline-text-2" id="text-org77f9323">
+</div>
+<div id="outline-container-orgca64791" class="outline-3">
+<h3 id="orgca64791">Et fysikkbibliotek</h3>
+<div class="outline-text-3" id="text-orgca64791">
+<pre class="example">
+tabaa004&gt; python -m site --user-site
+C:\Users\tabaa004\AppData\Roaming\Python\Python36\site-packages
+</pre>
+
+<p>
+Her legger jeg en kort fil som jeg kaller <code>fysikk.py</code>. Dette skal på sikt være fysikkbiblioteket mitt. Her ønsker jeg å samle alle konstanter, samt en del formler og likninger jeg stadig ender med å bruke.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #718c00;">import</span> fysikk <span style="color: #718c00;">as</span> fy
+
+<span style="color: #718c00;">print</span>(fy.g)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">9.81
+</pre>
+</div>
+
+<p>
+Linja <code>import fysikk as fy</code> er vesentlig. Den består av to nøkkelord, <code>import</code> og <code>as</code>; ett modulnavn, <code>fysikk</code>; og ett alias, <code>fy</code>.
+</p>
+
+<p>
+En slik importeringssetning kommer vi til å se i de aller fleste programmene vi skal lage. Pythons motto er at det kommer «batteries included», men det betyr ikke at alt ligger tilgjengelig idet vi starter programmet, vi må <i>importere</i> bibliotekene.
+</p>
+
+<p>
+I eksempelet over er <code>fysikk</code> et slikt bibliotek. Vi kommer seinere til å bruke et knippe biblioteker, spesielt <a href="https://docs.python.org/2/library/math.html"><code>math</code></a>, <a href="http://www.numpy.org/"><code>numpy</code></a>, <a href="https://www.scipy.org/"><code>scipy</code></a>, og <a href="https://matplotlib.org/"><code>matplotlib</code></a>.
+</p>
+
+<p>
+En del slike biblioteker er en del av Pythons <i>standardbibliotek</i>. Det vil enkelt og greit si at utviklerne av Python også tar seg av å holde disse modulene (les: bibliotekene) ved like. En del av standardbiblioteket er innebygde funksjoner<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>, men det er også egne moduler man må importere, slik som <code>math</code><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
+</p>
+
+<p>
+Vårt første møte <code>import</code>-setninger blir også vårt første møte «punktnotasjon» eller <i>dot notation</i>. Vi skriver <code>fy.g</code> for vi ønsker å bruke <code>g</code> fra <code>fysikk</code>-modulen, som vi her har valgt å gi kallenavnet («alias»-et) <code>fy</code>. Vi ser av feilmeldingen under at om vi forsøker å bruke <code>g</code> direkte, får vi beskjed om at denne ikke er definert.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #718c00;">import</span> fysikk
+
+<span style="color: #718c00;">print</span>(g)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'g' is not defined
+</pre>
+</div>
+
+<p>
+Vi kommer til å møte på punktnotasjonen i en situasjon til, for bruk av <i>metoder</i> på <i>objekter</i>. Mer om det seinere.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org96108b2" class="outline-3">
+<h3 id="org96108b2">Vårt typiske importoppsett</h3>
+<div class="outline-text-3" id="text-org96108b2">
+<p>
+Du vil noen ganger se anbefalt å bruke en pakke som heter <a href="https://scipy.github.io/old-wiki/pages/PyLab"><code>pylab</code></a>. Dette er en samlepakke for tidligere nevnte <code>scipy</code>, <code>numpy</code> og <code>matplotlib</code>. Dette er en god pakke, men vi kommer ikke til å bruke den her. Grunnen er enkelt og greit at jeg mener den inviterer til dårlige vaner og at brukeren ikke må forholde seg til økosystemet hun jobber i. Pylab oppfordrer til å importere pakken via
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #718c00;">from</span> pylab <span style="color: #718c00;">import</span> *
+</pre>
+</div>
+<p>
+hvor <code>*</code>-markøren vil si «alt». Problemet med dette er at det nå ikke blir synlig for brukeren <i>hvor</i> en funksjon, klasse eller variabel kommer fra. Det øker også sannsynligheten for at man ved uhell skriver over allerede-definerte navn.
+</p>
+
+<p>
+Vi kommer til stort sett til å importere i det minste følgende:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #718c00;">import</span> numpy <span style="color: #718c00;">as</span> np
+<span style="color: #718c00;">import</span> matplotlib.pyplot <span style="color: #718c00;">as</span> plt
+</pre>
+</div>
+
+<p>
+Vi kommer også til å hente ut spesifikke funksjoner fra eksempelvis <code>scipy</code>, noe vi kan gjøre via:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #718c00;">from</span> math <span style="color: #718c00;">import</span> sqrt
+<span style="color: #718c00;">from</span> scipy <span style="color: #718c00;">import</span> special
+
+<span style="color: #718c00;">print</span>(sqrt(2))
+</pre>
+</div>
+
+<p>
+Legg merke til at vi her ikke lenger har behov for punktnotasjon når vi skal bruke <code>sqrt</code>, da vi spesifikt har hentet ut denne fra <code>math</code>-biblioteket.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93ae150" class="outline-2">
+<h2 id="org93ae150">Funksjoner</h2>
+<div class="outline-text-2" id="text-org93ae150">
+<p>
+Vi har nå fått et knippe verktøy for å lage ulike variabler, men vi kommer snart til å se at vi gjentar oss selv mye i programmeringen. Som programmerer bør du være på utkikk etter kode som er gjentagelser av tidligere kode, dette kan som oftes samles i en egen blokk. Vi kaller slike gjenbrukebare blokker av kode for «funksjoner» eller «underrutiner» (<i>subrutines</i>).
+</p>
+
+
+<div class="figure">
+<p><img src="figurer/funksjon.png" alt="funksjon.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org49e0ce1" class="outline-3">
+<h3 id="org49e0ce1">Ord når vi snakker om funksjoner</h3>
+<div class="outline-text-3" id="text-org49e0ce1">
+<p>
+En funksjon <i>defineres</i> og i definisjonen tar funksjonen inn <i>argumenter</i>. Når vi <i>kaller</i> funksjonen, kan vi sende <i>variabler</i> inn som funksjonens <i>parametere</i>.
+</p>
+
+<p>
+Strukturen på alle funksjonsdefinisjoner er som følger:
+</p>
+
+<pre class="example">
+def funksjonsnavn(arg1, arg2, ...):
+    """En beskrivelse av hva funksjonen gjør."""
+    
+    setninger hvor funksjonen gjør noe
+
+    return det funksjonen skal returnere
+</pre>
+
+<p>
+La oss si vi ønsker å lage en funksjon som tar inn et tall og returnerer tallet kvadrert. Dette kan vi gjøre som vist under.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #718c00;">def</span> <span style="color: #f5871f;">kvadrer</span>(x):
+    <span style="color: #8959a8;">"""Kvadrer tallet x."""</span>
+    <span style="color: #eab700;">svar</span> = x * x
+    <span style="color: #718c00;">return</span> svar
+
+<span style="color: #718c00;">print</span>(kvadrer(2))
+</pre>
+</div>
+
+<p>
+I denne <i>definisjonen</i> (markert med nøkkelordet <code>def</code>), setter vi <i>navnet</i> til funksjonen til å være <code>kvadrer</code>, vi definerer ett argument <code>x</code>, vi har en setning i <i>funksjonskroppen</i> som lager en variabel som kun er synlig for funksjonen, <code>svar</code>, som vi setter til å være <code>x * x</code>, før vi avslutter med å returnere <code>svar</code>. Til slutt <i>kaller</i> vi funksjonen ved å skrive funksjonsnavnet, og å sende inn <i>parameteren</i> <code>2</code>.
+</p>
+
+<div class="TASK">
+<p>
+Hva er <i>funksjonsnavnet</i>, <i>argumentene</i> og <i>returverdi</i> for funksjonen under?
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #718c00;">def</span> <span style="color: #f5871f;">snitt</span>(a, b):
+    <span style="color: #8959a8;">"""Gi gjennomsnittet av tallene a og b."""</span>
+    <span style="color: #eab700;">svar</span> = (a + b) / 2
+    <span style="color: #718c00;">return</span> svar
+</pre>
+</div>
+
+<p>
+Videre, i <i>funksjonskallet</i> under, hva vil verdien av variabelen <code>regnet_snitt</code> være og hva er <i>parameterne</i> i kallet?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #eab700;">regnet_snitt</span> = snitt(4.5, 9)
+</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org39c7eaa" class="outline-2">
+<h2 id="org39c7eaa">Skop</h2>
+<div class="outline-text-2" id="text-org39c7eaa">
+<p>
+Se på følgende programsnutt.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #eab700;">n</span> = 3
+
+<span style="color: #718c00;">def</span> <span style="color: #f5871f;">inkrement</span>(n):
+    <span style="color: #8959a8;">"""&#216;k verdien til n med 1."""</span>
+    <span style="color: #eab700;">n</span> += 1
+    <span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'--Vi er inne i funksjonen.'</span>)
+    <span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'--Verdien til n er n&#229; {n}.'</span>)
+    <span style="color: #718c00;">return</span> n
+
+inkrement(n)
+
+<span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'Vi er p&#229; utsiden av funksjonen.'</span>)
+<span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'Verdien til n er n&#229; {n}.'</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">--Vi er inne i funksjonen.
+--Verdien til n er n&#229; 4.
+Vi er p&#229; utsiden av funksjonen.
+Verdien til n er n&#229; 3.
+</pre>
+</div>
+
+<p>
+Her har vi først en <i>variabel</i> kalt <code>n</code>, som vi setter til verdien <code>3</code>. Vi definerer så en <i>funksjon</i> med <i>argument</i> <code>n</code>. Dette argumentet har ikke noe med variabelen å gjøre, argumentet gjelder kun for funksjonen, og blir opprettet idet funksjonen blir laget. Til slutt <i>kaller</i> vi funksjonen 
+</p>
+
+<p>
+Hva skjer så om vi kjører samme skript, bare med én vesentlig endring?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #eab700;">n</span> = 3
+
+<span style="color: #718c00;">def</span> <span style="color: #f5871f;">inkrement</span>(n):
+    <span style="color: #8959a8;">"""&#216;k verdien til n med 1."""</span>
+    <span style="color: #eab700;">n</span> += 1
+    <span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'--Vi er inne i funksjonen.'</span>)
+    <span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'--Verdien til n er n&#229; {n}.'</span>)
+    <span style="color: #718c00;">return</span> n
+
+<span style="color: #eab700;">n</span> = inkrement(n)        <span style="color: #8e908c; font-style: italic;"># </span><span style="color: #8e908c; font-style: italic;">Obs!</span>
+
+<span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'Vi er p&#229; utsiden av funksjonen.'</span>)
+<span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'Verdien til n er n&#229; {n}.'</span>)
+</pre>
+</div>
+
+<div class="TASK">
+<p>
+Kjør de to foregående programsnuttene og forklar eventuelle avvik.
+</p>
+
+</div>
+
+<p>
+De delene av et program hvor en gitt variabel er tilgjengelig, kaller vi den variabelenes «skop», eller <i>scope</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #eab700;">x</span> = 2
+<span style="color: #718c00;">def</span> <span style="color: #f5871f;">utskrift</span>():
+    <span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'Inne i funksjonen er verdien til x {x}.'</span>)
+    <span style="color: #718c00;">return</span>
+
+utskrift()
+
+<span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'Utenfor funksjonen er verdien til x {x}.'</span>)
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #eab700;">x</span> = 2
+<span style="color: #718c00;">def</span> <span style="color: #f5871f;">utskrift_med_indre</span>():
+    <span style="color: #eab700;">x</span> = 3
+    <span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'Inne i funksjonen er verdien til x {x}.'</span>)
+    <span style="color: #718c00;">return</span>
+
+<span style="color: #718c00;">print</span>(f<span style="color: #3e999f;">'Utenfor funksjonen er verdien til x {x}.'</span>)
+</pre>
+</div>
+
+<label for='txt'>static text
+    <input type="text" id='txt' value="" />
+</label>
+
+
+<div class="TASK">
+<p>
+Hva blir skrevet av følgende program?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #718c00;">def</span> <span style="color: #f5871f;">kvadrer</span>(x):
+    <span style="color: #718c00;">return</span> x*x
+
+<span style="color: #718c00;">def</span> <span style="color: #f5871f;">g</span>(y):
+    <span style="color: #718c00;">return</span> y + 3
+
+<span style="color: #718c00;">def</span> <span style="color: #f5871f;">h</span>(y):
+    <span style="color: #718c00;">return</span> kvadrer(y) + 3
+
+<span style="color: #718c00;">print</span> h(2)
+</pre>
+</div>
+
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes" hidden>Fotnoter</h2>
+<hr>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Dette er funksjoner som er tilgjengelig uten noen form for <code>import</code>-setning, f.eks. funksjonen <code>sorted</code>, som sorterer ei liste
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<code>math</code> trenger vi fort, dette biblioteket inneholder både <code>sqrt</code> og <code>factorial</code>.
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>
