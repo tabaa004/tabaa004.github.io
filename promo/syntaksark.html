@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
+<head>
+<!-- 2018-07-03 tir. 20:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Syntaks og eksempler</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Tarjei Bærland" />
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- <div class='topnav'> -->
+<!--   <ul> -->
+<!--     <li><a href='/fysikk/fysikk.html'>Home</a></li> -->
+<!--     <li><a href='/naturfag/naturfag.html'>Blog</a></li> -->
+<!--   </ul> -->
+<!-- </div> -->
+
+<script type="text/javascript">
+function toggleMe(a){
+var e=document.getElementById(a);
+if(!e)return true;
+if(e.style.display=="none"){
+e.style.display="block"
+}
+else{
+e.style.display="none"
+}
+return true;
+}
+</script>
+</div>
+<div id="content">
+<h1 class="title">Syntaks og eksempler</h1>
+
+
+<div id="outline-container-org5a7eef2" class="outline-2">
+<h2 id="org5a7eef2">Regning</h2>
+</div>
+<div id="outline-container-org41c5b1b" class="outline-2">
+<h2 id="org41c5b1b">Snarveier</h2>
+<div class="outline-text-2" id="text-org41c5b1b">
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">boolsk</span>():
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""Gi en boolsk verdi i retur."""</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">if</span> rnd.random() &gt; 0.5:
+        <span class="org-keyword">return</span> <span class="org-constant">True</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">else</span>:
+        <span class="org-keyword">return</span> <span class="org-constant">False</span>
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">er_partall</span>(n):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""True hvis n er partall."""</span>
+<span class="org-highlight-indentation"> </span>   <span class="org-keyword">return</span> n % 2 == 0
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc9b4e3e" class="outline-2">
+<h2 id="orgc9b4e3e">Variabler</h2>
+</div>
+
+<div id="outline-container-orgc1d4e56" class="outline-2">
+<h2 id="orgc1d4e56">Lister</h2>
+<div class="outline-text-2" id="text-orgc1d4e56">
+</div>
+<div id="outline-container-org42c65a3" class="outline-3">
+<h3 id="org42c65a3">«List comprehension»</h3>
+<div class="outline-text-3" id="text-org42c65a3">
+<pre class="example">
+listenavn = [funksjon(element) *for* element *in* annen_liste]
+</pre>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">kvadrattall</span> = [i ** 2 <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, 101)]
+</pre>
+</div>
+
+<p>
+Dette kan også gjøres med filter via en <code>if</code>-setning.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">from</span> math <span class="org-keyword">import</span> sqrt, floor
+
+<span class="org-keyword">def</span> <span class="org-function-name">er_primtall</span>(n):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""Gi True hvis n er primtall."""</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">if</span> n % 2 == 0 <span class="org-keyword">and</span> n != 2:
+        <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(3, floor(sqrt(n)) + 1, 2):
+        <span class="org-keyword">if</span> n % i == 0:
+            <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">if</span> n == 1:
+        <span class="org-keyword">return</span> <span class="org-constant">False</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span> <span class="org-constant">True</span>
+
+<span class="org-variable-name">primtall</span> = [i <span class="org-keyword">for</span> i <span class="org-keyword">in</span> <span class="org-builtin">range</span>(1, 101) <span class="org-keyword">if</span> er_primtall(i)]
+<span class="org-keyword">print</span>(primtall)
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org805a553" class="outline-2">
+<h2 id="org805a553">Kontrollstrukturer</h2>
+<div class="outline-text-2" id="text-org805a553">
+</div>
+<div id="outline-container-orgd630be7" class="outline-3">
+<h3 id="orgd630be7"><code>if</code></h3>
+</div>
+
+<div id="outline-container-org629b799" class="outline-3">
+<h3 id="org629b799"><code>for</code></h3>
+</div>
+
+<div id="outline-container-org151f526" class="outline-3">
+<h3 id="org151f526"><code>while</code></h3>
+</div>
+</div>
+</div>
+</body>
+</html>

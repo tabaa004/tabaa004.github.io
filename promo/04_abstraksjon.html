@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
+<head>
+<!-- 2018-07-03 tir. 20:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Abstraksjon og funksjoner</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Tarjei Bærland" />
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
+
+<script type="text/javascript" src="../js/org-info-nb.js">
+/**
+ *
+ * @source: ../js/org-info-nb.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in ../js/org-info-nb.js.
+ *
+ * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in ../js/org-info-nb.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "0");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- <div class='topnav'> -->
+<!--   <ul> -->
+<!--     <li><a href='/fysikk/fysikk.html'>Home</a></li> -->
+<!--     <li><a href='/naturfag/naturfag.html'>Blog</a></li> -->
+<!--   </ul> -->
+<!-- </div> -->
+
+<script type="text/javascript">
+function toggleMe(a){
+var e=document.getElementById(a);
+if(!e)return true;
+if(e.style.display=="none"){
+e.style.display="block"
+}
+else{
+e.style.display="none"
+}
+return true;
+}
+</script>
+</div>
+<div id="content">
+<h1 class="title">Abstraksjon og funksjoner</h1>
+<div id="table-of-contents">
+<h2>Innhold</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org1d133e4">Biblioteker</a>
+<ul>
+<li><a href="#org6f609d1">Et fysikkbibliotek</a></li>
+<li><a href="#org1ee8a3f">Vårt typiske importoppsett</a></li>
+</ul>
+</li>
+<li><a href="#org485640b">Funksjoner</a>
+<ul>
+<li><a href="#org24c81aa">Definisjon og kall</a></li>
+<li><a href="#orgbec76c8">Ord når vi snakker om funksjoner</a></li>
+</ul>
+</li>
+<li><a href="#org182b3bd">Skop</a></li>
+<li><a href="#org904d148">Klasser</a></li>
+<li><a href="#orgaafa6fe">Kjenn dine røtter</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org1d133e4" class="outline-2">
+<h2 id="org1d133e4">Biblioteker</h2>
+<div class="outline-text-2" id="text-org1d133e4">
+</div>
+<div id="outline-container-org6f609d1" class="outline-3">
+<h3 id="org6f609d1">Et fysikkbibliotek</h3>
+<div class="outline-text-3" id="text-org6f609d1">
+<pre class="example">
+tabaa004&gt; python -m site --user-site
+C:\Users\tabaa004\AppData\Roaming\Python\Python36\site-packages
+</pre>
+
+<p>
+Her legger jeg en kort fil som jeg kaller <code>fysikk.py</code>. Dette skal på sikt være fysikkbiblioteket mitt. Her ønsker jeg å samle alle konstanter, samt en del formler og likninger jeg stadig ender med å bruke.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> fysikk <span class="org-keyword">as</span> fy
+
+<span class="org-keyword">print</span>(fy.g)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">9.81
+</pre>
+</div>
+
+<p>
+Linja <code>import fysikk as fy</code> er vesentlig. Den består av to nøkkelord, <code>import</code> og <code>as</code>; ett modulnavn, <code>fysikk</code>; og ett alias, <code>fy</code>.
+</p>
+
+<p>
+En slik importeringssetning kommer vi til å se i de aller fleste programmene vi skal lage. Pythons motto er at det kommer «batteries included», men det betyr ikke at alt ligger tilgjengelig idet vi starter programmet, vi må <i>importere</i> bibliotekene.
+</p>
+
+<p>
+I eksempelet over er <code>fysikk</code> et slikt bibliotek. Vi kommer seinere til å bruke et knippe biblioteker, spesielt <a href="https://docs.python.org/2/library/math.html"><code>math</code></a>, <a href="http://www.numpy.org/"><code>numpy</code></a>, <a href="https://www.scipy.org/"><code>scipy</code></a>, og <a href="https://matplotlib.org/"><code>matplotlib</code></a>.
+</p>
+
+<p>
+En del slike biblioteker er en del av Pythons <i>standardbibliotek</i>. Det vil enkelt og greit si at utviklerne av Python også tar seg av å holde disse modulene (les: bibliotekene) ved like. En del av standardbiblioteket er innebygde funksjoner<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>, men det er også egne moduler man må importere, slik som <code>math</code><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
+</p>
+
+<p>
+Vårt første møte <code>import</code>-setninger blir også vårt første møte «punktnotasjon» eller <i>dot notation</i>. Vi skriver <code>fy.g</code> for vi ønsker å bruke <code>g</code> fra <code>fysikk</code>-modulen, som vi her har valgt å gi kallenavnet («alias»-et) <code>fy</code>. Vi ser av feilmeldingen under at om vi forsøker å bruke <code>g</code> direkte, får vi beskjed om at denne ikke er definert.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> fysikk
+
+<span class="org-keyword">print</span>(g)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+NameError: name 'g' is not defined
+</pre>
+</div>
+
+<p>
+Vi kommer til å møte på punktnotasjonen i en situasjon til, for bruk av <i>metoder</i> på <i>objekter</i>. Mer om det seinere.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1ee8a3f" class="outline-3">
+<h3 id="org1ee8a3f">Vårt typiske importoppsett</h3>
+<div class="outline-text-3" id="text-org1ee8a3f">
+<p>
+Du vil noen ganger se anbefalt å bruke en pakke som heter <a href="https://scipy.github.io/old-wiki/pages/PyLab"><code>pylab</code></a>. Dette er en samlepakke for tidligere nevnte <code>scipy</code>, <code>numpy</code> og <code>matplotlib</code>. Dette er en god pakke, men vi kommer ikke til å bruke den her. Grunnen er enkelt og greit at jeg mener den inviterer til dårlige vaner og at brukeren ikke må forholde seg til økosystemet hun jobber i. Pylab oppfordrer til å importere pakken via
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">from</span> pylab <span class="org-keyword">import</span> *
+</pre>
+</div>
+<p>
+hvor <code>*</code>-markøren vil si «alt». Problemet med dette er at det nå ikke blir synlig for brukeren <i>hvor</i> en funksjon, klasse eller variabel kommer fra. Det øker også sannsynligheten for at man ved uhell skriver over allerede-definerte navn.
+</p>
+
+<p>
+Vi kommer til stort sett til å importere i det minste følgende:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> numpy <span class="org-keyword">as</span> np
+<span class="org-keyword">import</span> matplotlib.pyplot <span class="org-keyword">as</span> plt
+</pre>
+</div>
+
+<p>
+Vi kommer også til å hente ut spesifikke funksjoner fra eksempelvis <code>scipy</code>, noe vi kan gjøre via:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">from</span> math <span class="org-keyword">import</span> sqrt
+<span class="org-keyword">from</span> scipy <span class="org-keyword">import</span> special
+
+<span class="org-keyword">print</span>(sqrt(2))
+</pre>
+</div>
+
+<p>
+Legg merke til at vi her ikke lenger har behov for punktnotasjon når vi skal bruke <code>sqrt</code>, da vi spesifikt har hentet ut denne fra <code>math</code>-biblioteket.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org485640b" class="outline-2">
+<h2 id="org485640b">Funksjoner</h2>
+<div class="outline-text-2" id="text-org485640b">
+<p>
+Vi har nå fått et knippe verktøy for å lage ulike variabler, men vi kommer snart til å se at vi gjentar oss selv mye i programmeringen. Som programmerer bør du være på utkikk etter kode som er gjentagelser av tidligere kode, dette kan som oftes samles i en egen blokk. Vi kaller slike gjenbrukebare blokker av kode for «funksjoner» eller «underrutiner» (<i>subrutines</i>).
+</p>
+
+
+<div class="figure">
+<p><img src="figurer/funksjon.png" alt="funksjon.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org24c81aa" class="outline-3">
+<h3 id="org24c81aa">Definisjon og kall</h3>
+<div class="outline-text-3" id="text-org24c81aa">
+<p>
+De to viktigste tingene vi gjør med en funksjon er å definere den og å gjøre et kall på den. Definisjon skjer i Python ved å bruke nøkkelordet <code>def</code>. Et kall fungerer ved at vi skriver funksjonsnavnet og en parentes som inneholder eventuelle paramtere.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">hilsen</span>():
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""En funksjon som sier 'hei'"""</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(<span class="org-string">'hei'</span>)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span>
+
+<span class="org-keyword">def</span> <span class="org-function-name">hilsen_navngitt</span>(navn):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""En funksjon som hilser p&#229; noe navngitt."""</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(f<span class="org-string">'Hei, {navn}!'</span>)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span>
+
+hilsen()
+hilsen_navngitt(<span class="org-string">'Trond'</span>)
+</pre>
+</div>
+
+<p>
+Legg merke til at funksjonene over ikke <i>returnere</i> noe. De gjennomfører setningene det de bler bedt om å gjøre, men gir ikke tilbake noen verdi.
+</p>
+
+<p>
+I slike tilfeller kan vi enten skrive <code>return</code>, <code>return None</code>, eller la være å skrive noen retursetning overhodet.
+</p>
+
+<div class="TASK">
+<p>
+Modifiser <code>hilsen</code> og <code>hilsen_navngitt</code> til heller å <i>returnere</i> sine respektive tekststrenger.
+</p>
+
+<p>
+Ønsket oppførsel er altså for eksempel:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">svar</span> = hilsen_navngitt(<span class="org-string">'Trond'</span>)
+<span class="org-keyword">print</span>(svar)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Hei, Trond!
+</pre>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbec76c8" class="outline-3">
+<h3 id="orgbec76c8">Ord når vi snakker om funksjoner</h3>
+<div class="outline-text-3" id="text-orgbec76c8">
+<p>
+En funksjon <i>defineres</i> og i definisjonen tar funksjonen inn <i>argumenter</i>. Når vi <i>kaller</i> funksjonen, kan vi sende <i>variabler</i> inn som funksjonens <i>parametere</i>.
+</p>
+
+<p>
+Strukturen på alle funksjonsdefinisjoner er som følger:
+</p>
+
+<pre class="example">
+def funksjonsnavn(arg1, arg2, ...):
+    """En beskrivelse av hva funksjonen gjør."""
+    
+    setninger hvor funksjonen gjør noe
+
+    return det funksjonen skal returnere
+</pre>
+
+<p>
+La oss si vi ønsker å lage en funksjon som tar inn et tall og returnerer tallet kvadrert. Dette kan vi gjøre som vist under.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">kvadrer</span>(x):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""Kvadrer tallet x."""</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-variable-name">svar</span> = x * x
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span> svar
+
+<span class="org-keyword">print</span>(kvadrer(2))
+</pre>
+</div>
+
+<p>
+I denne <i>definisjonen</i> (markert med nøkkelordet <code>def</code>), setter vi <i>navnet</i> til funksjonen til å være <code>kvadrer</code>, vi definerer ett argument <code>x</code>, vi har en setning i <i>funksjonskroppen</i> som lager en variabel som kun er synlig for funksjonen, <code>svar</code>, som vi setter til å være <code>x * x</code>, før vi avslutter med å returnere <code>svar</code>. Til slutt <i>kaller</i> vi funksjonen ved å skrive funksjonsnavnet, og å sende inn <i>parameteren</i> <code>2</code>.
+</p>
+
+<div class="TASK">
+<p>
+Hva er <i>funksjonsnavnet</i>, <i>argumentene</i> og <i>returverdi</i> for funksjonen under?
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">snitt</span>(a, b):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""Gi gjennomsnittet av tallene a og b."""</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-variable-name">svar</span> = (a + b) / 2
+<span class="org-highlight-indentation"> </span>   <span class="org-keyword">return</span> svar
+</pre>
+</div>
+
+<p>
+Videre, i <i>funksjonskallet</i> under, hva vil verdien av variabelen <code>regnet_snitt</code> være og hva er <i>parameterne</i> i kallet?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">regnet_snitt</span> = snitt(4.5, 9)
+</pre>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org182b3bd" class="outline-2">
+<h2 id="org182b3bd">Skop</h2>
+<div class="outline-text-2" id="text-org182b3bd">
+<p>
+Se på følgende programsnutt.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">n</span> = 3
+
+<span class="org-keyword">def</span> <span class="org-function-name">inkrement</span>(n):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""&#216;k verdien til n med 1."""</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-variable-name">n</span> += 1
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(f<span class="org-string">'--Vi er inne i funksjonen.'</span>)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(f<span class="org-string">'--Verdien til n er n&#229; {n}.'</span>)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span> n
+
+inkrement(n)
+
+<span class="org-keyword">print</span>(f<span class="org-string">'Vi er p&#229; utsiden av funksjonen.'</span>)
+<span class="org-keyword">print</span>(f<span class="org-string">'Verdien til n er n&#229; {n}.'</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">
+--Vi er inne i funksjonen.
+--Verdien til n er n&#229; 4.
+Vi er p&#229; utsiden av funksjonen.
+Verdien til n er n&#229; 3.
+</pre>
+</div>
+
+<p>
+Her har vi først en <i>variabel</i> kalt <code>n</code>, som vi setter til verdien <code>3</code>. Vi definerer så en <i>funksjon</i> med <i>argument</i> <code>n</code>. Dette argumentet har ikke noe med variabelen å gjøre, argumentet gjelder kun for funksjonen, og blir opprettet idet funksjonen blir laget. Til slutt <i>kaller</i> vi funksjonen 
+</p>
+
+<p>
+Hva skjer så om vi kjører samme skript, bare med én vesentlig endring?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">n</span> = 3
+
+<span class="org-keyword">def</span> <span class="org-function-name">inkrement</span>(n):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""&#216;k verdien til n med 1."""</span>
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-variable-name">n</span> += 1
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(f<span class="org-string">'--Vi er inne i funksjonen.'</span>)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(f<span class="org-string">'--Verdien til n er n&#229; {n}.'</span>)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span> n
+
+<span class="org-variable-name">n</span> = inkrement(n)        <span class="org-comment-delimiter"># </span><span class="org-comment">Obs!</span>
+
+<span class="org-keyword">print</span>(f<span class="org-string">'Vi er p&#229; utsiden av funksjonen.'</span>)
+<span class="org-keyword">print</span>(f<span class="org-string">'Verdien til n er n&#229; {n}.'</span>)
+</pre>
+</div>
+
+<div class="TASK">
+<p>
+Kjør de to foregående programsnuttene og forklar eventuelle avvik mellom dem.
+</p>
+
+</div>
+
+<p>
+De delene av et program hvor en gitt variabel er tilgjengelig, kaller vi den variabelenes «skop», eller <i>scope</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">x</span> = 2
+<span class="org-keyword">def</span> <span class="org-function-name">utskrift</span>():
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(f<span class="org-string">'Inne i funksjonen er verdien til x {x}.'</span>)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span>
+
+utskrift()
+
+<span class="org-keyword">print</span>(f<span class="org-string">'Utenfor funksjonen er verdien til x {x}.'</span>)
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-python">
+<span class="org-variable-name">x</span> = 2
+<span class="org-keyword">def</span> <span class="org-function-name">utskrift_med_indre</span>():
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-variable-name">x</span> = 3
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(f<span class="org-string">'Inne i funksjonen er verdien til x {x}.'</span>)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span>
+
+<span class="org-keyword">print</span>(f<span class="org-string">'Utenfor funksjonen er verdien til x {x}.'</span>)
+</pre>
+</div>
+
+<div class="TASK">
+<p>
+Hva blir skrevet av følgende program?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">def</span> <span class="org-function-name">kvadrer</span>(x):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span> x*x
+
+<span class="org-keyword">def</span> <span class="org-function-name">g</span>(y):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span> y + 3
+
+<span class="org-keyword">def</span> <span class="org-function-name">h</span>(y):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">return</span> kvadrer(y) + 3
+
+<span class="org-keyword">print</span> h(2)
+</pre>
+</div>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org904d148" class="outline-2">
+<h2 id="org904d148">Klasser</h2>
+<div class="outline-text-2" id="text-org904d148">
+<p>
+Funksjonene er <i>verbene</i> i programeringsspråket vårt. De <i>gjør</i> noe med data og kan returnere verdier. Følger vi analogien videre, vil vi da kunne si at så langt er flyttallene, heltallene, listene, tuplene, tekststrengene, og assosiasjonslistene <i>subjektene</i> i språket vårt. Vi har også sett hvordan vi kan lage nye verb ved å definere funksjoner, vi skal nå gå ett skritt videre ved å lage nye subjekter, klasser.
+</p>
+
+<p>
+Området vi nå er på vei over i, kalles <i>objektorientert programmering</i>. Som nevnt tidligere, er det ikke strengt nødvendig med klasser for å kunne løse problemer, men det gjør mye av programmeringen langt enklere og mer oversiktlig. I tillegg virker klasser som et <i>abstraksjonsnivå</i> mellom den som skriver og den som bruker et program.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">class</span> <span class="org-type">Kloss</span>(<span class="org-builtin">object</span>):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""En kloss som glir p&#229; et underlag og kan kollidere med andre klosser</span>
+<span class="org-doc"><span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span></span><span class="org-doc">   Klosser initieres med en masse, startposisjon og startfart, alle flyttall.</span>
+<span class="org-doc"><span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span></span><span class="org-doc">   """</span>
+
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">def</span> <span class="org-function-name">__init__</span>(<span class="org-keyword">self</span>, masse, startposisjon, startfart):
+        <span class="org-keyword">self</span>.masse = masse
+        <span class="org-keyword">self</span>.posisjon = startposisjon
+        <span class="org-keyword">self</span>.fart = startfart
+</pre>
+</div>
+
+<p>
+Det er kanskje ikke helt tydelig hva denne snutten gjør ennå. Her lager vi oss en ny <i>klasse</i> som vi kaller <code>Kloss</code>. Overse <code>(object)</code> inntil videre. Vi sier så at klossen skal lages, «initieres» med en masse, startposisjon, og startfart, alle disse er flyttall. Ønsker vi å lage en kloss med masse 1.0 kg, startposisjon 0.0 m og startfart 1.0 m/s, kan vi gjøre dette som 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">kloss</span> = Kloss(1.0, 0.0, 1.0)
+<span class="org-keyword">print</span>(<span class="org-builtin">type</span>(kloss))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">&lt;class '<span class="org-underline">__main__</span>.Kloss'&gt;
+</pre>
+</div>
+
+<p>
+Men &#x2026; hva skjedde med <code>__init__</code>-argumentet <code>self</code>? Vel, dette dukker opp gjennom hele klossens levetid som klossen selv. Når vi skal lage funksjoner for klossen (kalt «metoder») kommer vi til å bruke punktnotasjon for å kalle disse metodene.
+</p>
+
+<p>
+Slik det står nå, er klossen vår en litt kjedelig sak, vi kan, om vi ønsker, hente ut egenskapene dens, men vi kan vanskelig få den til å gjøre stort. La oss gi den en måte å bevege seg på.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">class</span> <span class="org-type">Kloss</span>(<span class="org-builtin">object</span>):
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-doc">"""En kloss som glir p&#229; et underlag og kan kollidere med andre klosser</span>
+<span class="org-doc"><span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span></span><span class="org-doc">   Klosser initieres med en masse, startposisjon og startfart, alle flyttall.</span>
+<span class="org-doc"><span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span></span><span class="org-doc">   """</span>
+
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">def</span> <span class="org-function-name">__init__</span>(<span class="org-keyword">self</span>, masse, startposisjon, startfart):
+        <span class="org-keyword">self</span>.masse = masse
+        <span class="org-keyword">self</span>.posisjon = startposisjon
+        <span class="org-keyword">self</span>.fart = startfart
+
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">def</span> <span class="org-function-name">beveg</span>(<span class="org-keyword">self</span>, delta_t):
+        <span class="org-keyword">self</span>.posisjon += <span class="org-keyword">self</span>.fart * delta_t
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">kloss</span> = Kloss(1.0, 0.0, 1.0)
+
+<span class="org-variable-name">t</span> = 0
+<span class="org-variable-name">delta_t</span> = 0.1
+
+<span class="org-keyword">while</span> t &lt;= 1:
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   kloss.beveg(delta_t)
+<span class="org-highlight-indentation"><span class="org-highlight-indentation"> </span></span>   <span class="org-keyword">print</span>(kloss.posisjon)
+<span class="org-highlight-indentation"> </span>   <span class="org-variable-name">t</span> += delta_t
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaafa6fe" class="outline-2">
+<h2 id="orgaafa6fe">Kjenn dine røtter</h2>
+<div class="outline-text-2" id="text-orgaafa6fe">
+<p>
+Av en eller annen grunn ønsker vi å finne nullpunktet til funksjonen $f(x) = 0.7e<sup>-x</sup> - 5x + 13.$ Du setter deg ned med penn og papir, og innser raskt at du ikke kan det du behøver for å finne en <i>analytisk</i> løsning til svaret.<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
+</p>
+
+<p>
+Du tar derfor fram det digitale millimeterpapiret, Geogebra, tegner grafen, trykker «skjæring mellom to objekt», velger grafen og x-aksen og får opp at nullpunktet ligger ved \(x=2.61\).
+</p>
+
+<p>
+Hvordan gjør Geogebra dette?
+</p>
+
+<p>
+Én måte å gjøre det på er ved hjelp av <i>halveringsmetoden</i>. Dette er en flott måte å finne et nullpunkt på, gitt at du veit følgende:
+</p>
+<ul class="org-ul">
+<li>to punkter på funksjonen</li>
+<li>at funksjonsverdien er negativ i ett av disse punktene</li>
+<li>at funksjonsverdien er positiv i det andre av disse punktene</li>
+</ul>
+
+<p>
+Vår \(f(x)\) er positiv i \(x=0\) og negativ i \(x=10\), så dette kan være gode startverdier.
+</p>
+
+<p>
+Med dette på plass går algoritmen som følger:
+</p>
+
+<pre class="example">
+a er en verdi hvor f(a) &gt; 0
+b er en verdi hvor f(b) &lt; 0
+eps er en bitte liten verdi, f.eks. 0.0001
+
+
+hvis f( (a+b)/2 ) &lt; 0
+    sett b til å være (a+b)/2
+ellers
+    sett a til å være (a+b)/2
+gjenta så lenge f( (a+b)/2 ) &gt; eps
+</pre>
+
+<div class="TASK">
+<p>
+Her er det en gjentagende del. Om du skulle programmert dette ved bruk av en løkke, ville du brukt en <code>for</code>- eller <code>while</code>-løkke for å løse dette? Hvorfor?
+</p>
+
+</div>
+
+<p>
+For vår funksjon kommer gangen i dette til å se ut som følger:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-org">Iterasjon nr. 1
+a har verdien 0.0
+b har verdien 10.0
+--------------------
+Iterasjon nr. 2
+a har verdien 0.0
+b har verdien 5.0
+--------------------
+Iterasjon nr. 3
+a har verdien 2.5
+b har verdien 5.0
+--------------------
+Iterasjon nr. 4
+a har verdien 2.5
+b har verdien 3.75
+--------------------
+Iterasjon nr. 5
+a har verdien 2.5
+b har verdien 3.125
+--------------------
+Iterasjon nr. 6
+a har verdien 2.5
+b har verdien 2.8125
+--------------------
+Iterasjon nr. 7
+a har verdien 2.5
+b har verdien 2.6562
+--------------------
+Iterasjon nr. 8
+a har verdien 2.5781
+b har verdien 2.6562
+--------------------
+Iterasjon nr. 9
+a har verdien 2.5781
+b har verdien 2.6172
+--------------------
+Iterasjon nr. 10
+a har verdien 2.5977
+b har verdien 2.6172
+--------------------
+Iterasjon nr. 11
+a har verdien 2.6074
+b har verdien 2.6172
+--------------------
+Iterasjon nr. 12
+a har verdien 2.6074
+b har verdien 2.6123
+--------------------
+Iterasjon nr. 13
+a har verdien 2.6099
+b har verdien 2.6123
+--------------------
+Iterasjon nr. 14
+a har verdien 2.6099
+b har verdien 2.6111
+--------------------
+Iterasjon nr. 15
+a har verdien 2.6099
+b har verdien 2.6105
+--------------------
+Iterasjon nr. 16
+a har verdien 2.6102
+b har verdien 2.6105
+--------------------
+Iterasjon nr. 17
+a har verdien 2.6102
+b har verdien 2.6103
+--------------------
+Iterasjon nr. 18
+a har verdien 2.6102
+b har verdien 2.6103
+--------------------
+Svaret er 2.6103.
+</pre>
+</div>
+
+<div class="TASK">
+<p>
+Forsøk å implementere halveringsmetoden for denne funksjonen i python. Du kan bruke funksjonsdefinisjonen
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">import</span> math
+
+<span class="org-keyword">def</span> <span class="org-function-name">f</span>(x):
+<span class="org-highlight-indentation"> </span>   <span class="org-keyword">return</span> 0.7 * math.exp(- x) - 5 * x + 13
+</pre>
+</div>
+
+<p>
+og sette startverdiene til 0.0 og 10.0.
+</p>
+
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes" hidden>Fotnoter</h2>
+<hr>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Dette er funksjoner som er tilgjengelig uten noen form for <code>import</code>-setning, f.eks. funksjonen <code>sorted</code>, som sorterer ei liste
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<code>math</code> trenger vi fort, dette biblioteket inneholder både <code>sqrt</code> og <code>factorial</code>.
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://www.wolframalpha.com/input/?i=0.7e%5E(-x)+-+5x+%2B+13+%3D+0">Wolfram Alpha</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

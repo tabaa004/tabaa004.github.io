@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="no" xml:lang="no">
+<head>
+<!-- 2018-07-03 tir. 20:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Variabler og datatyper</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Tarjei Bærland" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="../css/stylesheet.css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Source Code Pro' rel='stylesheet'>
+
+<script type="text/javascript" src="../js/org-info-nb.js">
+/**
+ *
+ * @source: ../js/org-info-nb.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in ../js/org-info-nb.js.
+ *
+ * Copyright (C) 2012-2018 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in ../js/org-info-nb.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "0");
+org_html_manager.set("VIEW", "info");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="preamble" class="status">
+<!-- <div class='topnav'> -->
+<!--   <ul> -->
+<!--     <li><a href='/fysikk/fysikk.html'>Home</a></li> -->
+<!--     <li><a href='/naturfag/naturfag.html'>Blog</a></li> -->
+<!--   </ul> -->
+<!-- </div> -->
+
+<script type="text/javascript">
+function toggleMe(a){
+var e=document.getElementById(a);
+if(!e)return true;
+if(e.style.display=="none"){
+e.style.display="block"
+}
+else{
+e.style.display="none"
+}
+return true;
+}
+</script>
+</div>
+<div id="content">
+<h1 class="title">Variabler og datatyper</h1>
+<div id="table-of-contents">
+<h2>Innhold</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga8d9434">Regnerekkefølge og kommandolinja</a></li>
+<li><a href="#org3b98781">Variabler</a>
+<ul>
+<li><a href="#org6430fc8">Hva er et navn?</a></li>
+<li><a href="#orgdba6bfa">Gode navn</a></li>
+<li><a href="#org12dafc7">Tildeling</a></li>
+</ul>
+</li>
+<li><a href="#org19327a0">Interaksjon</a>
+<ul>
+<li><a href="#org7e4f5b5">Printing</a></li>
+<li><a href="#org6053ff5">Input</a></li>
+</ul>
+</li>
+<li><a href="#orgce22922">Typer</a>
+<ul>
+<li><a href="#org9250811">Boolske verdier</a></li>
+<li><a href="#org1b1e46b">Heltall</a></li>
+<li><a href="#org308b006">Lister</a>
+<ul>
+<li><a href="#org386d06a">Muterbarhet</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<p>
+Vi skal nå begynne å se på Python mer spesifikt. 
+</p>
+
+<div id="outline-container-orga8d9434" class="outline-2">
+<h2 id="orga8d9434">Regnerekkefølge og kommandolinja</h2>
+<div class="outline-text-2" id="text-orga8d9434">
+<p>
+Siden Python-programmer kan oversettes til maskinkode løpende, kan vi jobbe <i>interaktivt</i> med Python, à la slik vi er vant med fra CAS i Geogebra. Vi kan altså, om vi ønsker, skrive en linje med kode, se hva denne gjør, for så å skrive neste.
+</p>
+
+<p>
+For å åpne en enkel Python-«prompt» (som er navnet på det som i vårt tilfelle tegnene «&gt;&gt;&gt;»), kan du åpne kommandolinjeverktøyet ved å trykke windows-tasten og skrive «cmd», trykke enter, og skrive <code>python</code> og trykke enter i vinduet som åpner seg. Du skal få fram noe lignende følgende:
+</p>
+
+<pre class="example">
+Python 3.6.1 |Anaconda 4.4.0 (64-bit)| (default, May 11 2017, 13:25:24) [MSC v.1900 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+&gt;&gt;&gt;
+</pre>
+
+<p>
+Hver gang du ser <code>&gt;&gt;&gt;</code> «prompter» Python deg til å skrive inn en kommando.
+</p>
+
+<p>
+Vanlige regneoperasjoner gjennomfører vi i Python på akkurat den måten man skulle forvente.
+</p>
+
+<pre class="example">
+&gt;&gt;&gt; 2 + 3                 # addisjon ved å skrive "+" mellom to verdier
+5
+&gt;&gt;&gt; 2 - 3                 # subtraksjon ved å skrive "-" mellom to verdier
+-1
+&gt;&gt;&gt; 2 * 3                 # multiplikasjon ved å skrive "*" mellom to verdier
+6
+&gt;&gt;&gt; 2 ** 3                # eksponentiering ved å skrive "**" mellom to verdier
+8
+&gt;&gt;&gt; 2 * (5 - 3 ** 2) ** 2 # regnerekkefølge oppfører seg på "vanlig" måte
+32
+</pre>
+
+<p>
+Av disse er det kun potensen som skiller seg ut fra hvordan vi «vanligvis» skriver regning.
+</p>
+
+<p>
+Du kan med andre ord begynne å bruke Python som en kalkulator uten mer om og men &#x2026; om enn kun å gjøre dette ville være å skrape den aller øverste delen av overflaten av hvilke muligheter et fullverdig programmeringsspråk byr på.
+</p>
+
+<div class="TASK">
+<p>
+Prøv deg fram på vanlig tallregning i Python direkte i <i>interpreteren</i>.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3b98781" class="outline-2">
+<h2 id="org3b98781">Variabler</h2>
+<div class="outline-text-2" id="text-org3b98781">
+<p>
+Vi kan nå gjennomføre enkle regneoperasjoner, men det melder seg raskt et behov for å kunne ta vare på resultatet fra en utregning, for så å kunne bruke dette i en annen utregning seinere. Dette kan vi gjøre via navngitte <i>variabler</i>.
+</p>
+</div>
+
+<div id="outline-container-org6430fc8" class="outline-3">
+<h3 id="org6430fc8">Hva er et navn?</h3>
+<div class="outline-text-3" id="text-org6430fc8">
+<p>
+I Python viser navn alltid til verdier. Vi kan 
+</p>
+
+<div class="figure">
+<p><img src="figurer/navn_enkelt.png" alt="navn_enkelt.png" />
+</p>
+</div>
+
+<p>
+I Python kan det godt være to navn på samme verdi.
+</p>
+
+<div class="figure">
+<p><img src="figurer/navn_dobbelt.png" alt="navn_dobbelt.png" />
+</p>
+</div>
+
+<p>
+Pythonic er <i>dynamisk skrevet</i> noe som vil si at vi kan gjenbruke navn på helt andre typer verdier enn hva de opprinnelig blei brukt på.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">a</span> = 42
+<span class="org-variable-name">b</span> = a
+<span class="org-variable-name">a</span> = <span class="org-string">"Babel"</span>
+</pre>
+</div>
+
+<p>
+Som gir følgende navnstruktur:
+</p>
+
+
+<div class="figure">
+<p><img src="figurer/navn_rebundet.png" alt="navn_rebundet.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdba6bfa" class="outline-3">
+<h3 id="orgdba6bfa">Gode navn</h3>
+<div class="outline-text-3" id="text-orgdba6bfa">
+<p>
+Tilstreb å bruke beskrivende navn på variablene dine. For datamaskinen er de følgende to programsnuttene likeverdige, og begge skriptene kjører uten feil.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">a</span> = 3
+<span class="org-variable-name">b</span> = 5
+<span class="org-variable-name">c</span> = a * b ** 2
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">pi</span> = 3
+<span class="org-variable-name">diameter</span> = 5
+<span class="org-variable-name">areal</span> = pi * diameter ** 2
+</pre>
+</div>
+
+<p>
+Vi ser dog at den andre snutten inneholder en feil, i det minste om det er arealet av en sirkel vi forsøker å regne ut. Denne feilen ser vi kun når vi forstår at verdien 5 har navnet <code>diameter</code>, da vi veit at denne må halveres for å regne ut areal som gjort i linja under.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org12dafc7" class="outline-3">
+<h3 id="org12dafc7">Tildeling</h3>
+<div class="outline-text-3" id="text-org12dafc7">
+<p>
+I følgende program, lager vi først en variabel <code>x</code>, som vi så opphøyer i andre og tredje.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">x</span> = 3
+
+<span class="org-variable-name">x_squared</span> = x ** 2
+<span class="org-variable-name">x_cubed</span> = x ** 3
+</pre>
+</div>
+
+<div class="TASK">
+<p>
+Hva er verdien til <code>x</code> etter at programmet over har kjørt ferdig?
+</p>
+
+</div>
+
+<p>
+I Python kan vi også tildele flere variabler samtidig.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">a</span> = <span class="org-variable-name">b</span> = 3
+
+<span class="org-variable-name">c</span> = a * b - 2
+</pre>
+</div>
+
+<div class="TASK">
+<p>
+Hva er verdien til <code>c</code> etter at programmet over har kjørt ferdig?
+</p>
+
+</div>
+
+<p>
+I de aller fleste programmeringsspråk betyr ikke <code>=</code> det vi er vant til at det betyr fra matematikken. I matematikken ville vi leste \(x = y + 3\) som «/x/ er lik <i>y</i> pluss <i>3/». I Python, derimot, ville vi lest <code>x = y + 3</code> som «sett <code>x</code> til å være verdien til <code>y</code> pluss 3», vi bruker <code>=</code> for å /tildele</i> verdier til navn.
+</p>
+
+<p>
+Dette er vesentlig, fordi vi sier ikke noe om likhet, kun navngivning. Dette kan vi for eksempel bruke til å oppdatere verdier. Matematisk er
+</p>
+
+<p>
+\(x = x + 1\)
+</p>
+
+<p>
+en likning uten svar. Forsøker vi dog å kjøre følgende python-skript, vil vi ikke få noen problemer.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">x</span> = 1
+<span class="org-variable-name">x</span> = x + 1    <span class="org-comment-delimiter"># </span><span class="org-comment">sett x til &#229; ha verdien til x pluss 1</span>
+</pre>
+</div>
+
+<p>
+Her har <code>x</code>-en på høyre side verdien 1, altså <i>oppdaterer</i> vi nå <code>x</code> til å ha verdien 2. En slik stegvis økning av en variabel ser vi igjen og igjen, derfor har vi i Python forkortelsen <code>x += 1</code> for å gjøre nettopp dette.
+</p>
+
+<div class="TASK">
+<p>
+Skriv et program hvor du først lager fire navngitte variabler, før du bruker alle disse i en utregning.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org19327a0" class="outline-2">
+<h2 id="org19327a0">Interaksjon</h2>
+<div class="outline-text-2" id="text-org19327a0">
+</div>
+<div id="outline-container-org7e4f5b5" class="outline-3">
+<h3 id="org7e4f5b5">Printing</h3>
+<div class="outline-text-3" id="text-org7e4f5b5">
+<p>
+Fra de fleste programmer ønsker vi en eller annen form for informasjon ut fra programmet. Dette kan være at programmet lager en graf for oss, at den skriver data til en fil, at interpreteren skriver svaret direkte på mellomregninger, eller at programmet skriver tilbake til kommandolinja.
+</p>
+
+<p>
+Sistnevnte gjøres via funksjonen <code>print</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">print</span>(<span class="org-string">"Hei, verden!"</span>)
+</pre>
+</div>
+
+<p>
+Det er heller ikke noe i veien for å kombinere printing med variabler.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">a</span> = 2
+<span class="org-variable-name">b</span> = 3
+<span class="org-variable-name">c</span> = a + b
+<span class="org-keyword">print</span>(<span class="org-string">"Summen av "</span>, a, <span class="org-string">" og "</span>, b, <span class="org-string">" er "</span>, c, <span class="org-string">"."</span>)
+</pre>
+</div>
+
+<p>
+Dette kan fort bli en uhensiktsmessig måte å skrive ut svar på, så vi bruker heller den innebygde formateringen <code>f-strenger</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">print</span>(f<span class="org-string">"Summen av {a} og {b} er {c}."</span>)
+</pre>
+</div>
+
+<p>
+<code>f-strenger</code> er særegent for Python, men andre språk har gjerne sine måter å formatere tekstrestrenger på. Dette er et kraftig verktøy, hvor vi har store muligheter for å formatere svarene våre på en hensiktsmessig måte.
+</p>
+
+<p>
+Vi kan, eksempelvis, spesifisere hvor mange desimaler vi ønsker. (Setningen <code>from math import pi¨</code> skal vi se i mye mer detalj på seinere.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">from</span> math <span class="org-keyword">import</span> pi
+<span class="org-keyword">print</span>(pi)
+<span class="org-keyword">print</span>(f<span class="org-string">'pi skrevet med 5 gyldige siffer er {pi:.5}.'</span>)
+</pre>
+</div>
+
+<p>
+Generelt kan vi spesifisere et tall som skal skrives ut ved å bruke tallets totale <code>bredde</code> og dets <code>presisjon</code> på en enkel måte med <code>f-strenger</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">bredde</span> = 7
+<span class="org-variable-name">presisjon</span> = 3
+<span class="org-keyword">print</span>(f<span class="org-string">'pi = {pi:{bredde}.{presisjon}}'</span>)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org6053ff5" class="outline-3">
+<h3 id="org6053ff5">Input</h3>
+<div class="outline-text-3" id="text-org6053ff5">
+<p>
+Å be brukeren om å taste inn verdier til programmet ditt kan enkelt gjøres ved å bruke <code>input</code>-funksjonen. Om vi er usikre på hvordan denne brukes, kan vi benytte oss av pythons innebygde hjelpefunksjonalitet.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-builtin">help</span>(<span class="org-builtin">input</span>)
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">Help on built-in function input in module builtins:
+
+input(prompt=None, /)
+    Read a string from standard input.  The trailing newline is stripped.
+
+    The prompt string, if given, is printed to standard output without a
+    trailing newline before reading input.
+
+    If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+    On *nix systems, readline is used if available.
+</pre>
+</div>
+
+<p>
+<code>input</code> er altså en innebygd (<i>built-in</i>) funksjon som leser en tekststreng fra <i>standard input</i>. Dersom vi ønsker å gi brukeren en <i>prompt</i>, à la «&gt;&gt;&gt;» kan vi gjøre det ved å gi det som argument til funksjonen.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">navn</span> = <span class="org-builtin">input</span>(<span class="org-string">"Hva heter du? "</span>)
+<span class="org-keyword">print</span>(<span class="org-string">"fDu heter {navn}."</span> )
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgce22922" class="outline-2">
+<h2 id="orgce22922">Typer</h2>
+<div class="outline-text-2" id="text-orgce22922">
+<p>
+Et pythonprogram er et sett med instruksjoner som handler på ulike <i>objekter</i>. Objekter i Python kommer i to utgaver, skalare objekter og ikke-skalare objekter. Et skalart objekt er udelelig, det er <i>atomene</i><sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> i Python. Ikke-skalare objekter, for eksempel tekststrenger, har en indre struktur. Av de følgende, er <i>boolske verdier</i>, <i>heltall</i> og <i>flyttall</i> skalare objekter.
+</p>
+</div>
+<div id="outline-container-org9250811" class="outline-3">
+<h3 id="org9250811">Boolske verdier</h3>
+<div class="outline-text-3" id="text-org9250811">
+<p>
+I kapittelet <a href="datamaskinen.html">Datamaskinen</a> introduserer jeg logiske verdier som enten kan være <i>sanne</i> eller <i>usanne</i>. Disse er nødvendige for at vi skal kunne ha et fullstendig programerbart språk. Når vi seinere skal se på såkalte if-setninger, er vi nødt til å ha en måte å avgjøre om noe er sant eller usant på.
+</p>
+
+<pre class="example">
+&gt;&gt;&gt; sann = True
+&gt;&gt;&gt; usann = False
+&gt;&gt;&gt; sann
+True
+&gt;&gt;&gt; usann
+False
+</pre>
+
+
+<p>
+Boolske verdier oppstår ofte når vi ønsker å vurdere en påstand. Eksempelvis er det <i>sant</i> at verdien 3 er større eller lik verdien 2, det er også Python enig i.
+</p>
+<pre class="example">
+&gt;&gt;&gt; 3 &gt;= 2
+True
+&gt;&gt;&gt; 3 == 2
+False
+&gt;&gt;&gt; 3 &lt; 2
+False
+</pre>
+
+<p>
+Merk at <code>=</code> <i>ikke</i> er en logisk sjekk, à la ulikhetene over. Om vi ønsker å sjekke for likhet, må vi bruke <code>==</code>. <code>=</code> er fremdeles «tildelingoperatoren», vi bruker den for å gi ting navn, noe som betyr at det ikke er noe i veien for å gjøre for eksempel følgende i Python:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">sannhetsverdi</span> = 3 &gt; 2
+<span class="org-keyword">print</span>(sannhetsverdi)
+</pre>
+</div>
+
+<p>
+Her vil først Python <i>evaluere</i> påstanden på høyre side, altså <code>3 &gt; 2</code>, finne at dette er sant, og dermed sette sannhetverdi til å ha verdien <code>True</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org1b1e46b" class="outline-3">
+<h3 id="org1b1e46b">Heltall</h3>
+<div class="outline-text-3" id="text-org1b1e46b">
+<p>
+Heltall i Python oppgis på vanlig måte. <code>3</code>, <code>112</code> eller <code>1231421124</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-org308b006" class="outline-3">
+<h3 id="org308b006">Lister</h3>
+<div class="outline-text-3" id="text-org308b006">
+<p>
+Lister eller <a href="https://en.wikipedia.org/wiki/Array_data_structure"><i>arrays</i></a> er en klassisk datastruktur. Vi samler en rekke verdier inn i en liste, for at vi så skal kunne gjøre operasjoner på lista direkte eller elementvis. Lister lages i Python ved å bruke klamme-parenteser, <code>[</code> og <code>[</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">favorittall</span> = [-1, 0, 7, 11, 42]
+</pre>
+</div>
+
+<p>
+Det er heller ikke noe i veien for å ha noe annet enn tall i ei liste, ei heller blandede typer.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">frukter</span> = [<span class="org-string">"eple"</span>, <span class="org-string">"p&#230;re"</span>, <span class="org-string">"appelsin"</span>, <span class="org-string">"mango"</span>]
+</pre>
+</div>
+
+<p>
+Innholdet i ei liste kaller vi enkeltvis for listas <i>elementer</i>, og hvert element er tildelt en <i>indeks</i>. Under ser vi nærmere på <code>frukter</code>.
+</p>
+
+<pre class="example">
+| element | eple | pære | appelsin | mango |
+| indeks  |    0 |    1 |        2 |     3 |
+</pre>
+
+<p>
+Legg merke til at i Python er listene nullindeksert, altså har det første elementet i lista indeks 0.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">print</span>(frukter[0])
+</pre>
+</div>
+
+<p>
+Vi kan hente ut elementer fra ei liste ved å bruke <i>slice</i>-notasjonen. Den ser ut som <code>listenavn[første ønskede : ikke-inkludert siste ønskede : steglengde]</code>. Om vi har liste <code>min_liste</code> av <code>n</code> elementer, kan vi hente ut de <code>k</code> første ved å skrive <code>min_liste[0:k:1]</code>, alternativt bruke at nullte element er standard startverdi og <code>1</code> er standard steglengde, <code>min_liste[:k]</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-keyword">print</span>(frukter[0:2:1])
+<span class="org-keyword">print</span>(frukter[:2])
+<span class="org-keyword">print</span>(frukter[2:])
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-org">['eple', 'p&#230;re']
+['eple', 'p&#230;re']
+['appelsin', 'mango']
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org386d06a" class="outline-4">
+<h4 id="org386d06a">Muterbarhet</h4>
+<div class="outline-text-4" id="text-org386d06a">
+<p>
+Se på følgende snutt, og skriv ned hva du tror vil bli gitt av print-setningen.
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">a</span> = [<span class="org-string">'mai'</span>, <span class="org-string">'juni'</span>, <span class="org-string">'juli'</span>, <span class="org-string">'august'</span>]
+<span class="org-variable-name">b</span> = a
+<span class="org-variable-name">a</span>[1] = <span class="org-string">'november'</span>
+
+<span class="org-keyword">print</span>(f<span class="org-string">'a er: {a}'</span>)
+<span class="org-keyword">print</span>(f<span class="org-string">'b er: {b}'</span>)
+</pre>
+</div>
+
+<p>
+Forsøk å kjøre koden, hva ser du? Jo, der vi forventer at vi ved linja <code>b</code> = <code>a</code> skal få en kopi av lista <code>a</code>, ser det ut som at vi får to forskjellige navn til samme ting, og det er akkurat det vi får. En liste er en «muterbar» eller <i>mutable</i> datastruktur i Python. Og hva vil så det si? Jo, der vi setter 
+</p>
+
+
+<div class="figure">
+<p><img src="figurer/mutable_lister.png" alt="mutable_lister.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="figurer/mutable_lister_a_b_forventet.png" alt="mutable_lister_a_b_forventet.png" />
+</p>
+</div>
+
+
+<div class="figure">
+<p><img src="figurer/mutable_lister_a_b_faktisk.png" alt="mutable_lister_a_b_faktisk.png" />
+</p>
+</div>
+
+<p>
+Og hvorfor er dette viktig? Jo, fordi verdier i lister kan endres uten at man oppretter en ny liste. Nå blir det vesentlig at navn i python <i>alltid</i> viser til et objekt, og når vi sier <code>b = a</code> og <code>a</code> er en liste, får vi rett og slett bare ett nytt navn på <code>a</code>.
+</p>
+
+<p>
+Hvordan skal vi så gjøre det? Når vi skal kopiere en liste, kan vi gjøre dette ved å skrive <code>b = a[:]</code>, siden <i>slicen</i> <code>a[:]</code> er en ny liste med alle elementene i <code>a</code>. Gjør vi dette igjen med snutten over, vil vi få ønske oppførsel.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">a</span> = [<span class="org-string">'mai'</span>, <span class="org-string">'juni'</span>, <span class="org-string">'juli'</span>, <span class="org-string">'august'</span>]
+<span class="org-variable-name">b</span> = a[:]
+<span class="org-variable-name">a</span>[1] = <span class="org-string">'november'</span>
+
+<span class="org-keyword">print</span>(f<span class="org-string">'a er: {a}'</span>)
+<span class="org-keyword">print</span>(f<span class="org-string">'b er: {b}'</span>)
+</pre>
+</div>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">a</span> = [<span class="org-string">'test'</span>]
+<span class="org-variable-name">b</span> = a[:]
+<span class="org-keyword">print</span>(<span class="org-builtin">id</span>(a))
+<span class="org-keyword">print</span>(<span class="org-builtin">id</span>(b))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">enere</span> = [1, 1, 1, 1, 1]
+<span class="org-keyword">print</span>(<span class="org-builtin">id</span>(enere))
+<span class="org-variable-name">enere</span> += [5]
+<span class="org-keyword">print</span>(<span class="org-builtin">id</span>(enere))
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-python"><span class="org-variable-name">enere</span> = <span class="org-string">"11111"</span>
+<span class="org-keyword">print</span>(<span class="org-builtin">id</span>(enere))
+<span class="org-variable-name">enere</span> += <span class="org-string">"5"</span>
+<span class="org-keyword">print</span>(<span class="org-builtin">id</span>(enere))
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes" hidden>Fotnoter</h2>
+<hr>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+Nei, atomer er ikke <i>egentlig</i> udelelige.
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>
